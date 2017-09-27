@@ -23,6 +23,8 @@ Route::resource('admin', 'DocController',['names'=>[
     'edit'   => 'admin.docs.edit'
 ]]);
 
+
+
 Route::resource('zapisi', 'NeusagController',['names'=>[
     'index'  => 'zapisi.neusag_proizod.admin.index',
     'create' => 'zapisi.neusag_proizod.admin.create',
@@ -44,11 +46,17 @@ Route::post('izvestaj_8D_update',['as'=>'izvestaj_8D','uses'=>'KorMeraController
 
 
 
-Route::resource('dobavljaci', 'DobavljaciController',['names'=>[
-    'lista'         => 'zapisi.dobavljaci.lista',
-    'ocena'         => 'zapisi.dobavljaci.ocena',
-    'reklamacija'   => 'zapisi.dobavljaci.reklamacija',
+Route::resource('dobavljaci', 'DobavljacController',['names'=>[
+//    'lista'         => 'zapisi.dobavljaci.lista',
+//    'ocena'         => 'zapisi.dobavljaci.ocena',
     'index'         => 'zapisi.dobavljaci.id_list.index',
-    'edit'          => 'zapisi.dobavljaci.id_list.edit',
     'create'        => 'zapisi.dobavljaci.id_list.create',
+    'store'          => 'zapisi.dobavljaci.id_list.store',
+    'edit'          => 'zapisi.dobavljaci.id_list.edit',
 ]]);
+
+Route::post('ocena',['as'=>'ocena','uses'=>'DobavljacController@ocena']);
+Route::post('ocena_upd',['as'=>'ocena_upd','uses'=>'DobavljacController@ocena_upd']);
+Route::post('reklamacija',['as'=>'reklamacija','uses'=>'DobavljacController@reklamacija']);
+Route::post('reklamacija_upd',['as'=>'reklamacija_upd','uses'=>'DobavljacController@reklamacija_upd']);
+
