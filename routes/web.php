@@ -47,8 +47,7 @@ Route::post('izvestaj_8D_update',['as'=>'izvestaj_8D','uses'=>'KorMeraController
 
 
 Route::resource('dobavljaci', 'DobavljacController',['names'=>[
-//    'lista'         => 'zapisi.dobavljaci.lista',
-//    'ocena'         => 'zapisi.dobavljaci.ocena',
+    'lista'         => 'zapisi.dobavljaci.lista',
     'index'         => 'zapisi.dobavljaci.id_list.index',
     'create'        => 'zapisi.dobavljaci.id_list.create',
     'store'          => 'zapisi.dobavljaci.id_list.store',
