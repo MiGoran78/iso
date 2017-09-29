@@ -21,17 +21,19 @@
 
             <table class="table">
                 <thead>
-                <tr>
-                    <th width="4%" style="text-align: center">No</th>
-                    <th width="15%" style="text-align: center">Naziv dobavljača</th>
-                    <th width="7%" style="text-align: center">Prihvatljiost</th>
-                    <th width="10%" style="text-align: center">Ocena</th>
-                    <th width="15%" style="text-align: center">Dobavljač usluga ili repromaterijala</th>
-                    <th width="15%" style="text-align: center">Naziv proizvoda / usluge</th>
-                    <th width="8%" style="text-align: center">Kontakt</th>
-                    <th width="8%" style="text-align: center">Telefon</th>
-                    <th width="5%" style="text-align: center">Brisanje</th>
-                </tr>
+                    <tr>
+                        <th width="4%" style="text-align: center">No</th>
+                        <th width="15%" style="text-align: center">Naziv dobavljača</th>
+                        <th width="11%" style="text-align: center">Prihvatljivost</th>
+                        <th width="5%" style="text-align: center">Ocena</th>
+                        <th width="13%" style="text-align: center">Dobavljač usluga ili repromaterijala</th>
+                        <th width="13%" style="text-align: center">Naziv proizvoda / usluge</th>
+                        <th width="8%" style="text-align: center">Kontakt</th>
+                        <th width="8%" style="text-align: center">Telefon</th>
+                        <th width="5%" style="text-align: center">Ocena</th>
+                        <th width="5%" style="text-align: center">Reklamacija</th>
+                        <th width="5%" style="text-align: center">Brisanje</th>
+                    </tr>
                 </thead>
 
                 <tbody>
@@ -40,18 +42,47 @@
                         <tr>
                             <td style="padding: 4px; text-align: center; padding-left: 10px"> {{$key+1}}</td>
                             <td style="padding: 4px; text-align: center"> <a href="{{route('zapisi.dobavljaci.id_list.edit', $data->id)}}">{{$data->dobavljac}}</a></td>
-                            <td style="padding: 4px; text-align: center"> - </td>
-                            <td style="padding: 4px; text-align: center"> - </td>
+                            <td style="padding: 4px; text-align: center"> {{$prihatljiv[$key] }} </td>
+                            <td style="padding: 4px; text-align: center"> {{$ocene[$key] }}</td>
                             <td style="padding: 4px; text-align: center"> {{$data->dobavljac_tip }}</td>
                             <td style="padding: 4px; text-align: center"> - </td>
                             <td style="padding: 4px; text-align: center"> {{$data->kontakt1 }}</td>
                             <td style="padding: 4px; text-align: center"> {{$data->telefon1 }}</td>
 
                             <td style="padding: 4px; text-align: center">
-                                {!! Form::open(['method'=>'DELETE', 'action'=> ['DobavljacController@destroy', $data->id]]) !!}
+                                {!! Form::open(['method'=>'POST', 'action'=> ['DobavljacController@ocena']]) !!}
                                 <div class="">
-                                    {!! Form::submit('X', ['class'=>'btn btn-danger',  'style'=>'height:22px; padding-top: 0px; padding-bottom: 0px; padding-left: 5px; padding-right: 6px']) !!}
+                                    {!! Form::hidden('id', $data->id) !!}
+                                    {!! Form::hidden('idRef', $data->idRef) !!}
+                                    @if (count($ocena->where('idRef','=',$data->idRef)) == 0)
+                                        {!! Form::submit('Ocena', ['class'=>'btn btn-default',  'style'=>'height:22px; padding-top: 0px; padding-bottom: 0px; padding-left: 5px; padding-right: 6px']) !!}
+                                    @else
+                                        {!! Form::submit('Ocena', ['class'=>'btn btn-success',  'style'=>'height:22px; padding-top: 0px; padding-bottom: 0px; padding-left: 5px; padding-right: 6px']) !!}
+                                    @endif
                                 </div>
+                                {!! Form::close() !!}
+                            </td>
+
+                            <td style="padding: 4px; text-align: center">
+                                {!! Form::open(['method'=>'POST', 'action'=> ['DobavljacController@reklamacija']]) !!}
+                                <div class="">
+                                    {{--{!! Form::hidden('id', $data->id) !!}--}}
+                                    {{--{!! Form::hidden('idRef', $data->idRef) !!}--}}
+                                    {{--@if (count($izv8d->where('idRef','=',$data->idRef)) == 0)--}}
+                                    {{--{!! Form::submit('Ocena', ['class'=>'btn btn-default',  'style'=>'height:22px; padding-top: 0px; padding-bottom: 0px; padding-left: 5px; padding-right: 6px']) !!}--}}
+                                    {{--@else--}}
+                                    {!! Form::submit('Reklamacija', ['class'=>'btn btn-success',  'style'=>'height:22px; padding-top: 0px; padding-bottom: 0px; padding-left: 5px; padding-right: 6px']) !!}
+                                    {{--@endif--}}
+                                </div>
+                                {!! Form::close() !!}
+                            </td>
+
+                            <td style="padding: 4px; text-align: center">
+                                {!! Form::open(['method'=>'DELETE', 'action'=> ['DobavljacController@destroy', $data->id]]) !!}
+
+                                    <div class="">
+                                        {!! Form::submit('X', ['class'=>'btn btn-danger',  'style'=>'height:22px; padding-top: 0px; padding-bottom: 0px; padding-left: 5px; padding-right: 6px']) !!}
+                                    </div>
                                 {!! Form::close() !!}
                             </td>
 
@@ -76,12 +107,12 @@
 
 
 
-{{--{!! Form::open(['method'=>'POST', 'action'=> ['DobavljaciController@ocena']]) !!}--}}
+{{--{!! Form::open(['method'=>'POST', 'action'=> ['DobavljacController@ocena']]) !!}--}}
 {{--{!! Form::submit('Ocena', ['class'=>'btn btn-default', 'style'=>'background:#eeeeee']) !!}--}}
 {{--{!! Form::close() !!}--}}
 
 
-{{--{!! Form::open(['method'=>'POST', 'action'=> ['DobavljaciController@reklamacija']]) !!}--}}
+{{--{!! Form::open(['method'=>'POST', 'action'=> ['DobavljacController@reklamacija']]) !!}--}}
 {{--{!! Form::submit('Reklamacija', ['class'=>'btn btn-default', 'style'=>'background:#eeeeee']) !!}--}}
 {{--{!! Form::close() !!}--}}
 

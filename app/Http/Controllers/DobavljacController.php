@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Dobavljac;
+use App\Ocena;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 
@@ -14,9 +15,11 @@ class DobavljacController extends Controller
 
 
     public function index() {
+        $ocena = Ocena::all();
         $datas = Dobavljac::all();
-//        echo dd($datas);
-        return view('zapisi.dobavljaci.lista', compact('datas'));
+        $ocene = Ocena::pluck('ocena')->all();
+        $prihatljiv = Ocena::pluck('prihatljiv')->all();
+        return view('zapisi.dobavljaci.lista', compact('datas', 'ocena', 'ocene', 'prihatljiv'));
     }
 
 
@@ -100,22 +103,67 @@ class DobavljacController extends Controller
 
 
 
+    public function ocena(Request $request) {
+        $datas = Ocena::where('idRef','=', $request['idRef'])->get();
+
+        if (count($datas)) {
+            $datas = $datas[0];
+        } else {
+            $datas = new Ocena;
+            $datas['id'] = $id = $request['id'];
+            $datas['idRef'] = $request['idRef'];
+        }
+//        echo dd($datas);
+        return view('zapisi.dobavljaci.ocena', compact('datas'));
+    }
+
+    public function ocena_upd(Request $request) {
+        $input = $request->all();
+        $datas = Ocena::where('idRef','=', $request['idRef'])->get();
+
+        if (count($datas)) {
+            $datas = $datas[0];
+        } else {
+            $datas = new Ocena();
+            $datas['id'] = $request['id'];
+            $datas['idRef'] = $request['idRef'];
+        }
+
+        $datas['proizvod'] = empty($input['proizvod']) ? '' : $input['proizvod'];
+        $datas['datum'] = empty($input['datum']) ? '' : $input['datum'];
+        $datas['rok_vazenja'] = empty($input['rok_vazenja']) ? '' : $input['rok_vazenja'];
+        $datas['opis'] = empty($input['opis']) ? '' : $input['opis'];
+        $datas['status'] = empty($input['status']) ? '' : $input['status'];
+        $datas['q'] = empty($input['q']) ? '' : $input['q'];
+        $datas['e'] = empty($input['e']) ? '' : $input['e'];
+        $datas['r'] = empty($input['r']) ? '' : $input['r'];
+        $datas['f'] = empty($input['f']) ? '' : $input['f'];
+        $datas['d'] = empty($input['d']) ? '' : $input['d'];
+        $datas['o'] = empty($input['o']) ? '' : $input['o'];
+
+        $ocena = $input['q'] + $input['e'] + $input['r'] + $input['f'] + $input['d'] + $input['o'];
+        $datas['ocena'] = $ocena;
+
+        $prihvatljiv = '';
+        if ($ocena >= 0  && $ocena <= 13) { $prihvatljiv = 'neprihvatljiv'; }
+        if ($ocena >= 14 && $ocena <= 21) { $prihvatljiv = 'privremeno prihvatljiv'; }
+        if ($ocena >= 22 && $ocena <= 34) { $prihvatljiv = 'prihvatljiv'; }
+        $datas['prihatljiv'] = $prihvatljiv;
+
+        $datas->save();
+        Session::flash('message','Zapis je snimljen');
+        return redirect('/dobavljaci');
+    }
+
+
+
+
     public function reklamacija(Request $request) {
         return view('zapisi.dobavljaci.reklamacija');
     }
 
     public function reklamacija_upd(Request $request) {
         return view('zapisi.dobavljaci.reklamacija');
-    }
-
-
-
-    public function ocena(Request $request) {
-        return view('zapisi.dobavljaci.ocena');
-    }
-
-    public function ocena_upd(Request $request) {
-        return view('zapisi.dobavljaci.ocena');
     }
 
 }
