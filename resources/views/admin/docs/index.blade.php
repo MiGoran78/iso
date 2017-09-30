@@ -16,7 +16,7 @@
         <div class="panel panel-primary" style="margin: 0px">
             <div class="panel-heading" style="background: #5b5b5b; color: #ffffff; border: solid 1px #3b3b3b">
                 <h4 style="margin: 0px">
-                    ISO9001:2008, ISO 14001:2004, BSI OHSAS 18001:2007
+                    ISO standard
                 </h4>
             </div>
         </div>
@@ -24,9 +24,9 @@
         <div class="row" style="font-family: Lato; margin-left: 5px; margin-right: 5px; padding: 0px;" align="right">
             {{--======================================--}}
             {{-- Pocetak hedera--}}
-            <table class="table" style="font-family: Lato; margin: 0px">
+            <table class="table" style="font-family: Tahoma; margin: 0px">
                 <tr>
-                    <td><h3 style="padding: 2px; margin: 2px; margin-left: 5px"><b>Upravljanje dokumentima QMS-a</b></h3></td>
+                    <td><h3 style="color:red; padding: 2px; margin: 2px; margin-left: 5px">Upravljanje dokumentima QMS-a</h3></td>
                     <td> </td>
                     <td style="text-align: right; vertical-align: middle">
                         <a class="btn btn-default" style="background:#eeeeee" href="{{route('admin.docs.create')}}">
@@ -61,7 +61,7 @@
                             <td style="padding: 4px; text-align: center"> {{$doc->created_at->diffForHumans()}}</td>
                             <td style="padding: 4px; text-align: center"> {{$doc->updated_at->diffForHumans()}}</td>
                             <td style="padding: 4px; text-align: center">
-                                {!! Form::open(['method'=>'DELETE', 'action'=> ['DocController@destroy', $doc->id]]) !!}
+                                {!! Form::open(['method'=>'DELETE', 'action'=> ['DocController@destroy', $doc->id], 'onsubmit'=>'return confirm("Da li ste sigurni?")']) !!}
                                     <div class="">
                                         {!! Form::submit('X', ['class'=>'btn btn-danger',  'style'=>'height:22px; padding-top: 0px; padding-bottom: 0px; padding-left: 5px; padding-right: 6px']) !!}
                                     </div>

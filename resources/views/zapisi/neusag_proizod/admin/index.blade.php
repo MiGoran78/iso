@@ -1,13 +1,13 @@
 @extends('zapisi.neusag_proizod.main')
-
 @section('content')
+
     <div class="container" style="font-family: 'Verdana'; margin: 0px; margin-right: 20px; padding: 5px; padding-top: 0px; width: auto; height:100%" >
 
         <div class="row" style="font-family: Lato; margin-left: 5px; margin-right: 5px; padding: 0px;" align="right">
-            <table class="table" style="font-family: Lato; margin: 0px">
+            <table class="table" style="font-family: Tahoma; margin: 0px">
                 <tr>
-                    <td><h4 style="color:red; padding: 2px; margin: 2px; margin-left: 0px">
-                            <b>Lista neusaglašenosti</b></h4>
+                    <td><h3 style="color:red; padding: 2px; margin: 2px; margin-left: 0px">
+                            Lista neusaglašenosti</h3>
                     </td>
                     <td> </td>
                     <td style="text-align: right; vertical-align: middle">

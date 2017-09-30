@@ -46,43 +46,57 @@
                             {!! Form::hidden('id', $datas->id) !!}
                             {!! Form::hidden('idRef', $datas->idRef) !!}
 
-                            <div style="border-bottom: solid 0px #9d9d9d; padding-bottom:20px">
+                            <div style="padding-bottom: 5px">
                                 <div class="row" style="padding-bottom: 2px">
-                                    <div class="col-md-4">
-                                        Datum ocene &nbsp;
+                                    <div class="col-md-2" style="margin-top: 3px">
+                                        Datum ocene
+                                    </div>
+                                    <div class="col-md-10">
                                         {!! Form::text('datum', $datas->datum, ['style'=>'width:100px; text-align: center', 'placeholder'=>'']) !!}
                                     </div>
-                                    <div class="col-md-4" align="right">
-                                        Rok važenja &nbsp;
-                                        {!! Form::text('rok_vazenja', $datas->rok_vazenja, ['style'=>'width:40px; text-align: center', 'placeholder'=>'']) !!}
-                                        &nbsp;meseci
-                                    </div>
-                                    <div class="col-md-4" align="right"></div>
                                 </div>
                             </div>
 
-
-                            <div class="row">
-                                <div class="col-md-12" style="padding-top: 3px">
-                                    {!! Form::label('STATUS:', '', ['style'=>'font-weight: normal']) !!}
+                            <div style="border-bottom: solid 1px #9d9d9d; padding-bottom:12px">
+                                <div class="row" style="padding-bottom: 2px">
+                                    <div class="col-md-2" style="padding-top: 3px">
+                                        Rok važenja
+                                    </div>
+                                    <div class="col-md-10" >
+                                        {!! Form::text('rok_vazenja', $datas->rok_vazenja, ['style'=>'width:40px; text-align: center', 'placeholder'=>'']) !!}
+                                        &nbsp;meseci
+                                    </div>
                                 </div>
-                                <div class="col-md-12" style="padding-top: 3px">
+
+                                <div style="border-bottom: solid 1px #9d9d9d; padding-bottom:12px; padding-top:5px">
+                                    <div class="row" style="padding-bottom: 2px">
+                                        <div class="col-md-2" style="padding-top: 3px">
+                                            Naziv
+                                        </div>
+                                        <div class="col-md-10" >
+                                            {!! Form::text('naziv', $datas->naziv, ['style'=>'width:50%', 'placeholder'=>'']) !!}
+                                        </div>
+                                    </div>
+                            </div>
+
+                            <div style="; padding-top:15px">
+                                <div class="col-md-3" style="padding-left: 0px; padding-top: 0px">
+                                    Poslednja reklamacija
+                                </div>
+                                <div class="col-md-2" align="center">
                                     {!! Form::radio('status', 'otvorena', ($datas->status=='otvorena' ? true:false) , ['style'=>'width: 20px']) !!}
                                     {!! Form::label('otvorena', '', ['style'=>'font-weight: normal']) !!}
                                 </div>
-                                <div class="col-md-12" style="padding-top: 3px" align="left">
+                                <div class="col-md-7">
                                     {!! Form::radio('status', 'zatvorena', ($datas->status=='zatvorena' ? true:false), ['style'=>'width: 20px']) !!}
                                     {!! Form::label('zatvorena', '', ['style'=>'font-weight: normal']) !!}
                                 </div>
                             </div>
 
-
                             <div style="border-bottom: solid 1px #9d9d9d; padding-bottom:10px">
-                                <h5 align="left" style="padding-left: 0px; padding-bottom: 0px; padding-top: 10px"> Poslednja reklamacija </h5>
-
-                                <div class="row" style="padding-bottom: 1px">
-                                    <div class="col-md-12" style="padding-top: 1px">
-                                        {!! Form::textarea('opis', $datas->opis, ['style'=>'resize: vertical; width:100%', 'rows'=>'4', 'placeholder'=>'...']) !!}
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        {!! Form::textarea('opis', $datas->opis, ['style'=>'resize: vertical; width:100%', 'rows'=>'3', 'placeholder'=>'...']) !!}
                                     </div>
                                 </div>
                             </div>
@@ -93,10 +107,10 @@
                                     <div class="col-md-1" style="padding-right: 0px">
                                         <label style="text-align: center; color: white; background: red; border-radius: 20%; width:25px; height:25px; padding-top: 1px">Q</label>
                                     </div>
-                                    <div class="col-md-3" style="padding-left: 0px">
+                                    <div class="col-md-3" style="padding-left: 0px; padding-top: 2px">
                                         Kvalitet
                                     </div>
-                                    <div class="col-md-2" style="padding-left: 0px">
+                                    <div class="col-md-2" style="padding-left: 0px; padding-top: 2px">
                                         {!! Form::select('q', ['1'=>'1', '2'=>'2', '3'=>'3', '4'=>'4', '5'=>'5', '6'=>'6', '7'=>'7', '8'=>'8'], $datas->q, ['class'=>'form-control', 'id'=>'q', 'placeholder'=>'Izaberi', 'style'=>'height:26px; padding: 0px 6px;']) !!}
                                     </div>
                                     <div class="col-md-6" style="font-size: 9pt">
@@ -111,10 +125,10 @@
                                     <div class="col-md-1" style="padding-right: 0px">
                                         <label style="text-align: center; color: white; background: red; border-radius: 20%; width:25px; height:25px; padding-top: 2px">E</label>
                                     </div>
-                                    <div class="col-md-3" style="padding-left: 0px">
+                                    <div class="col-md-3" style="padding-left: 0px; padding-top: 2px">
                                         Cena
                                     </div>
-                                    <div class="col-md-2" style="padding-left: 0px">
+                                    <div class="col-md-2" style="padding-left: 0px; padding-top: 2px">
                                         {!! Form::select('e', ['1'=>'1', '2'=>'2', '3'=>'3', '4'=>'4', '5'=>'5', '6'=>'6'], $datas->e, ['class'=>'form-control', 'id'=>'e', 'placeholder'=>'Izaberi', 'style'=>'height:26px; padding: 0px 6px;']) !!}
                                     </div>
                                     <div class="col-md-6" style="font-size: 9pt">
@@ -129,10 +143,10 @@
                                     <div class="col-md-1" style="padding-right: 0px">
                                         <label style="text-align: center; color: white; background: red; border-radius: 20%; width:25px; height:25px; padding-top: 2px">R</label>
                                     </div>
-                                    <div class="col-md-3" style="padding-left: 0px">
+                                    <div class="col-md-3" style="padding-left: 0px; padding-top: 2px">
                                         Rok isporuke
                                     </div>
-                                    <div class="col-md-2" style="padding-left: 0px">
+                                    <div class="col-md-2" style="padding-left: 0px; padding-top: 2px">
                                         {!! Form::select('r', ['1'=>'1', '2'=>'2', '3'=>'3', '4'=>'4', '5'=>'5'], $datas->r, ['class'=>'form-control', 'id'=>'r', 'placeholder'=>'Izaberi', 'style'=>'height:26px; padding: 0px 6px;']) !!}
                                     </div>
                                     <div class="col-md-6" style="font-size: 9pt">
@@ -147,10 +161,10 @@
                                     <div class="col-md-1" style="padding-right: 0px">
                                         <label style="text-align: center; color: white; background: red; border-radius: 20%; width:25px; height:25px; padding-top: 2px">F</label>
                                     </div>
-                                    <div class="col-md-3" style="padding-left: 0px">
+                                    <div class="col-md-3" style="padding-left: 0px; padding-top: 2px">
                                         Finansijski uslovi
                                     </div>
-                                    <div class="col-md-2" style="padding-left: 0px">
+                                    <div class="col-md-2" style="padding-left: 0px; padding-top: 2px">
                                         {!! Form::select('f', ['1'=>'1', '2'=>'2', '3'=>'3', '4'=>'4', '5'=>'5'], $datas->f, ['class'=>'form-control', 'id'=>'f', 'placeholder'=>'Izaberi', 'style'=>'height:26px; padding: 0px 6px;']) !!}
                                     </div>
                                     <div class="col-md-6" style="font-size: 9pt">
@@ -165,10 +179,10 @@
                                     <div class="col-md-1" style="padding-right: 0px; height: auto">
                                         <label style="text-align: center; color: white; background: red; border-radius: 20%; width:25px; height:25px; padding-top: 2px">D</label>
                                     </div>
-                                    <div class="col-md-3" style="padding-left: 0px">
+                                    <div class="col-md-3" style="padding-left: 0px; padding-top: 2px">
                                         Kompletna dokumentacija
                                     </div>
-                                    <div class="col-md-2" style="padding-left: 0px">
+                                    <div class="col-md-2" style="padding-left: 0px; padding-top: 2px">
                                         {!! Form::select('d', ['1'=>'1', '2'=>'2', '3'=>'3', '4'=>'4', '5'=>'5'], $datas->d, ['class'=>'form-control', 'id'=>'d', 'placeholder'=>'Izaberi', 'style'=>'height:26px; padding: 0px 6px;']) !!}
                                     </div>
                                     <div class="col-md-6" style="font-size: 9pt">
@@ -183,10 +197,10 @@
                                     <div class="col-md-1" style="padding-right: 0px">
                                         <label style="text-align: center; color: white; background: red; border-radius: 20%; width:25px; height:25px; padding-top: 2px">P</label>
                                     </div>
-                                    <div class="col-md-3" style="padding-left: 0px">
+                                    <div class="col-md-3" style="padding-left: 0px; padding-top: 2px">
                                         Pakovanje
                                     </div>
-                                    <div class="col-md-2" style="padding-left: 0px">
+                                    <div class="col-md-2" style="padding-left: 0px; padding-top: 2px">
                                         {!! Form::select('o', ['1'=>'1', '2'=>'2', '3'=>'3', '4'=>'4', '5'=>'5'], $datas->o, ['class'=>'form-control', 'id'=>'o', 'placeholder'=>'Izaberi', 'style'=>'height:26px; padding: 0px 6px;']) !!}
                                     </div>
                                     <div class="col-md-6" style="font-size: 9pt">
@@ -198,7 +212,7 @@
 
 
                             <div class="form-group" align="center">
-                                <br><br>
+                                <br>
                                 <button id="btnDodaj" class="btn btn-success">Dodaj</button>
                             </div>
                         {!! Form::close() !!}
@@ -210,21 +224,5 @@
         {{-- Kraj sekcije--}}
 
     </div>
-
-
-    {{--<script type="text/javascript">--}}
-        {{--$q = parseInt(document.getElementById('q').value);--}}
-        {{--$e = parseInt(document.getElementById('e').value);--}}
-        {{--$r = parseInt(document.getElementById('r').value);--}}
-        {{--$f = parseInt(document.getElementById('f').value);--}}
-        {{--$d = parseInt(document.getElementById('d').value);--}}
-        {{--$o = parseInt(document.getElementById('o').value);--}}
-        {{--$sum = $q + $e + $r + $f + $d + $o;--}}
-        {{--document.getElementById('ocena').innerText = $sum;--}}
-
-        {{--if ($sum >= 0 && $sum <= 13)  { document.getElementById('prihatljiv').innerText = 'neprihvatljiv'}--}}
-        {{--if ($sum >= 14 && $sum <= 21) { document.getElementById('prihatljiv').innerText = 'privremeno prihvatljiv'}--}}
-        {{--if ($sum >= 22 && $sum <= 34) { document.getElementById('prihatljiv').innerText = 'prihvatljiv'}--}}
-    {{--</script>--}}
 
 @stop

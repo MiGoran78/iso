@@ -10,9 +10,9 @@ class CreateOcenasTable extends Migration
         Schema::create('ocenas', function (Blueprint $table) {
             $table->increments('id');
             $table->bigInteger('idRef');
-            $table->string('proizvod')->default('');
             $table->string('datum')->default('');
             $table->string('rok_vazenja')->default('');
+            $table->string('naziv')->default('');
             $table->string('opis')->default('');
             $table->string('status')->default('');
             $table->string('prihatljiv')->default('');
