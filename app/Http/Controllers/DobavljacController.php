@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Dobavljac;
 use App\Ocena;
+use App\Reklamacija;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 
@@ -20,7 +21,9 @@ class DobavljacController extends Controller
         $ocene = Ocena::pluck('ocena')->all();
         $naziv = Ocena::pluck('naziv')->all();
         $prihatljiv = Ocena::pluck('prihatljiv')->all();
-        return view('zapisi.dobavljaci.lista', compact('datas', 'naziv', 'ocena', 'ocene', 'prihatljiv'));
+//        $reklamacija = Reklamacija::pluck('idRef')->all();
+        $reklamacija = Reklamacija::get();
+        return view('zapisi.dobavljaci.lista', compact('datas', 'naziv', 'ocena', 'ocene', 'prihatljiv', 'reklamacija'));
     }
 
 
@@ -170,11 +173,20 @@ class DobavljacController extends Controller
 
 
     public function reklamacija(Request $request) {
-        return view('zapisi.dobavljaci.reklamacija');
+        $datas = Reklamacija::where('idRef','=', $request['idRef'])->get();
+
+        if (count($datas)) {
+            $datas = $datas[0];
+        } else {
+            $datas = new Reklamacija();
+            $datas['id'] = $id = $request['id'];
+            $datas['idRef'] = $request['idRef'];
+        }
+        return view('zapisi.dobavljaci.reklamacija', compact('datas'));
     }
 
     public function reklamacija_upd(Request $request) {
-        return view('zapisi.dobavljaci.reklamacija');
+        return redirect('/dobavljaci');
     }
 
 }

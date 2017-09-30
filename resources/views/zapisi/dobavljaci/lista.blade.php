@@ -71,13 +71,12 @@
                             <td style="padding: 4px; text-align: center">
                                 {!! Form::open(['method'=>'POST', 'action'=> ['DobavljacController@reklamacija']]) !!}
                                 <div class="">
-                                    {{--{!! Form::hidden('id', $data->id) !!}--}}
-                                    {{--{!! Form::hidden('idRef', $data->idRef) !!}--}}
-                                    {{--@if (count($izv8d->where('idRef','=',$data->idRef)) == 0)--}}
-                                    {{--{!! Form::submit('Ocena', ['class'=>'btn btn-default',  'style'=>'height:22px; padding-top: 0px; padding-bottom: 0px; padding-left: 5px; padding-right: 6px']) !!}--}}
-                                    {{--@else--}}
-                                    {!! Form::submit('Reklamacija', ['class'=>'btn btn-default',  'style'=>'height:22px; padding-top: 0px; padding-bottom: 0px; padding-left: 5px; padding-right: 6px']) !!}
-                                    {{--@endif--}}
+                                    {!! Form::hidden('idRef', $data->idRef) !!}
+                                    @if (count($reklamacija->where('idRef','=',$data->idRef)) == 0)
+                                        {!! Form::submit('Reklamacija', ['class'=>'btn btn-default',  'style'=>'height:22px; padding-top: 0px; padding-bottom: 0px; padding-left: 5px; padding-right: 6px']) !!}
+                                    @else
+                                        {!! Form::submit('Reklamacija', ['class'=>'btn btn-danger',  'style'=>'height:22px; padding-top: 0px; padding-bottom: 0px; padding-left: 5px; padding-right: 6px']) !!}
+                                    @endif
                                 </div>
                                 {!! Form::close() !!}
                             </td>
@@ -100,30 +99,6 @@
 
 @stop
 
-
-
-
-{{--{!! Form::open(['method'=>'POST', 'action'=> ['DobavljacController@ocena']]) !!}--}}
-{{--{!! Form::submit('Ocena', ['class'=>'btn btn-default', 'style'=>'background:#eeeeee']) !!}--}}
-{{--{!! Form::close() !!}--}}
-
-
 {{--{!! Form::open(['method'=>'POST', 'action'=> ['DobavljacController@reklamacija']]) !!}--}}
 {{--{!! Form::submit('Reklamacija', ['class'=>'btn btn-default', 'style'=>'background:#eeeeee']) !!}--}}
 {{--{!! Form::close() !!}--}}
-
-
-{{--
-     GET|HEAD  | dobavljaci                   | zapisi.dobavljaci.id_list.index     | App\Http\Controllers\DobavljaciController@index           | web          |
-     POST      | dobavljaci                   | zapisi.dobavljaci.id_list.store     | App\Http\Controllers\DobavljaciController@store           | web          |
-     GET|HEAD  | dobavljaci/create            | zapisi.dobavljaci.id_list.create    | App\Http\Controllers\DobavljaciController@create          | web          |
-     DELETE    | dobavljaci/{dobavljaci}      | dobavljaci.destroy                  | App\Http\Controllers\DobavljaciController@destroy         | web          |
-     PUT|PATCH | dobavljaci/{dobavljaci}      | dobavljaci.update                   | App\Http\Controllers\DobavljaciController@update          | web          |
-     GET|HEAD  | dobavljaci/{dobavljaci}      | dobavljaci.show                     | App\Http\Controllers\DobavljaciController@show            | web          |
-     GET|HEAD  | dobavljaci/{dobavljaci}/edit | zapisi.dobavljaci.id_list.edit      | App\Http\Controllers\DobavljaciController@edit            | web          |
-
-     POST      | ocena                        | ocena                               | App\Http\Controllers\DobavljaciController@ocena           | web          |
-     POST      | ocena_upd                    | ocena_upd                           | App\Http\Controllers\DobavljaciController@ocena_upd       | web          |
-     POST      | reklamacija                  | reklamacija                         | App\Http\Controllers\DobavljaciController@reklamacija     | web          |
-     POST      | reklamacija_upd              | reklamacija_upd                     | App\Http\Controllers\DobavljaciController@reklamacija_upd | web          |
---}}

@@ -225,20 +225,4 @@
 
     </div>
 
-
-    {{--<script type="text/javascript">--}}
-        {{--$q = parseInt(document.getElementById('q').value);--}}
-        {{--$e = parseInt(document.getElementById('e').value);--}}
-        {{--$r = parseInt(document.getElementById('r').value);--}}
-        {{--$f = parseInt(document.getElementById('f').value);--}}
-        {{--$d = parseInt(document.getElementById('d').value);--}}
-        {{--$o = parseInt(document.getElementById('o').value);--}}
-        {{--$sum = $q + $e + $r + $f + $d + $o;--}}
-        {{--document.getElementById('ocena').innerText = $sum;--}}
-
-        {{--if ($sum >= 0 && $sum <= 13)  { document.getElementById('prihatljiv').innerText = 'neprihvatljiv'}--}}
-        {{--if ($sum >= 14 && $sum <= 21) { document.getElementById('prihatljiv').innerText = 'privremeno prihvatljiv'}--}}
-        {{--if ($sum >= 22 && $sum <= 34) { document.getElementById('prihatljiv').innerText = 'prihvatljiv'}--}}
-    {{--</script>--}}
-
 @stop
