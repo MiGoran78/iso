@@ -18,8 +18,9 @@ class DobavljacController extends Controller
         $ocena = Ocena::all();
         $datas = Dobavljac::all();
         $ocene = Ocena::pluck('ocena')->all();
+        $naziv = Ocena::pluck('naziv')->all();
         $prihatljiv = Ocena::pluck('prihatljiv')->all();
-        return view('zapisi.dobavljaci.lista', compact('datas', 'ocena', 'ocene', 'prihatljiv'));
+        return view('zapisi.dobavljaci.lista', compact('datas', 'naziv', 'ocena', 'ocene', 'prihatljiv'));
     }
 
 
@@ -33,6 +34,10 @@ class DobavljacController extends Controller
         $input = $request->all();
         Dobavljac::create($input);
         Session::flash('message','Zapis je kreiran');
+
+        $ocena = new Ocena;
+        $ocena['idRef'] = $input['idRef'];
+        $ocena->save();
         return redirect('/dobavljaci');
     }
 
@@ -94,8 +99,15 @@ class DobavljacController extends Controller
 
 
     public function destroy($id) {
+        //delete record DOBAVLJAC
         $input = Dobavljac::findOrFail($id);
+        $idRef = $input['idRef'];
         $input->delete();
+
+        //delete record OCENA
+        $ocena = Ocena::where('idRef','=', $idRef)->get();
+        $ocena[0]->delete();
+
         Session::flash('message','Zapis je obrisan');
         return redirect('/dobavljaci');
     }
@@ -113,7 +125,6 @@ class DobavljacController extends Controller
             $datas['id'] = $id = $request['id'];
             $datas['idRef'] = $request['idRef'];
         }
-//        echo dd($datas);
         return view('zapisi.dobavljaci.ocena', compact('datas'));
     }
 
@@ -129,9 +140,9 @@ class DobavljacController extends Controller
             $datas['idRef'] = $request['idRef'];
         }
 
-        $datas['proizvod'] = empty($input['proizvod']) ? '' : $input['proizvod'];
         $datas['datum'] = empty($input['datum']) ? '' : $input['datum'];
         $datas['rok_vazenja'] = empty($input['rok_vazenja']) ? '' : $input['rok_vazenja'];
+        $datas['naziv'] = empty($input['naziv']) ? '' : $input['naziv'];
         $datas['opis'] = empty($input['opis']) ? '' : $input['opis'];
         $datas['status'] = empty($input['status']) ? '' : $input['status'];
         $datas['q'] = empty($input['q']) ? '' : $input['q'];

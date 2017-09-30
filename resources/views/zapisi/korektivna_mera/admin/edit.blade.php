@@ -86,7 +86,7 @@
             </div>
 
             <br>
-            {!! Form::open(['method'=>'DELETE', 'action'=> ['KorMeraController@destroy', $datas->id]]) !!}
+            {!! Form::open(['method'=>'DELETE', 'action'=> ['KorMeraController@destroy', $datas->id], 'onsubmit'=>'return confirm("Da li ste sigurni?")']) !!}
             <div align="center">
                 {!! Form::submit('Obriši', ['class'=>'btn btn-danger']) !!}
             </div>

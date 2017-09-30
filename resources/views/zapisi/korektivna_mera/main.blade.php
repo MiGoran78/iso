@@ -13,7 +13,7 @@
             <div class="panel panel-primary" style="margin: 0px">
                 <div class="panel-heading" style="background: #5b5b5b; color: #ffffff; border: solid 1px #3b3b3b">
                     <h4 style="margin: 0px">
-                        ISO9001:2008, ISO 14001:2004, BSI OHSAS 18001:2007
+                        ISO standard
                     </h4>
                 </div>
             </div>

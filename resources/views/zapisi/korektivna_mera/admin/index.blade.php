@@ -10,7 +10,7 @@
                 </td>
 
                 <td  class="col-md-3" align="left">
-                    <h4 style="color:red; padding: 2px; margin: 2px; margin-left: 5px"><b>Lista korektivnih mera</b></h4>
+                    <h4 style="font-family: Tahoma; color:red; padding: 2px; margin: 2px; margin-left: 5px">Lista korektivnih mera</h4>
                 </td>
 
                 <td  class="col-md-8" align="right">
