@@ -14,7 +14,6 @@ class DocController extends Controller
 
         $categories = Category::where('parent_id', '=', 0)->get();
         $allCategories = Category::pluck('title','id','level','parent_id')->all();
-//        echo dd($categories);
 
         $catRoot = Category::where('parent_id',0)->pluck('title');
         $catSubLev1 = Category::where('parent_id',1)->pluck('title')->all();

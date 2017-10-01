@@ -36,7 +36,6 @@
                         @endif
 
                         {!! Form::open(['method'=>'POST', 'action'=> ['DobavljacController@reklamacija_upd']]) !!}
-                            {!! Form::hidden('id', $datas->id) !!}
                             {!! Form::hidden('idRef', $datas->idRef) !!}
 
 

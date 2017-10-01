@@ -6,6 +6,8 @@
         <link rel="stylesheet" href="/css/bootstrap.min.css">
         <link rel="stylesheet" href="/css/css.css?family=Lato:100,300,400,700">
         <script src="/js/jquery.min.js"></script>
+        <script type="text/javascript" src="/js/bootstrap-datepicker.min.js"></script>
+        <link rel="stylesheet" href="/css/bootstrap-datepicker3.css"/>
     </head>
 
     <body style="height:100%">
@@ -20,5 +22,6 @@
         </div>
 
         @yield('content')
+
     </body>
 </html>

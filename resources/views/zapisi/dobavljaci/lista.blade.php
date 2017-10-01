@@ -1,6 +1,10 @@
 @extends('zapisi.dobavljaci.main')
 @section('content')
 
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
     <div class="container" style="font-family: 'Verdana'; margin: 0px; margin-right: 20px; padding: 5px; padding-top: 0px; width: auto; height:100%" >
 
         <div class="row" style="font-family: Lato; margin-left: 5px; margin-right: 5px; padding: 0px;" align="right">
@@ -81,13 +85,28 @@
                                 {!! Form::close() !!}
                             </td>
 
+
                             <td style="padding: 4px; text-align: center">
-                                {!! Form::open(['method'=>'DELETE', 'action'=> ['DobavljacController@destroy', $data->id], 'onsubmit'=>'return confirm("Da li ste sigurni?")']) !!}
-                                    <div class="">
-                                        {!! Form::submit('X', ['class'=>'btn btn-danger',  'style'=>'height:22px; padding-top: 0px; padding-bottom: 0px; padding-left: 5px; padding-right: 6px']) !!}
+                                <button type="button" data-toggle="modal" data-target="#delete{{$data->id}}" class="btn btn-danger" style="height:22px; padding-top: 0px; padding-bottom: 0px; padding-left: 5px; padding-right: 6px">X</button>
+
+                                <!-- Modal -->
+                                <div class="modal fade" id="delete{{$data->id}}" role="dialog">
+                                    <div class="modal-dialog">
+                                        <!-- Modal content-->
+                                        <div class="modal-content" align="center">
+                                            <div class="modal-header">  <h4 style="font-family: 'Lato'" class="modal-title">Sigurni ste da želite da obrišete ?</h4>  </div>
+                                            <div class="modal-body">
+                                                {!! Form::open(['method'=>'DELETE', 'action'=> ['DobavljacController@destroy', $data->id]]) !!}
+                                                    {!! Form::submit('Da', ['class'=>'btn btn-danger']) !!}
+                                                {!! Form::close() !!}
+                                            </div>
+                                            {{--<div class="modal-footer"> </div>--}}
+                                        </div>
                                     </div>
-                                {!! Form::close() !!}
+                                </div>
+                                {{--=============--}}
                             </td>
+
                         </tr>
                     @endforeach
                 @endif
