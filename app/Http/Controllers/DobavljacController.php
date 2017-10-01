@@ -35,12 +35,22 @@ class DobavljacController extends Controller
 
     public function store(Request $request) {
         $input = $request->all();
+        $input['dobavljac'] = empty($input['dobavljac']) ? '----' : $input['dobavljac'];
         Dobavljac::create($input);
         Session::flash('message','Zapis je kreiran');
 
-        $ocena = new Ocena;
-        $ocena['idRef'] = $input['idRef'];
-        $ocena->save();
+        $input['sert_rok_1'] = $input['sert_rok_1']=='' ? '' : date('Y-m-d', strtotime($input['sert_rok_1']));
+        $input['sert_rok_2'] = $input['sert_rok_2']=='' ? '' : date('Y-m-d', strtotime($input['sert_rok_2']));
+        $input['sert_rok_3'] = $input['sert_rok_3']=='' ? '' : date('Y-m-d', strtotime($input['sert_rok_3']));
+        $input['sert_rok_4'] = $input['sert_rok_4']=='' ? '' : date('Y-m-d', strtotime($input['sert_rok_4']));
+        $input['sert_rok_5'] = $input['sert_rok_5']=='' ? '' : date('Y-m-d', strtotime($input['sert_rok_5']));
+        $input['sert_rok_6'] = $input['sert_rok_6']=='' ? '' : date('Y-m-d', strtotime($input['sert_rok_6']));
+        $input['sert_rok_7'] = $input['sert_rok_7']=='' ? '' : date('Y-m-d', strtotime($input['sert_rok_7']));
+        $input['sert_rok_8'] = $input['sert_rok_8']=='' ? '' : date('Y-m-d', strtotime($input['sert_rok_8']));
+
+        $datas = new Ocena;
+        $datas['idRef'] = $input['idRef'];
+        $datas->save();
         return redirect('/dobavljaci');
     }
 
@@ -86,14 +96,15 @@ class DobavljacController extends Controller
         $datas['sert_br_6'] = $input['sert_br_6'];
         $datas['sert_br_7'] = $input['sert_br_7'];
         $datas['sert_br_8'] = $input['sert_br_8'];
-        $datas['sert_rok_1'] = $input['sert_rok_1'];
-        $datas['sert_rok_2'] = $input['sert_rok_2'];
-        $datas['sert_rok_3'] = $input['sert_rok_3'];
-        $datas['sert_rok_4'] = $input['sert_rok_4'];
-        $datas['sert_rok_5'] = $input['sert_rok_5'];
-        $datas['sert_rok_6'] = $input['sert_rok_6'];
-        $datas['sert_rok_7'] = $input['sert_rok_7'];
-        $datas['sert_rok_8'] = $input['sert_rok_8'];
+
+        $datas['sert_rok_1'] = $input['sert_rok_1']=='' ? '' : date('d-m-Y', strtotime($input['sert_rok_1']));
+        $datas['sert_rok_2'] = $input['sert_rok_2']=='' ? '' : date('d-m-Y', strtotime($input['sert_rok_2']));
+        $datas['sert_rok_3'] = $input['sert_rok_3']=='' ? '' : date('d-m-Y', strtotime($input['sert_rok_3']));
+        $datas['sert_rok_4'] = $input['sert_rok_4']=='' ? '' : date('d-m-Y', strtotime($input['sert_rok_4']));
+        $datas['sert_rok_5'] = $input['sert_rok_5']=='' ? '' : date('d-m-Y', strtotime($input['sert_rok_5']));
+        $datas['sert_rok_6'] = $input['sert_rok_6']=='' ? '' : date('d-m-Y', strtotime($input['sert_rok_6']));
+        $datas['sert_rok_7'] = $input['sert_rok_7']=='' ? '' : date('d-m-Y', strtotime($input['sert_rok_7']));
+        $datas['sert_rok_8'] = $input['sert_rok_8']=='' ? '' : date('d-m-Y', strtotime($input['sert_rok_8']));
 
         $datas->save();
         Session::flash('message','Zapis je snimljen');
@@ -155,13 +166,17 @@ class DobavljacController extends Controller
         $datas['d'] = empty($input['d']) ? '' : $input['d'];
         $datas['o'] = empty($input['o']) ? '' : $input['o'];
 
-        $ocena = $input['q'] + $input['e'] + $input['r'] + $input['f'] + $input['d'] + $input['o'];
-        $datas['ocena'] = $ocena;
+        try {
+            $ocena = $input['q'] + $input['e'] + $input['r'] + $input['f'] + $input['d'] + $input['o'];
+            if ($ocena >= 0  && $ocena <= 13) { $prihvatljiv = 'neprihvatljiv'; }
+            if ($ocena >= 14 && $ocena <= 21) { $prihvatljiv = 'privremeno prihvatljiv'; }
+            if ($ocena >= 22 && $ocena <= 34) { $prihvatljiv = 'prihvatljiv'; }
+        } catch (\Exception $e) {
+            $ocena = '';
+            $prihvatljiv = '';
+        }
 
-        $prihvatljiv = '';
-        if ($ocena >= 0  && $ocena <= 13) { $prihvatljiv = 'neprihvatljiv'; }
-        if ($ocena >= 14 && $ocena <= 21) { $prihvatljiv = 'privremeno prihvatljiv'; }
-        if ($ocena >= 22 && $ocena <= 34) { $prihvatljiv = 'prihvatljiv'; }
+        $datas['ocena'] = $ocena;
         $datas['prihatljiv'] = $prihvatljiv;
 
         $datas->save();

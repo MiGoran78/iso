@@ -34,9 +34,9 @@ class KorMeraController extends Controller
     public function store(Request $request) {
         $input = $request->all();
 
-        $input['date_open'] = date('Y-m-d', strtotime($input['date_open']));
-        $input['date_deadline'] = date('Y-m-d', strtotime($input['date_deadline']));
-        $input['date_close'] = date('Y-m-d', strtotime($input['date_deadline']));
+        $input['date_open'] = $input['date_open']=='' ? '' : date('Y-m-d', strtotime($input['date_open']));
+        $input['date_close'] = $input['date_close']=='' ? '' : date('Y-m-d', strtotime($input['date_close']));
+        $input['date_deadline'] = $input['date_deadline']=='' ? '' : date('Y-m-d', strtotime($input['date_deadline']));
 //        echo dd($input);
 
         KorektivnaMera::create($input);
@@ -57,9 +57,8 @@ class KorMeraController extends Controller
     public function edit($id) {
         $datas = KorektivnaMera::findOrFail($id);
 
-        $datas['date_deadline'] = date('d-m-Y', strtotime($datas['date_deadline']));
-        $datas['date_close'] = date('d-m-Y', strtotime($datas['date_close']));
-//        echo dd($datas);
+        $datas['date_close'] = $datas['date_close']=='' ? '' : date('d-m-Y', strtotime($datas['date_close']));
+        $datas['date_deadline'] = $datas['date_deadline']=='' ? '' : date('d-m-Y', strtotime($datas['date_deadline']));
         return view('zapisi.korektivna_mera.admin.edit', compact('datas'));
     }
 
@@ -70,9 +69,9 @@ class KorMeraController extends Controller
 
         $datas['id'] = $id;
         $datas['idRef'] = $input['idRef'];
-        $datas['date_open'] = $input['date_open'];
-        $datas['date_deadline'] = date('Y-m-d', strtotime($input['date_deadline']));
-        $datas['date_close'] = date('Y-m-d', strtotime($input['date_close']));
+        $datas['date_open'] = $input['date_open']=='' ? '' : date('Y-m-d', strtotime($input['date_open']));
+        $datas['date_close'] = $input['date_close']=='' ? '' : date('Y-m-d', strtotime($input['date_close']));
+        $datas['date_deadline'] = $input['date_deadline']=='' ? '' : date('Y-m-d', strtotime($input['date_deadline']));
         $datas['kor_mera'] = empty($input['kor_mera']) ? '' : $input['kor_mera'];
         $datas['vlasnik'] = empty($input['vlasnik']) ? '' : $input['vlasnik'];
         $datas['preispitivano'] = empty($input['preispitivano']) ? '' : $input['preispitivano'];
@@ -85,6 +84,7 @@ class KorMeraController extends Controller
 
     public function destroy($id) {
         $doc = KorektivnaMera::findOrFail($id);
+
         $doc->delete();
         Session::flash('message','Zapis je obrisan');
         return redirect('/zapisi');

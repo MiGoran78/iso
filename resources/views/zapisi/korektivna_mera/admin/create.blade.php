@@ -63,7 +63,7 @@
                                 </div>
                                 <div>
                                     <h5>Rok za sprovodjenje:</h5>
-                                    {!! Form::text('date_deadline', '', ['class'=>'form-control', 'placeholder'=>'...']) !!}
+                                    {!! Form::text('date_deadline', '', ['class'=>'form-control', 'placeholder'=>'dd.mm.yyyy']) !!}
                                     <br>
                                 </div>
                                 <div>
@@ -73,7 +73,7 @@
                                 </div>
                                 <div>
                                     <h5>Datum zatvaranja:</h5>
-                                    {!! Form::text('date_close', '', ['class'=>'form-control', 'placeholder'=>'...']) !!}
+                                    {!! Form::text('date_close', '', ['class'=>'form-control', 'placeholder'=>'dd.mm.yyyy']) !!}
                                     <br>
                                 </div>
 
@@ -89,5 +89,18 @@
         {{-- Kraj sekcije--}}
 
     </div>
+
+
+    {{-- DATE PICKER --}}
+    <link rel="stylesheet" href="/css/bootstrap-datepicker3.css"/>
+    <script type="text/javascript" src="/js/bootstrap-datepicker.min.js"></script>
+    <script type="text/javascript" src="/js/objDatePicker.js"></script>
+
+    <script>
+        objDatePicker("date_deadline");
+        objDatePicker("date_close");
+    </script>
+    {{-- END DATE PICKER --}}
+
 
 @stop

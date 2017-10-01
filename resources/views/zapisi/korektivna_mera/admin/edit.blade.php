@@ -63,7 +63,7 @@
                                 </div>
                                 <div>
                                     <h5>Rok za sprovodjenje:</h5>
-                                    {!! Form::text('date_deadline', old('date_deadline'), ['class'=>'form-control', 'id'=>'txtDate_deadline', 'placeholder'=>'...']) !!}
+                                    {!! Form::text('date_deadline', old('date_deadline'), ['class'=>'form-control', 'id'=>'txtDate_deadline', 'placeholder'=>'dd.mm.yyyy']) !!}
                                     <br>
                                 </div>
                                 <div>
@@ -73,7 +73,7 @@
                                 </div>
                                 <div>
                                     <h5>Datum zatvaranja:</h5>
-                                    {!! Form::text('date_close', old('date_close'), ['class'=>'form-control', 'id'=>'txtDate_close', 'placeholder'=>'...']) !!}
+                                    {!! Form::text('date_close', old('date_close'), ['class'=>'form-control', 'id'=>'txtDate_close', 'placeholder'=>'dd.mm.yyyy']) !!}
                                     <br>
                                 </div>
 
@@ -86,11 +86,39 @@
             </div>
 
             <br>
-            {!! Form::open(['method'=>'DELETE', 'action'=> ['KorMeraController@destroy', $datas->id], 'onsubmit'=>'return confirm("Da li ste sigurni?")']) !!}
+
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
             <div align="center">
-                {!! Form::submit('Obriši', ['class'=>'btn btn-danger']) !!}
+                <button type="button" data-toggle="modal" data-target="#delete" class="btn btn-danger">Obriši</button>
             </div>
-            {!! Form::close() !!}
+
+            <!-- Modal -->
+            <div class="modal fade" id="delete" role="dialog">
+                <div class="modal-dialog">
+                    <!-- Modal content-->
+                    <div class="modal-content" align="center">
+                        <div class="modal-header">  <h4 style="font-family: 'Lato'" class="modal-title">Sigurni ste da želite da obrišete ?</h4>  </div>
+                        <div class="modal-body" align="center">
+                            {!! Form::open(['method'=>'DELETE', 'action'=> ['KorMeraController@destroy', $datas->id]]) !!}
+                                {!! Form::submit('Da', ['class'=>'btn btn-danger']) !!}
+                            {!! Form::close() !!}
+                        </div>
+                        {{--<div class="modal-footer"> </div>--}}
+                    </div>
+                </div>
+            </div>
+            {{--=============--}}
+
+
+
+            {{--{!! Form::open(['method'=>'DELETE', 'action'=> ['KorMeraController@destroy', $datas->id], 'onsubmit'=>'return confirm("Da li ste sigurni?")']) !!}--}}
+            {{--<div align="center">--}}
+                {{--{!! Form::submit('Obriši', ['class'=>'btn btn-danger']) !!}--}}
+            {{--</div>--}}
+            {{--{!! Form::close() !!}--}}
 
         </div>
         {{-- Kraj sekcije--}}
@@ -104,4 +132,18 @@
         document.getElementById('txtPreispitivano').value = '{{ $datas->preispitivano }}';
         document.getElementById('txtDate_close').value = '{{ $datas->date_close }}';
     </script>
+
+
+
+    {{-- DATE PICKER --}}
+    <link rel="stylesheet" href="/css/bootstrap-datepicker3.css"/>
+    <script type="text/javascript" src="/js/bootstrap-datepicker.min.js"></script>
+    <script type="text/javascript" src="/js/objDatePicker.js"></script>
+
+    <script>
+        objDatePicker("date_deadline");
+        objDatePicker("date_close");
+    </script>
+    {{-- END DATE PICKER --}}
+
 @stop

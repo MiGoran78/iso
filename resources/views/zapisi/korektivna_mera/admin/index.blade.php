@@ -50,8 +50,8 @@
                         <td style="padding: 4px; text-align: center; padding-left: 10px"> {{$key+1}}</td>
                         <td style="padding: 4px; text-align: center"> <a href="{{route('zapisi.korektivna_mera.admin.edit', $data->id)}}">{{$data->idRef}}</a></td>
                         <td style="padding: 4px; text-align: center; padding-left: 10px"> {{ date('d-m-Y', strtotime($data->date_open)) }}</td>
-                        <td style="padding: 4px; text-align: center"> {{ date('d-m-Y', strtotime($data->date_deadline)) }}</td>
-                        <td style="padding: 4px; text-align: center"> {{ date('d-m-Y', strtotime($data->date_close)) }}</td>
+                        <td style="padding: 4px; text-align: center"> {{ $data['date_deadline']=='' ? '' : date('d-m-Y', strtotime($data->date_deadline)) }}</td>
+                        <td style="padding: 4px; text-align: center"> {{ $data['date_close']=='' ? '' : date('d-m-Y', strtotime($data->date_close)) }}</td>
                         <td style="padding: 4px; text-align: center"> {{$data->vlasnik}}</td>
                         <td style="padding: 4px; text-align: center"> {{$data->kor_mera}}</td>
                         <td style="padding: 4px; text-align: center"> {{$data->preispitivano}}</td>

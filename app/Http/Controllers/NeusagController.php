@@ -68,6 +68,7 @@ class NeusagController extends Controller {
 
     public function destroy($id) {
         $doc = Neusag::findOrFail($id);
+
         $doc->delete();
         Session::flash('message','Zapis je obrisan');
         return redirect('/zapisi');

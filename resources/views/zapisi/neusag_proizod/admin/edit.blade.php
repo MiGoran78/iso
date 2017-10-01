@@ -105,11 +105,39 @@
             </div>
 
             <br>
-            {!! Form::open(['method'=>'DELETE', 'action'=> ['NeusagController@destroy', $datas->id], 'onsubmit'=>'return confirm("Da li ste sigurni?")']) !!}
+
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
             <div align="center">
-                {!! Form::submit('Obriši', ['class'=>'btn btn-danger']) !!}
+                <button type="button" data-toggle="modal" data-target="#delete" class="btn btn-danger">Obriši</button>
             </div>
-            {!! Form::close() !!}
+
+            <!-- Modal -->
+            <div class="modal fade" id="delete" role="dialog">
+                <div class="modal-dialog">
+                    <!-- Modal content-->
+                    <div class="modal-content" align="center">
+                        <div class="modal-header">  <h4 style="font-family: 'Lato'" class="modal-title">Sigurni ste da želite da obrišete ?</h4>  </div>
+                        <div class="modal-body" align="center">
+                            {!! Form::open(['method'=>'DELETE', 'action'=> ['NeusagController@destroy', $datas->id]]) !!}
+                                {!! Form::submit('Da', ['class'=>'btn btn-danger']) !!}
+                            {!! Form::close() !!}
+                        </div>
+                        {{--<div class="modal-footer"> </div>--}}
+                    </div>
+                </div>
+            </div>
+            {{--=============--}}
+
+
+            {{--{!! Form::open(['method'=>'DELETE', 'action'=> ['NeusagController@destroy', $datas->id], 'onsubmit'=>'return confirm("Da li ste sigurni?")']) !!}--}}
+                {{--<div align="center">--}}
+                    {{--{!! Form::submit('Obriši', ['class'=>'btn btn-danger']) !!}--}}
+                {{--</div>--}}
+            {{--{!! Form::close() !!}--}}
+
         </div>
         {{-- Kraj sekcije--}}
 

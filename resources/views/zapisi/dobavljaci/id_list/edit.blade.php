@@ -240,4 +240,22 @@
 
     </div>
 
+
+    {{-- DATE PICKER --}}
+    <link rel="stylesheet" href="/css/bootstrap-datepicker3.css"/>
+    <script type="text/javascript" src="/js/bootstrap-datepicker.min.js"></script>
+    <script type="text/javascript" src="/js/objDatePicker.js"></script>
+
+    <script>
+        objDatePicker("sert_rok_1");
+        objDatePicker("sert_rok_2");
+        objDatePicker("sert_rok_3");
+        objDatePicker("sert_rok_4");
+        objDatePicker("sert_rok_5");
+        objDatePicker("sert_rok_6");
+        objDatePicker("sert_rok_7");
+        objDatePicker("sert_rok_8");
+    </script>
+    {{-- END DATE PICKER --}}
+
 @stop

@@ -8,11 +8,6 @@ use App\Category;
 
 class CategoryController extends Controller
 {
-    /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function manageCategory() {
         $categories = Category::where('parent_id', '=', 0)->get();
         $allCategories = Category::pluck('title','id','path','parent_id','level')->all();

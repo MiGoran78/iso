@@ -225,4 +225,15 @@
 
     </div>
 
+
+    {{-- DATE PICKER --}}
+    <link rel="stylesheet" href="/css/bootstrap-datepicker3.css"/>
+    <script type="text/javascript" src="/js/bootstrap-datepicker.min.js"></script>
+    <script type="text/javascript" src="/js/objDatePicker.js"></script>
+
+    <script>
+        objDatePicker("datum");
+    </script>
+    {{-- END DATE PICKER --}}
+
 @stop

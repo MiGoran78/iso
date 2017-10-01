@@ -12,8 +12,8 @@ class CreateKormereTable extends Migration
             $table->increments('id');
             $table->bigInteger('idRef');
             $table->date('date_open');
-            $table->string('date_deadline');
-            $table->string('date_close');
+            $table->string('date_deadline')->default('');
+            $table->string('date_close')->default('');
             $table->string('kor_mera')->default('');
             $table->string('vlasnik')->default('');
             $table->string('preispitivano')->default('');
