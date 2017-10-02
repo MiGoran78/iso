@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="/css/bootstrap.min.css">
     <link rel="stylesheet" href="/css/css.css?family=Lato:100,300,400,700">
     <script src="/js/jquery.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -17,9 +18,14 @@
 
         <div class="panel panel-primary" style="margin: 0px">
             <div class="panel-heading" style="background: #5b5b5b; color: #ffffff; border: solid 1px #3b3b3b">
-                <h4 style="margin: 0px">
-                    ISO standard
-                </h4>
+                <div class="row">
+                    <div class="col-md-11" align="left">
+                        <h4 style="margin: 0px"> ISO standard </h4>
+                    </div>
+                    <div class="col-md-1" align="right">
+                        @include('menu')
+                    </div>
+                </div>
             </div>
         </div>
 
