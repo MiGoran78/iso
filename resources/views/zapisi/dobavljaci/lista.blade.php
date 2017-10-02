@@ -27,10 +27,10 @@
                     <tr>
                         <th width="3%" style="text-align: center">No</th>
                         <th width="14%" style="text-align: center">Naziv dobavljača</th>
-                        <th width="21%" style="text-align: center">Naziv proizvoda / usluge</th>
                         <th width="10%" style="text-align: center">Dobavljač</th>
                         <th width="13%" style="text-align: center">Prihvatljivost</th>
                         <th width="5%" style="text-align: center">Ocena</th>
+                        <th width="21%" style="text-align: center">Naziv proizvoda / usluge</th>
                         <th width="10%" style="text-align: center">Kontakt</th>
                         <th width="10%" style="text-align: center">Telefon</th>
                         <th width="8%" style="text-align: center">Zapis</th>
@@ -44,7 +44,6 @@
                         <tr>
                             <td style="padding: 4px; text-align: center; padding-left: 10px"> {{$key+1}}</td>
                             <td style="padding: 4px; text-align: center"> <a href="{{route('zapisi.dobavljaci.id_list.edit', $data->id)}}">{{$data->dobavljac}}</a></td>
-                            <td style="padding: 4px; text-align: center"> {{empty($naziv[$key]) ? '' : $naziv[$key] }} </td>
                             <td style="padding: 4px; text-align: center"> {{$data->dobavljac_tip }}</td>
                             <td style="padding: 4px; text-align: center">
                                 {!! Form::open(['method'=>'POST', 'action'=> ['DobavljacController@ocena']]) !!}
@@ -69,6 +68,7 @@
                             </td>
 
                             <td style="padding: 4px; text-align: center"> {{empty($ocene[$key]) ? '0' : $ocene[$key] }}</td>
+                            <td style="padding: 4px; text-align: center"> {{empty($naziv[$key]) ? '' : $naziv[$key] }} </td>
                             <td style="padding: 4px; text-align: center"> {{$data->kontakt1 }}</td>
                             <td style="padding: 4px; text-align: center"> {{$data->telefon1 }}</td>
 
