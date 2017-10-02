@@ -5,8 +5,7 @@
 /vendor
 /.idea
 /!backup
-!txt
+/!txt
 Homestead.json
 Homestead.yaml
 .env
-!txt/! categories.txt
