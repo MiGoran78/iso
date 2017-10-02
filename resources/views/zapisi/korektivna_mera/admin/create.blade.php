@@ -6,7 +6,7 @@
         <table class="table" style="margin: 0px">
             <tr>
                 <td  class="col-md-1" align="right">
-                    <a href="/zapisi" class="btn btn-default" style="padding: 2px; padding-left: 8px; padding-right: 8px">Lista neusaglašenosti</a>
+                    <a href="/neusaglasenost" class="btn btn-default" style="padding: 2px; padding-left: 8px; padding-right: 8px">Lista neusaglašenosti</a>
                 </td>
 
                 <td  class="col-md-10" align="left">
@@ -43,7 +43,7 @@
 
                                 <div class="row">
                                     <div class="col-md-6" align="left">
-                                        Datum: {{ date('d-m-Y', strtotime($datum)) }}
+                                        Datum: {{ date('d.m.Y', strtotime($datum)) }}
                                     </div>
                                     <div class="col-md-6" align="right">
                                         Ref: {{ $ref }}
@@ -53,7 +53,7 @@
 
                                 <div>
                                     <h5>Korektivna mera:</h5>
-                                    {!! Form::textarea('kor_mera', '', ['class'=>'form-control', 'rows'=>'3', 'placeholder'=>'...']) !!}
+                                    {!! Form::textarea('kor_mera', '', ['class'=>'form-control', 'style'=>'resize: vertical', 'rows'=>'3', 'placeholder'=>'...']) !!}
                                     <br>
                                 </div>
                                 <div>
@@ -68,7 +68,7 @@
                                 </div>
                                 <div>
                                     <h5>Preispitivano:</h5>
-                                    {!! Form::textarea('preispitivano', '', ['class'=>'form-control', 'rows'=>'3', 'placeholder'=>'...']) !!}
+                                    {!! Form::textarea('preispitivano', '', ['class'=>'form-control', 'style'=>'resize: vertical', 'rows'=>'3', 'placeholder'=>'...']) !!}
                                     <br>
                                 </div>
                                 <div>

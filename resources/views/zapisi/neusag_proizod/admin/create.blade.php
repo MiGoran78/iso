@@ -6,7 +6,7 @@
         <table class="table" style="margin: 0px">
             <tr>
                 <td  class="col-md-12" align="left">
-                    <a href="/zapisi" class="btn btn-default" style="padding: 2px; padding-left: 8px; padding-right: 8px">Lista neusaglašenosti</a>
+                    <a href="/neusaglasenost" class="btn btn-default" style="padding: 2px; padding-left: 8px; padding-right: 8px">Lista neusaglašenosti</a>
                 </td>
             </tr>
         </table>
@@ -34,7 +34,7 @@
 
                             <div class="row">
                                 <div class="col-md-6" align="left">
-                                    Datum: {{ date("d-m-Y") }}
+                                    Datum: {{ date("d.m.Y") }}
                                 </div>
                                 <div class="col-md-6" align="right">
                                     Ref: {{ $ref }}
@@ -88,13 +88,13 @@
 
                             <div style="border-bottom: solid 1px #9d9d9d; padding-bottom:20px">
                                 <h4> Opis neusaglašenosti: </h4>
-                                {!! Form::textarea('opis', old('opis'), ['class'=>'form-control', 'rows'=>'3', 'placeholder'=>'...']) !!}
+                                {!! Form::textarea('opis', old('opis'), ['class'=>'form-control', 'style'=>'resize: vertical','rows'=>'3', 'placeholder'=>'...']) !!}
                                 {{--<hr style="border: solid 1px #cccccc; margin-top:10px">--}}
                             </div>
 
                             <div>
                                 <h4> Uzrok neusaglašenosti: </h4>
-                                {!! Form::textarea('uzrok', old('uzrok'), ['class'=>'form-control', 'rows'=>'3', 'placeholder'=>'...']) !!}
+                                {!! Form::textarea('uzrok', old('uzrok'), ['class'=>'form-control', 'style'=>'resize: vertical', 'rows'=>'3', 'placeholder'=>'...']) !!}
                             </div>
 
                             <div class="form-group" align="center">

@@ -124,7 +124,7 @@
                                         {!! Form::text('sert_br_1', $datas->sert_br_1, ['style'=>'width:100%', 'placeholder'=>'broj']) !!}
                                     </div>
                                     <div class="col-md-3" style="padding-top: 1px">
-                                        {!! Form::text('sert_rok_1', $datas->sert_rok_1, ['style'=>'width:100%', 'placeholder'=>'rok važenja']) !!}
+                                        {!! Form::text('sert_rok_1', $datas->sert_rok_1==''?'':date('d.m.Y', strtotime($datas->sert_rok_1)), ['style'=>'width:100%', 'placeholder'=>'rok važenja']) !!}
                                     </div>
                                 </div>
 
@@ -138,7 +138,7 @@
                                         {!! Form::text('sert_br_2', $datas->sert_br_2, ['style'=>'width:100%', 'placeholder'=>'broj']) !!}
                                     </div>
                                     <div class="col-md-3" style="padding-top: 1px">
-                                        {!! Form::text('sert_rok_2', $datas->sert_rok_2, ['style'=>'width:100%', 'placeholder'=>'rok važenja']) !!}
+                                        {!! Form::text('sert_rok_2', $datas->sert_rok_2==''?'':date('d.m.Y', strtotime($datas->sert_rok_2)), ['style'=>'width:100%', 'placeholder'=>'rok važenja']) !!}
                                     </div>
                                 </div>
 
@@ -152,7 +152,7 @@
                                         {!! Form::text('sert_br_3', $datas->sert_br_3, ['style'=>'width:100%', 'placeholder'=>'broj']) !!}
                                     </div>
                                     <div class="col-md-3" style="padding-top: 1px">
-                                        {!! Form::text('sert_rok_3', $datas->sert_rok_3, ['style'=>'width:100%', 'placeholder'=>'rok važenja']) !!}
+                                        {!! Form::text('sert_rok_3', $datas->sert_rok_3==''?'':date('d.m.Y', strtotime($datas->sert_rok_3)), ['style'=>'width:100%', 'placeholder'=>'rok važenja']) !!}
                                     </div>
                                 </div>
 
@@ -166,7 +166,7 @@
                                         {!! Form::text('sert_br_4', $datas->sert_br_4, ['style'=>'width:100%', 'placeholder'=>'broj']) !!}
                                     </div>
                                     <div class="col-md-3" style="padding-top: 1px">
-                                        {!! Form::text('sert_rok_4', $datas->sert_rok_4, ['style'=>'width:100%', 'placeholder'=>'rok važenja']) !!}
+                                        {!! Form::text('sert_rok_4', $datas->sert_rok_4==''?'':date('d.m.Y', strtotime($datas->sert_rok_4)), ['style'=>'width:100%', 'placeholder'=>'rok važenja']) !!}
                                     </div>
                                 </div>
 
@@ -180,7 +180,7 @@
                                         {!! Form::text('sert_br_5', $datas->sert_br_5, ['style'=>'width:100%', 'placeholder'=>'broj']) !!}
                                     </div>
                                     <div class="col-md-3" style="padding-top: 1px">
-                                        {!! Form::text('sert_rok_5', $datas->sert_rok_5, ['style'=>'width:100%', 'placeholder'=>'rok važenja']) !!}
+                                        {!! Form::text('sert_rok_5', $datas->sert_rok_5==''?'':date('d.m.Y', strtotime($datas->sert_rok_5)), ['style'=>'width:100%', 'placeholder'=>'rok važenja']) !!}
                                     </div>
                                 </div>
 
@@ -193,7 +193,7 @@
                                         {!! Form::text('sert_br_6', $datas->sert_br_6, ['style'=>'width:100%', 'placeholder'=>'broj']) !!}
                                     </div>
                                     <div class="col-md-3" style="padding-top: 1px">
-                                        {!! Form::text('sert_rok_6', $datas->sert_rok_6, ['style'=>'width:100%', 'placeholder'=>'rok važenja']) !!}
+                                        {!! Form::text('sert_rok_6', $datas->sert_rok_6==''?'':date('d.m.Y', strtotime($datas->sert_rok_6)), ['style'=>'width:100%', 'placeholder'=>'rok važenja']) !!}
                                     </div>
                                 </div>
 
@@ -206,7 +206,7 @@
                                         {!! Form::text('sert_br_7', $datas->sert_br_7, ['style'=>'width:100%', 'placeholder'=>'broj']) !!}
                                     </div>
                                     <div class="col-md-3" style="padding-top: 1px">
-                                        {!! Form::text('sert_rok_7', $datas->sert_rok_7, ['style'=>'width:100%', 'placeholder'=>'rok važenja']) !!}
+                                        {!! Form::text('sert_rok_7', $datas->sert_rok_7==''?'':date('d.m.Y', strtotime($datas->sert_rok_7)), ['style'=>'width:100%', 'placeholder'=>'rok važenja']) !!}
                                     </div>
                                 </div>
 
@@ -219,7 +219,7 @@
                                         {!! Form::text('sert_br_8', $datas->sert_br_8, ['style'=>'width:100%', 'placeholder'=>'broj']) !!}
                                     </div>
                                     <div class="col-md-3" style="padding-top: 1px">
-                                        {!! Form::text('sert_rok_8', $datas->sert_rok_8, ['style'=>'width:100%', 'placeholder'=>'rok važenja']) !!}
+                                        {!! Form::text('sert_rok_8', $datas->sert_rok_8==''?'':date('d.m.Y', strtotime($datas->sert_rok_8)), ['style'=>'width:100%', 'placeholder'=>'rok važenja']) !!}
                                     </div>
                                 </div>
 

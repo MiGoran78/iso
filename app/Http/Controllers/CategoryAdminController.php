@@ -9,11 +9,6 @@ use Illuminate\Support\Facades\File;
 
 class CategoryAdminController extends Controller
 {
-    /**
-     *
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function addCategory(Request $request) {
         $this->validate($request, [
             'title' => 'required',
@@ -42,11 +37,6 @@ class CategoryAdminController extends Controller
 
 
 
-    /**
-     *
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function editCategory(Request $request) {
         $this->validate($request, [
             'title' => 'required',

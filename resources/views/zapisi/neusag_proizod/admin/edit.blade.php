@@ -34,7 +34,7 @@
 
                             <div class="row">
                                 <div class="col-md-6" align="left">
-                                    Datum: {{ date('d-m-Y', strtotime($datas->datum)) }}
+                                    Datum: {{ date('d.m.Y', strtotime($datas->datum)) }}
                                 </div>
                                 <div class="col-md-6" align="right">
                                     Ref: {{ $datas->idRef }}
@@ -85,13 +85,13 @@
 
                             <div style="border-bottom: solid 1px #9d9d9d; padding-bottom:20px">
                                 <h4> Opis neusaglašenosti: <br></h4>
-                                {!! Form::textarea('opis', $datas->opis, ['class'=>'form-control', 'id'=>'txtOpis', 'rows'=>'3', 'placeholder'=>'...']) !!}
+                                {!! Form::textarea('opis', $datas->opis, ['class'=>'form-control', 'style'=>'resize: vertical', 'id'=>'txtOpis', 'rows'=>'3', 'placeholder'=>'...']) !!}
                                 {{--<hr style="border: dotted 1px cornflowerblue; margin-top:10px">--}}
                             </div>
 
                             <div>
                                 <h4> Uzrok neusaglašenosti: <br></h4>
-                                {!! Form::textarea('uzrok', $datas->uzrok, ['class'=>'form-control', 'id'=>'txtUzrok', 'rows'=>'3', 'placeholder'=>'...']) !!}
+                                {!! Form::textarea('uzrok', $datas->uzrok, ['class'=>'form-control', 'style'=>'resize: vertical', 'id'=>'txtUzrok', 'rows'=>'3', 'placeholder'=>'...']) !!}
                             </div>
 
                             <br>
@@ -105,11 +105,6 @@
             </div>
 
             <br>
-
-            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
             <div align="center">
                 <button type="button" data-toggle="modal" data-target="#delete" class="btn btn-danger">Obriši</button>
             </div>

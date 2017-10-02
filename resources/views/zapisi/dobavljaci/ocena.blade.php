@@ -33,7 +33,7 @@
                 </div>
 
                 <div class="panel-body">
-                    <ul id="tree1" style="padding: 20px; padding-top: 0px; padding-bottom: 0px;">
+                    <ul id="tree1" style="padding: 20px; padding-top: 0px; padding-bottom: 0px">
 
                         @if ($message = Session::get('success'))
                             <div class="alert alert-success alert-block">
@@ -77,6 +77,7 @@
                                             {!! Form::text('naziv', $datas->naziv, ['style'=>'width:50%', 'placeholder'=>'']) !!}
                                         </div>
                                     </div>
+                                </div>
                             </div>
 
                             <div style="; padding-top:15px">

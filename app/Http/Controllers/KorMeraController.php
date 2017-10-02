@@ -57,8 +57,8 @@ class KorMeraController extends Controller
     public function edit($id) {
         $datas = KorektivnaMera::findOrFail($id);
 
-        $datas['date_close'] = $datas['date_close']=='' ? '' : date('d-m-Y', strtotime($datas['date_close']));
-        $datas['date_deadline'] = $datas['date_deadline']=='' ? '' : date('d-m-Y', strtotime($datas['date_deadline']));
+        $datas['date_close'] = $datas['date_close']=='' ? '' : date('d.m.Y', strtotime($datas['date_close']));
+        $datas['date_deadline'] = $datas['date_deadline']=='' ? '' : date('d.m.Y', strtotime($datas['date_deadline']));
         return view('zapisi.korektivna_mera.admin.edit', compact('datas'));
     }
 
@@ -138,19 +138,18 @@ class KorMeraController extends Controller
         $datas['D6'] = empty($input['D6']) ? '' : $input['D6'];
         $datas['D7'] = empty($input['D7']) ? '' : $input['D7'];
         $datas['D8'] = empty($input['D8']) ? '' : $input['D8'];
-        $datas['Finish_d3'] = empty($input['Finish_d3']) ? '' : $input['Finish_d3'];
-        $datas['Finish_d4'] = empty($input['Finish_d4']) ? '' : $input['Finish_d4'];
-        $datas['Finish_d5'] = empty($input['Finish_d5']) ? '' : $input['Finish_d5'];
-        $datas['Finish_d6'] = empty($input['Finish_d6']) ? '' : $input['Finish_d6'];
-        $datas['Finish_d7'] = empty($input['Finish_d7']) ? '' : $input['Finish_d7'];
-        $datas['Finish_d8'] = empty($input['Finish_d8']) ? '' : $input['Finish_d8'];
-        $datas['Close_date'] = empty($input['Close_date']) ? '' : $input['Close_date'];
+        $datas['Finish_d3'] = empty($input['Finish_d3']) ? '' : date('Y-m-d', strtotime($input['Finish_d3']));
+        $datas['Finish_d4'] = empty($input['Finish_d4']) ? '' : date('Y-m-d', strtotime($input['Finish_d4']));
+        $datas['Finish_d5'] = empty($input['Finish_d5']) ? '' : date('Y-m-d', strtotime($input['Finish_d5']));
+        $datas['Finish_d6'] = empty($input['Finish_d6']) ? '' : date('Y-m-d', strtotime($input['Finish_d6']));
+        $datas['Finish_d7'] = empty($input['Finish_d7']) ? '' : date('Y-m-d', strtotime($input['Finish_d7']));
+        $datas['Finish_d8'] = empty($input['Finish_d8']) ? '' : date('Y-m-d', strtotime($input['Finish_d8']));
+        $datas['Close_date'] = empty($input['Close_date']) ? '' : date('Y-m-d', strtotime($input['Close_date']));
         $datas['Reported_by'] = empty($input['Reported_by']) ? '' : $input['Reported_by'];
 
         $datas->save();
         Session::flash('message','Zapis je snimljen');
-        return redirect('/zapisi');
+        return redirect('/neusaglasenost');
     }
 
 }
-

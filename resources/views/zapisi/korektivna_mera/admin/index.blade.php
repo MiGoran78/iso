@@ -6,7 +6,7 @@
         <table class="table" style="margin: 0px">
             <tr>
                 <td  class="col-md-1" align="right">
-                    <a href="/zapisi" class="btn btn-default" style="padding: 2px; padding-left: 8px; padding-right: 8px">Lista neusaglašenosti</a>
+                    <a href="/neusaglasenost" class="btn btn-default" style="padding: 2px; padding-left: 8px; padding-right: 8px">Lista neusaglašenosti</a>
                 </td>
 
                 <td  class="col-md-3" align="left">
@@ -49,9 +49,9 @@
                     <tr>
                         <td style="padding: 4px; text-align: center; padding-left: 10px"> {{$key+1}}</td>
                         <td style="padding: 4px; text-align: center"> <a href="{{route('zapisi.korektivna_mera.admin.edit', $data->id)}}">{{$data->idRef}}</a></td>
-                        <td style="padding: 4px; text-align: center; padding-left: 10px"> {{ date('d-m-Y', strtotime($data->date_open)) }}</td>
-                        <td style="padding: 4px; text-align: center"> {{ $data['date_deadline']=='' ? '' : date('d-m-Y', strtotime($data->date_deadline)) }}</td>
-                        <td style="padding: 4px; text-align: center"> {{ $data['date_close']=='' ? '' : date('d-m-Y', strtotime($data->date_close)) }}</td>
+                        <td style="padding: 4px; text-align: center; padding-left: 10px"> {{ date('d.m.Y', strtotime($data->date_open)) }}</td>
+                        <td style="padding: 4px; text-align: center"> {{ $data['date_deadline']=='' ? '' : date('d.m.Y', strtotime($data->date_deadline)) }}</td>
+                        <td style="padding: 4px; text-align: center"> {{ $data['date_close']=='' ? '' : date('d.m.Y', strtotime($data->date_close)) }}</td>
                         <td style="padding: 4px; text-align: center"> {{$data->vlasnik}}</td>
                         <td style="padding: 4px; text-align: center"> {{$data->kor_mera}}</td>
                         <td style="padding: 4px; text-align: center"> {{$data->preispitivano}}</td>

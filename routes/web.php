@@ -1,12 +1,13 @@
 <?php
 
-use App\Menu;
-
 Route::get('/',['uses'=>'CategoryController@manageCategory']);
 
-Route::get('category-tree-view',['uses'=>'CategoryController@manageCategory']);
+//Route::get('category-tree-view',['uses'=>'CategoryController@manageCategory']);
+Route::get('tree-view',['uses'=>'CategoryController@manageCategory']);
 Route::post('add-category',['as'=>'add.category','uses'=>'CategoryAdminController@addCategory']);
 Route::post('edit-category',['as'=>'edit.category','uses'=>'CategoryAdminController@editCategory']);
+
+
 
 Route::resource('admin', 'DocController',['names'=>[
     'index'  => 'admin.docs.index',
@@ -17,7 +18,7 @@ Route::resource('admin', 'DocController',['names'=>[
 
 
 
-Route::resource('zapisi', 'NeusagController',['names'=>[
+Route::resource('neusaglasenost', 'NeusagController',['names'=>[
     'index'  => 'zapisi.neusag_proizod.admin.index',
     'create' => 'zapisi.neusag_proizod.admin.create',
     'store'  => 'zapisi.neusag_proizod.admin.store',
@@ -55,4 +56,8 @@ Route::post('reklamacija_upd',['as'=>'reklamacija_upd','uses'=>'DobavljacControl
 //Route::get('/menu',function(){
 //    $categories = Menu::with('children')->where('parent_id','=',0)->get();
 //    return view('menu',['categories'=>$categories]);
+//});
+
+//Route::get('header',function () {
+//    return view('header');
 //});

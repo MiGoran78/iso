@@ -29,7 +29,7 @@ class NeusagController extends Controller {
         $input = $request->all();
         Neusag::create($input);
         Session::flash('message','Zapis je kreiran');
-        return redirect('/zapisi');
+        return redirect('/neusaglasenost');
     }
 
 
@@ -62,7 +62,7 @@ class NeusagController extends Controller {
 
         $datas->save();
         Session::flash('message','Zapis je snimljen');
-        return redirect('/zapisi');
+        return redirect('/neusaglasenost');
     }
 
 
@@ -71,6 +71,6 @@ class NeusagController extends Controller {
 
         $doc->delete();
         Session::flash('message','Zapis je obrisan');
-        return redirect('/zapisi');
+        return redirect('/neusaglasenost');
     }
 }

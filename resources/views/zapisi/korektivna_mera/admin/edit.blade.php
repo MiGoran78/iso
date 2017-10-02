@@ -6,7 +6,7 @@
         <table class="table" style="margin: 0px">
             <tr>
                 <td  class="col-md-1" align="right">
-                    <a href="/zapisi" class="btn btn-default" style="padding: 2px; padding-left: 8px; padding-right: 8px">Lista neusaglašenosti</a>
+                    <a href="/neusaglasenost" class="btn btn-default" style="padding: 2px; padding-left: 8px; padding-right: 8px">Lista neusaglašenosti</a>
                 </td>
 
                 <td  class="col-md-10" align="left">
@@ -42,7 +42,7 @@
 
                                 <div class="row">
                                     <div class="col-md-6" align="left">
-                                        Datum: {{ date('d-m-Y', strtotime($datas->date_open)) }}
+                                        Datum: {{ date('d.m.Y', strtotime($datas->date_open)) }}
                                     </div>
                                     <div class="col-md-6" align="right">
                                         Ref: {{ $datas->idRef }}
@@ -52,7 +52,7 @@
 
                                 <div>
                                     <h5>Korektivna mera:</h5>
-                                    {!! Form::textarea('kor_mera', $datas->kor_mera, ['class'=>'form-control', 'id'=>'txtKor_mera', 'rows'=>'3', 'placeholder'=>'...']) !!}
+                                    {!! Form::textarea('kor_mera', $datas->kor_mera, ['class'=>'form-control', 'style'=>'resize: vertical', 'id'=>'txtKor_mera', 'rows'=>'3', 'placeholder'=>'...']) !!}
                                     <br>
                                 </div>
                                 {{--{{ dd($datas) }}--}}
@@ -68,7 +68,7 @@
                                 </div>
                                 <div>
                                     <h5>Preispitivano:</h5>
-                                    {!! Form::textarea('preispitivano', $datas->preispitivano, ['class'=>'form-control', 'id'=>'txtPreispitivano', 'rows'=>'3', 'placeholder'=>'...']) !!}
+                                    {!! Form::textarea('preispitivano', $datas->preispitivano, ['class'=>'form-control', 'style'=>'resize: vertical', 'id'=>'txtPreispitivano', 'rows'=>'3', 'placeholder'=>'...']) !!}
                                     <br>
                                 </div>
                                 <div>
@@ -86,11 +86,6 @@
             </div>
 
             <br>
-
-            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
             <div align="center">
                 <button type="button" data-toggle="modal" data-target="#delete" class="btn btn-danger">Obriši</button>
             </div>
@@ -136,10 +131,6 @@
 
 
     {{-- DATE PICKER --}}
-    <link rel="stylesheet" href="/css/bootstrap-datepicker3.css"/>
-    <script type="text/javascript" src="/js/bootstrap-datepicker.min.js"></script>
-    <script type="text/javascript" src="/js/objDatePicker.js"></script>
-
     <script>
         objDatePicker("date_deadline");
         objDatePicker("date_close");

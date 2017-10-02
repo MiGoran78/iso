@@ -28,7 +28,7 @@
                             <table style="width:100%">
                                 <tr>
                                     <td style="width:20%; padding-bottom: 5px" >Concern title:</td>
-                                    <td style="width:35%; padding-bottom: 5px">{!! Form::textarea('Concern_title', $datas->Concern_title, ['rows'=>'1', 'style'=>'vertical-align: bottom;width:100%; border:none; border-bottom: solid gray 1px']) !!}</td>
+                                    <td style="width:35%; padding-bottom: 5px">{!! Form::textarea('Concern_title', $datas->Concern_title, ['rows'=>'1', 'style'=>'resize: vertical; vertical-align: bottom;width:100%; border:none; border-bottom: solid gray 1px']) !!}</td>
                                     <td style="width:5%; padding-bottom: 5px">&nbsp;</td>
                                     <td style="width:15%; padding-bottom: 5px" valign="bottom">Order No.:</td>
                                     <td style="width:25%; padding-bottom: 5px; margin:0px" valign="bottom">{!! Form::text('Order_no', $datas->Order_no, ['style'=>'width:100%; border:none; border-bottom: solid gray 1px']) !!}</td>
@@ -68,11 +68,11 @@
                                     <td style="width:36%; padding-bottom: 1px; border-bottom: solid gray 1px">Contact methods</td>
                                 </tr>
                                 <tr>
-                                    <td style="width:36%; padding-bottom: 1px">{!! Form::textarea('Names', $datas->Names, ['rows'=>'2', 'style'=>'width:100%; vertical-align: bottom; border:none; border-bottom: solid gray 1px']) !!}</td>
+                                    <td style="width:36%; padding-bottom: 1px">{!! Form::textarea('Names', $datas->Names, ['rows'=>'2', 'style'=>'resize: vertical; width:100%; vertical-align: bottom; border:none; border-bottom: solid gray 1px']) !!}</td>
                                     <td style="width:1%; padding-bottom: 1px">&nbsp;</td>
-                                    <td style="width:26%; padding-bottom: 1px">{!! Form::textarea('Departments', $datas->Departments, ['rows'=>'2', 'style'=>'width:100%; vertical-align: bottom; border:none; border-bottom: solid gray 1px']) !!}</td>
+                                    <td style="width:26%; padding-bottom: 1px">{!! Form::textarea('Departments', $datas->Departments, ['rows'=>'2', 'style'=>'resize: vertical; width:100%; vertical-align: bottom; border:none; border-bottom: solid gray 1px']) !!}</td>
                                     <td style="width:1%; padding-bottom: 1px">&nbsp;</td>
-                                    <td style="width:36%; padding-bottom: 1px">{!! Form::textarea('Contacts', $datas->Contacts, ['rows'=>'2', 'style'=>'width:100%; vertical-align: bottom; border:none; border-bottom: solid gray 1px']) !!}</td>
+                                    <td style="width:36%; padding-bottom: 1px">{!! Form::textarea('Contacts', $datas->Contacts, ['rows'=>'2', 'style'=>'resize: vertical; width:100%; vertical-align: bottom; border:none; border-bottom: solid gray 1px']) !!}</td>
                                 </tr>
                             </table>
                         </div>
@@ -87,7 +87,7 @@
                         </strong></div>
 
                         <div class="panel-body" style="padding-top: 2px; padding-bottom: 2px">
-                            {!! Form::textarea('D2', $datas->D2, ['rows'=>'2', 'style'=>'width:100%; vertical-align: bottom; border-color: white']) !!}
+                            {!! Form::textarea('D2', $datas->D2, ['rows'=>'2', 'style'=>'resize: vertical; width:100%; vertical-align: bottom; border-color: white']) !!}
                         </div>
                     </div>
                     {{--END PANEL--}}
@@ -103,12 +103,12 @@
                             <table>
                                 <tr>
                                     <td style="width:85%; padding-bottom: 1px">
-                                        {!! Form::textarea('D3', $datas->D3, ['rows'=>'2', 'style'=>'width:100%; vertical-align: bottom; border-color: white']) !!}
+                                        {!! Form::textarea('D3', $datas->D3, ['rows'=>'2', 'style'=>'resize: vertical; width:100%; vertical-align: bottom; border-color: white']) !!}
                                     </td>
                                     <td style="width:1%; padding-bottom: 1px">&nbsp;</td>
                                     <td style="width:250px ; padding-bottom: 1px">
                                         Finish Date
-                                        {!! Form::text('Finish_d3', $datas->Finish_d3, ['style'=>'width:100%; border:none; border-bottom: solid gray 1px']) !!}
+                                        {!! Form::text('Finish_d3', ($datas->Finish_d3==''?'':date('d.m.Y', strtotime($datas->Finish_d3))), ['style'=>'width:100%; border:none; border-bottom: solid gray 1px']) !!}
                                     </td>
                                 </tr>
                             </table>
@@ -127,12 +127,12 @@
                             <table>
                                 <tr>
                                     <td style="width:85%; padding-bottom: 1px">
-                                        {!! Form::textarea('D4', $datas->D4, ['rows'=>'2', 'style'=>'width:100%; vertical-align: bottom; border-color: white']) !!}
+                                        {!! Form::textarea('D4', $datas->D4, ['rows'=>'2', 'style'=>'resize: vertical; width:100%; vertical-align: bottom; border-color: white']) !!}
                                     </td>
                                     <td style="width:1%; padding-bottom: 1px">&nbsp;</td>
                                     <td style="width:250px ; padding-bottom: 1px">
                                         Finish Date
-                                        {!! Form::text('Finish_d4', $datas->Finish_d4, ['style'=>'width:100%; border:none; border-bottom: solid gray 1px']) !!}
+                                        {!! Form::text('Finish_d4', ($datas->Finish_d4==''?'':date('d.m.Y', strtotime($datas->Finish_d4))), ['style'=>'width:100%; border:none; border-bottom: solid gray 1px']) !!}
                                     </td>
                                 </tr>
                             </table>
@@ -151,12 +151,12 @@
                             <table>
                                 <tr>
                                     <td style="width:85%; padding-bottom: 1px">
-                                        {!! Form::textarea('D5', $datas->D5, ['rows'=>'2', 'style'=>'width:100%; vertical-align: bottom; border-color: white']) !!}
+                                        {!! Form::textarea('D5', $datas->D5, ['rows'=>'2', 'style'=>'resize: vertical; width:100%; vertical-align: bottom; border-color: white']) !!}
                                     </td>
                                     <td style="width:1%; padding-bottom: 1px">&nbsp;</td>
                                     <td style="width:250px ; padding-bottom: 1px">
                                         Finish Date
-                                        {!! Form::text('Finish_d5', $datas->Finish_d5, ['style'=>'width:100%; border:none; border-bottom: solid gray 1px']) !!}
+                                        {!! Form::text('Finish_d5', ($datas->Finish_d5==''?'':date('d.m.Y', strtotime($datas->Finish_d5))), ['style'=>'width:100%; border:none; border-bottom: solid gray 1px']) !!}
                                     </td>
                                 </tr>
                             </table>
@@ -175,12 +175,12 @@
                             <table>
                                 <tr>
                                     <td style="width:85%; padding-bottom: 1px">
-                                        {!! Form::textarea('D6', $datas->D6, ['rows'=>'2', 'style'=>'width:100%; vertical-align: bottom; border-color: white']) !!}
+                                        {!! Form::textarea('D6', $datas->D6, ['rows'=>'2', 'style'=>'resize: vertical; width:100%; vertical-align: bottom; border-color: white']) !!}
                                     </td>
                                     <td style="width:1%; padding-bottom: 1px">&nbsp;</td>
                                     <td style="width:250px ; padding-bottom: 1px">
                                         Finish Date
-                                        {!! Form::text('Finish_d6', $datas->Finish_d6, ['style'=>'width:100%; border:none; border-bottom: solid gray 1px']) !!}
+                                        {!! Form::text('Finish_d6', ($datas->Finish_d6==''?'':date('d.m.Y', strtotime($datas->Finish_d6))), ['style'=>'width:100%; border:none; border-bottom: solid gray 1px']) !!}
                                     </td>
                                 </tr>
                             </table>
@@ -199,12 +199,12 @@
                             <table>
                                 <tr>
                                     <td style="width:85%; padding-bottom: 1px">
-                                        {!! Form::textarea('D7', $datas->D7, ['rows'=>'2', 'style'=>'width:100%; vertical-align: bottom; border-color: white']) !!}
+                                        {!! Form::textarea('D7', $datas->D7, ['rows'=>'2', 'style'=>'resize: vertical; width:100%; vertical-align: bottom; border-color: white']) !!}
                                     </td>
                                     <td style="width:1%; padding-bottom: 1px">&nbsp;</td>
                                     <td style="width:250px ; padding-bottom: 1px">
                                         Finish Date
-                                        {!! Form::text('Finish_d7', $datas->Finish_d7, ['style'=>'width:100%; border:none; border-bottom: solid gray 1px']) !!}
+                                        {!! Form::text('Finish_d7', ($datas->Finish_d7==''?'':date('d.m.Y', strtotime($datas->Finish_d7))), ['style'=>'width:100%; border:none; border-bottom: solid gray 1px']) !!}
                                     </td>
                                 </tr>
                             </table>
@@ -223,12 +223,12 @@
                             <table>
                                 <tr>
                                     <td style="width:85%; padding-bottom: 1px">
-                                        {!! Form::textarea('D8', $datas->D8, ['rows'=>'2', 'style'=>'width:100%; vertical-align: bottom; border-color: white']) !!}
+                                        {!! Form::textarea('D8', $datas->D8, ['rows'=>'2', 'style'=>'resize: vertical; width:100%; vertical-align: bottom; border-color: white']) !!}
                                     </td>
                                     <td style="width:1%; padding-bottom: 1px">&nbsp;</td>
                                     <td style="width:250px ; padding-bottom: 1px">
                                         Finish Date
-                                        {!! Form::text('Finish_d8', $datas->Finish_d8, ['style'=>'width:100%; border:none; border-bottom: solid gray 1px']) !!}
+                                        {!! Form::text('Finish_d8', ($datas->Finish_d8==''?'':date('d.m.Y', strtotime($datas->Finish_d8))), ['style'=>'width:100%; border:none; border-bottom: solid gray 1px']) !!}
                                     </td>
                                 </tr>
                             </table>
@@ -241,11 +241,11 @@
                         <table align="center">
                             <tr>
                                 <td style="width: 40% ">
-                                    Close date: {!! Form::text('Close_date', $datas->Close_date, ['style'=>'; border-style:none; border-bottom:solid 1px']) !!}
+                                    Close date: {!! Form::text('Close_date', ($datas->Close_date==''?'':date('d.m.Y', strtotime($datas->Close_date)))  , ['style'=>'border-style:none; border-bottom:solid 1px; text-align:center']) !!}
                                 </td>
                                 <td style="width: 20%">&nbsp;</td>
                                 <td style="width: 40%">
-                                    Reported By: {!! Form::text('Reported_by', $datas->Reported_by, ['style'=>'; border:none; border-style:none; border-bottom:solid 1px']) !!}
+                                    Reported By: {!! Form::text('Reported_by', $datas->Reported_by, ['style'=>'border:none; border-style:none; border-bottom:solid 1px; text-align:center']) !!}
                                 </td>
                             </tr>
                         </table>
@@ -257,8 +257,20 @@
                     </div>
             {!! Form::close() !!}
 
-
         </div>
     </div>
+
+
+    {{-- DATE PICKER --}}
+    <script>
+        objDatePicker("Finish_d3");
+        objDatePicker("Finish_d4");
+        objDatePicker("Finish_d5");
+        objDatePicker("Finish_d6");
+        objDatePicker("Finish_d7");
+        objDatePicker("Finish_d8");
+        objDatePicker("Close_date");
+    </script>
+    {{-- END DATE PICKER --}}
 
 @stop
