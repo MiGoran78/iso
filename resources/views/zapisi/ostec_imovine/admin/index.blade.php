@@ -9,9 +9,7 @@
                 </td>
 
                 <td  class="col-md-8" align="right">
-                    {!! Form::open(['method'=>'POST', 'action'=> ['OstecenjeImovineController@create']]) !!}
-                        {{--{!! Form::hidden('id', $id) !!}--}}
-                        {{--{!! Form::hidden('idRef', $idRef) !!}--}}
+                    {!! Form::open(['method'=>'GET', 'action'=> ['OstecenjeImovineController@create']]) !!}
                         {!! Form::submit('NOVO', ['class'=>'btn btn-default', 'style'=>'background:#eeeeee']) !!}
                     {!! Form::close() !!}
                 </td>
@@ -40,7 +38,7 @@
                 @foreach($datas as $key=>$data)
                     <tr>
                         <td style="padding: 4px; text-align: center; padding-left: 10px"> {{$key+1}}</td>
-                        <td style="padding: 4px; text-align: center"> <a href="{{route('zapisi.korektivna_mera.admin.edit', $data->id)}}">{{$data->idRef}}</a></td>
+                        <td style="padding: 4px; text-align: center"> <a href="{{route('zapisi.ostec_imovine.admin.edit', $data->id)}}">{{$data->idRef}}</a></td>
                         {{--<td style="padding: 4px; text-align: center; padding-left: 10px"> {{ date('d.m.Y', strtotime($data->date_open)) }}</td>--}}
                         {{--<td style="padding: 4px; text-align: center"> {{ $data['date_deadline']=='' ? '' : date('d.m.Y', strtotime($data->date_deadline)) }}</td>--}}
                         {{--<td style="padding: 4px; text-align: center"> {{ $data['date_close']=='' ? '' : date('d.m.Y', strtotime($data->date_close)) }}</td>--}}

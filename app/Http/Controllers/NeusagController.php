@@ -19,7 +19,7 @@ class NeusagController extends Controller {
 
 
     public function create() {
-        $datum = date("Y-m-d");
+        $datum = date("d.m.Y");
         $ref = date("ymdhms");
         return view('zapisi.neusag_proizod.admin.create', compact('','datum','ref'));
     }
