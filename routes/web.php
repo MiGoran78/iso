@@ -61,3 +61,11 @@ Route::post('reklamacija_upd',['as'=>'reklamacija_upd','uses'=>'DobavljacControl
 //Route::get('header',function () {
 //    return view('header');
 //});
+
+
+
+Route::resource('ostecenje_imovine', 'OstecenjeImovineController',['names'=>[
+    'index'         => 'zapisi.ostec_imovine.admin.index',
+    'create'        => 'zapisi.ostec_imovine.admin.create',
+    'edit'          => 'zapisi.ostec_imovine.admin.edit',
+]]);

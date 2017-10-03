@@ -5,7 +5,14 @@ use Illuminate\Database\Eloquent\Model;
 
 
 class OstecenjeImovine extends Model {
+
+    protected $table = 'ostecenjeimovines';
     public $fillable = ['id','idRef'];
+
+//    public function childs() {
+////        return $this->hasMany('App\OstecenjeImovine','idRef','id');
+//        return $this->hasMany('App\OstecenjeImovine',null,'id','idRef');
+//    }
 }
 
 

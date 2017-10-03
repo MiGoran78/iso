@@ -32,4 +32,3 @@ class CreateOstecenjeimovinesTable extends Migration {
         Schema::drop("ostecenjeimovines");
     }
 }
-
