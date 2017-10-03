@@ -1,16 +1,20 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\OstecenjeImovine;
 use Illuminate\Http\Request;
 
 
 class OstecenjeImovineController extends Controller {
 
     public function index() {
+        $datas = OstecenjeImovine::all();
+        return view('zapisi.ostec_imovine.admin.index', compact('datas'));
     }
 
 
     public function create() {
+//        return view('zapisi.ostec_imovine.admin.create');
     }
 
 
@@ -32,4 +36,5 @@ class OstecenjeImovineController extends Controller {
 
     public function destroy($id) {
     }
+
 }
