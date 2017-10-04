@@ -17,7 +17,7 @@
         <div class="col-md-9" style="margin: 0px; padding: 0px">
             <div class="panel panel-primary" style="margin-bottom: 0px">
 
-                <div class="panel-heading" style="padding-bottom: 4px; padding-top: 4px">
+                <div class="panel-heading" style="padding-bottom: 0px; padding-top: 0px">
                     <div class="row">
                         <div class="col-md-4" style="padding-top: 3px">
                             <b>Ocena dobavljača</b>
@@ -57,7 +57,7 @@
                                 </div>
                             </div>
 
-                            <div style="border-bottom: solid 1px #9d9d9d; padding-bottom:12px">
+                            <div>
                                 <div class="row" style="padding-bottom: 2px">
                                     <div class="col-md-2" style="padding-top: 3px">
                                         Rok važenja
@@ -67,15 +67,15 @@
                                         &nbsp;meseci
                                     </div>
                                 </div>
+                            </div>
 
-                                <div style="border-bottom: solid 1px #9d9d9d; padding-bottom:12px; padding-top:5px">
-                                    <div class="row" style="padding-bottom: 2px">
-                                        <div class="col-md-2" style="padding-top: 3px">
-                                            Naziv
-                                        </div>
-                                        <div class="col-md-10" >
-                                            {!! Form::text('naziv', $datas->naziv, ['style'=>'width:50%', 'placeholder'=>'']) !!}
-                                        </div>
+                            <div style="border-bottom: solid 1px #9d9d9d; padding-bottom:12px; padding-top:5px">
+                                <div class="row" style="padding-bottom: 2px">
+                                    <div class="col-md-2" style="padding-top: 3px">
+                                        Naziv
+                                    </div>
+                                    <div class="col-md-10" >
+                                        {!! Form::text('naziv', $datas->naziv, ['style'=>'width:50%', 'placeholder'=>'']) !!}
                                     </div>
                                 </div>
                             </div>
@@ -228,10 +228,6 @@
 
 
     {{-- DATE PICKER --}}
-    <link rel="stylesheet" href="/css/bootstrap-datepicker3.css"/>
-    <script type="text/javascript" src="/js/bootstrap-datepicker.min.js"></script>
-    <script type="text/javascript" src="/js/objDatePicker.js"></script>
-
     <script>
         objDatePicker("datum");
     </script>

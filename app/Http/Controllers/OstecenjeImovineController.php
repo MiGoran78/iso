@@ -14,7 +14,7 @@ class OstecenjeImovineController extends Controller {
 
 
     public function create() {
-//        return view('zapisi.ostec_imovine.admin.create');
+        return view('zapisi.ostec_imovine.admin.create');
     }
 
 
@@ -27,6 +27,7 @@ class OstecenjeImovineController extends Controller {
 
 
     public function edit($id) {
+        return view('zapisi.ostec_imovine.admin.edit');
     }
 
 
