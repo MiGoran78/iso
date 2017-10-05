@@ -43,7 +43,7 @@ Route::resource('dobavljaci', 'DobavljacController',['names'=>[
     'lista'         => 'zapisi.dobavljaci.lista',
     'index'         => 'zapisi.dobavljaci.id_list.index',
     'create'        => 'zapisi.dobavljaci.id_list.create',
-    'store'          => 'zapisi.dobavljaci.id_list.store',
+    'store'         => 'zapisi.dobavljaci.id_list.store',
     'edit'          => 'zapisi.dobavljaci.id_list.edit',
 ]]);
 

@@ -11,17 +11,17 @@ class CreateOstecenjeimovinesTable extends Migration {
             $table->increments('id');
             $table->string('idRef');
 
-            $table->string('narucilac');
-            $table->string('primalac');
+            $table->string('narucilac')->default('');
+            $table->string('primalac')->default('');
             $table->string('datum_prijema')->default('');
-            $table->string('Naziv');
-            $table->string('rn');
-            $table->string('stanje');
-            $table->string('uzrok');
+            $table->string('naziv')->default('');
+            $table->string('rn')->default('');
+            $table->string('stanje')->default('');
+            $table->string('uzrok')->default('');
             $table->string('uzrok_datum')->default('');
-            $table->string('nacin_obav');
+            $table->string('nacin_obav')->default('');
             $table->string('nacin_obav_datum')->default('');
-            $table->string('nacin_resavanja');
+            $table->string('nacin_resavanja')->default('');
             $table->string('nacin_resavanja_datum')->default('');
             $table->timestamps();
         });

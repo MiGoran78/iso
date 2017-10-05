@@ -70,14 +70,14 @@
 
                             <td style="padding: 4px; text-align: center">
                                 {!! Form::open(['method'=>'POST', 'action'=> ['DobavljacController@reklamacija']]) !!}
-                                <div class="">
-                                    {!! Form::hidden('idRef', $data->idRef) !!}
-                                    @if (count($reklamacija->where('idRef','=',$data->idRef)) == 0)
-                                        {!! Form::submit('Reklamacija', ['class'=>'btn btn-default',  'style'=>'height:22px; padding-top: 0px; padding-bottom: 0px; padding-left: 5px; padding-right: 6px']) !!}
-                                    @else
-                                        {!! Form::submit('Reklamacija', ['class'=>'btn btn-danger',  'style'=>'height:22px; padding-top: 0px; padding-bottom: 0px; padding-left: 5px; padding-right: 6px']) !!}
-                                    @endif
-                                </div>
+                                    <div class="">
+                                        {!! Form::hidden('idRef', $data->idRef) !!}
+                                        @if (count($reklamacija->where('idRef','=',$data->idRef)) == 0)
+                                            {!! Form::submit('Reklamacija', ['class'=>'btn btn-default',  'style'=>'height:22px; padding-top: 0px; padding-bottom: 0px; padding-left: 5px; padding-right: 6px']) !!}
+                                        @else
+                                            {!! Form::submit('Reklamacija', ['class'=>'btn btn-danger',  'style'=>'height:22px; padding-top: 0px; padding-bottom: 0px; padding-left: 5px; padding-right: 6px']) !!}
+                                        @endif
+                                    </div>
                                 {!! Form::close() !!}
                             </td>
 
