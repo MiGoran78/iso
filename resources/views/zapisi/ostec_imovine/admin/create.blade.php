@@ -10,7 +10,7 @@
                 </div>
 
                 <div class="panel-body">
-                    <ul id="tree1" style="padding: 20px; padding-top: 0px; padding-bottom: 0px">
+                    <div id="tree1" style="padding: 20px; padding-top: 0px; padding-bottom: 0px">
 
                         @if ($message = Session::get('success'))
                             <div class="alert alert-success alert-block">
@@ -55,7 +55,8 @@
                                         Primalac
                                     </div>
                                     <div class="col-md-4" style="padding-left: 0px; padding-top: 2px">
-                                        {!! Form::select('primalac', ['1'=>'1', '2'=>'2', '3'=>'3', '4'=>'4', '5'=>'5', '6'=>'6'], '', ['class'=>'form-control',  'placeholder'=>'Izaberi', 'style'=>'height:26px; padding: 0px 6px;']) !!}
+                                        {!! Form::text('primalac', '', ['style'=>'width:100%', 'placeholder'=>'']) !!}
+{{--                                        {!! Form::select('primalac', ['1'=>'1', '2'=>'2', '3'=>'3', '4'=>'4', '5'=>'5', '6'=>'6'], '', ['class'=>'form-control',  'placeholder'=>'Izaberi', 'style'=>'height:26px; padding: 0px 6px;']) !!}--}}
                                     </div>
                                     <div class="col-md-6">
                                     </div>
@@ -64,13 +65,13 @@
 
 
 
-                            <div style="padding-bottom: 5px; padding-top: 10px">
+                            <div style="padding-bottom: 5px; padding-top: 12px">
                                 <div class="row" style="">
                                     <div class="col-md-2" style="margin-top: 3px">
                                         Naziv imovine
                                     </div>
                                     <div class="col-md-4" style="padding-left: 0px">
-                                        {!! Form::text('naziv_imovine', '', ['style'=>'width:100%', 'placeholder'=>'']) !!}
+                                        {!! Form::text('naziv', '', ['style'=>'width:100%', 'placeholder'=>'']) !!}
                                     </div>
                                     <div class="col-md-6">
                                     </div>
@@ -83,90 +84,101 @@
                                         Radni nalog
                                     </div>
                                     <div class="col-md-4" style="padding-left: 0px">
-                                        {!! Form::text('radni_nalog', '', ['style'=>'width:100%', 'placeholder'=>'']) !!}
+                                        {!! Form::text('rn', '', ['style'=>'width:100%', 'placeholder'=>'']) !!}
                                     </div>
                                     <div class="col-md-6">
                                     </div>
                                 </div>
                             </div>
 
+                            <div style="padding-top:15px; padding-bottom: 12px; border-bottom: solid 1px #9d9d9d">
+                                <div class="row" style="padding-bottom: 2px">
+                                    <div class="col-md-2" style="margin-top: 3px">
+                                        Stanje imovine
+                                    </div>
+                                    <div class="col-md-2" align="center">
+                                        {!! Form::radio('stanje', 'otvorena', '' , ['style'=>'width: 20px']) !!}
+                                        oštećenje
+                                    </div>
+                                    <div class="col-md-2">
+                                        {!! Form::radio('stanje', 'zatvorena', '', ['style'=>'width: 20px']) !!}
+                                        gubitak
+                                    </div>
+                                    <div class="col-md-2">
+                                        {!! Form::radio('stanje', 'otvorena', '' , ['style'=>'width: 20px']) !!}
+                                        neupotrebljivo
+                                    </div>
+                                    <div class="col-md-4">
+                                        {!! Form::radio('stanje', 'zatvorena', '', ['style'=>'width: 20px']) !!}
+                                        mora se dorađiati
+                                    </div>
+                                </div>
+                            </div>
 
 
-                            {{--<div>--}}
-                                {{--<div class="row" style="padding-bottom: 2px">--}}
-                                    {{--<div class="col-md-2" style="padding-top: 3px">--}}
-                                        {{--Rok važenja--}}
-                                    {{--</div>--}}
-                                    {{--<div class="col-md-10" >--}}
-                                        {{--{!! Form::text('rok_vazenja', $datas->rok_vazenja, ['style'=>'width:40px; text-align: center', 'placeholder'=>'']) !!}--}}
-                                        {{--&nbsp;meseci--}}
-                                    {{--</div>--}}
-                                {{--</div>--}}
-                            {{--</div>--}}
+                            <div style="padding-top:10px; padding-bottom: 12px; border-bottom: solid 1px #9d9d9d">
+                                <div class="row" style="">
+                                    <div class="col-md-12" style="margin-top: 3px">
+                                        Uzrok promene stanja imovine naručioca
+                                    </div>
+                                    <div class="col-md-12" style="padding-top: 5px">
+                                        {!! Form::textarea('uzrok', '', ['style'=>'resize: vertical; width:100%', 'rows'=>'3', 'placeholder'=>'...']) !!}
+                                    </div>
 
-                            {{--<div style="border-bottom: solid 1px #9d9d9d; padding-bottom:12px; padding-top:5px">--}}
-                                {{--<div class="row" style="padding-bottom: 2px">--}}
-                                    {{--<div class="col-md-2" style="padding-top: 3px">--}}
-                                        {{--Naziv--}}
-                                    {{--</div>--}}
-                                    {{--<div class="col-md-10" >--}}
-                                        {{--{!! Form::text('naziv', $datas->naziv, ['style'=>'width:50%', 'placeholder'=>'']) !!}--}}
-                                    {{--</div>--}}
-                                {{--</div>--}}
-                            {{--</div>--}}
+                                    <div class="col-md-3" style="margin-top: 3px">
+                                        Datum utvrđivanja
+                                    </div>
+                                    <div class="col-md-9" style="padding-left: 0px; margin-top: 3px">
+                                        {!! Form::text('uzrok_datum', '', ['style'=>'width:100px; text-align: center', 'placeholder'=>'']) !!}
+                                    </div>
+                                </div>
+                            </div>
 
 
-                            {{--<div style="; padding-top:15px">--}}
-                                {{--<div class="col-md-3" style="padding-left: 0px; padding-top: 0px">--}}
-                                    {{--Poslednja reklamacija--}}
-                                {{--</div>--}}
-                                {{--<div class="col-md-2" align="center">--}}
-                                    {{--{!! Form::radio('status', 'otvorena', ($datas->status=='otvorena' ? true:false) , ['style'=>'width: 20px']) !!}--}}
-                                    {{--{!! Form::label('otvorena', '', ['style'=>'font-weight: normal']) !!}--}}
-                                {{--</div>--}}
-                                {{--<div class="col-md-7">--}}
-                                    {{--{!! Form::radio('status', 'zatvorena', ($datas->status=='zatvorena' ? true:false), ['style'=>'width: 20px']) !!}--}}
-                                    {{--{!! Form::label('zatvorena', '', ['style'=>'font-weight: normal']) !!}--}}
-                                {{--</div>--}}
-                            {{--</div>--}}
+                            <div style="padding-top:10px; padding-bottom: 12px; border-bottom: solid 1px #9d9d9d">
+                                <div class="row" style="">
+                                    <div class="col-md-12" style="margin-top: 3px">
+                                        Način obaveštavanja naručioca o postojećem stanju
+                                    </div>
+                                    <div class="col-md-12" style="padding-top: 5px">
+                                        {!! Form::textarea('nacin_obav', '', ['style'=>'resize: vertical; width:100%', 'rows'=>'3', 'placeholder'=>'...']) !!}
+                                    </div>
+
+                                    <div class="col-md-3" style="margin-top: 3px">
+                                        Datum obaveštavanja
+                                    </div>
+                                    <div class="col-md-9" style="padding-left: 0px; margin-top: 3px">
+                                        {!! Form::text('nacin_obav_datum', '', ['style'=>'width:100px; text-align: center', 'placeholder'=>'']) !!}
+                                    </div>
+                                </div>
+                            </div>
 
 
-                            {{--<div style="border-bottom: solid 1px #9d9d9d; padding-bottom:10px">--}}
-                                {{--<div class="row">--}}
-                                    {{--<div class="col-md-12">--}}
-                                        {{--{!! Form::textarea('opis', $datas->opis, ['style'=>'resize: vertical; width:100%', 'rows'=>'3', 'placeholder'=>'...']) !!}--}}
-                                    {{--</div>--}}
-                                {{--</div>--}}
-                            {{--</div>--}}
+                            <div style="padding-top:10px; padding-bottom: 12px; border-bottom: solid 1px #9d9d9d">
+                                <div class="row" style="">
+                                    <div class="col-md-12" style="margin-top: 3px">
+                                        Način rešavanja problema postojećeg stanja imovine naručioca
+                                    </div>
+                                    <div class="col-md-12" style="padding-top: 5px">
+                                        {!! Form::textarea('nacin_resavanja', '', ['style'=>'resize: vertical; width:100%', 'rows'=>'3', 'placeholder'=>'...']) !!}
+                                    </div>
+
+                                    <div class="col-md-3" style="margin-top: 3px">
+                                        Datum rešavanja problema
+                                    </div>
+                                    <div class="col-md-9" style="padding-left: 0px; margin-top: 3px">
+                                        {!! Form::text('nacin_resavanja_datum', '', ['style'=>'width:100px; text-align: center', 'placeholder'=>'']) !!}
+                                    </div>
+                                </div>
+                            </div>
 
 
-                            {{--<div style="margin-bottom: 5px; padding-top:10px">--}}
-                                {{--<div class="row" style="padding-bottom: 2px; height: auto">--}}
-                                    {{--<div class="col-md-1" style="padding-right: 0px">--}}
-                                        {{--<label style="text-align: center; color: white; background: red; border-radius: 20%; width:25px; height:25px; padding-top: 1px">Q</label>--}}
-                                    {{--</div>--}}
-                                    {{--<div class="col-md-3" style="padding-left: 0px; padding-top: 2px">--}}
-                                        {{--Kvalitet--}}
-                                    {{--</div>--}}
-                                    {{--<div class="col-md-2" style="padding-left: 0px; padding-top: 2px">--}}
-                                        {{--{!! Form::select('q', ['1'=>'1', '2'=>'2', '3'=>'3', '4'=>'4', '5'=>'5', '6'=>'6', '7'=>'7', '8'=>'8'], $datas->q, ['class'=>'form-control', 'id'=>'q', 'placeholder'=>'Izaberi', 'style'=>'height:26px; padding: 0px 6px;']) !!}--}}
-                                    {{--</div>--}}
-                                    {{--<div class="col-md-6" style="font-size: 9pt">--}}
-                                        {{--Na svaku žalbu KK ili proizvodnje smanjuje se za dve ocene. <br>--}}
-                                        {{--Tri dobre isporuke može vratiti ocenu za 1--}}
-                                    {{--</div>--}}
-                                {{--</div>--}}
-                            {{--</div>--}}
-
-
-                            {{--<div class="form-group" align="center">--}}
-                                {{--<br>--}}
-                                {{--<button id="btnDodaj" class="btn btn-success">Dodaj</button>--}}
-                            {{--</div>--}}
-
+                            <div class="form-group" align="center">
+                                <br>
+                                <button id="btnDodaj" class="btn btn-success">Dodaj</button>
+                            </div>
                         {!! Form::close() !!}
-
-                    </ul>
+                    </div>
                 </div>
             </div>
         </div>
@@ -176,9 +188,11 @@
 
 
     {{-- DATE PICKER --}}
-
     <script>
         objDatePicker("datum_prijema");
+        objDatePicker("uzrok_datum");
+        objDatePicker("nacin_obav_datum");
+        objDatePicker("nacin_resavanja_datum");
     </script>
     {{-- END DATE PICKER --}}
 
