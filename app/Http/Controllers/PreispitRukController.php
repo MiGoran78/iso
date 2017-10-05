@@ -1,84 +1,49 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\PreispitRuk;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
-class PreispitRukController extends Controller
-{
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
+
+class PreispitRukController extends Controller {
+
+    public function index() {
+        $datas = PreispitRuk::all();
+        return view('zapisi.preispit_rukov.admin.index', compact('datas'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
+
+    public function create() {
+        return view('zapisi.preispit_rukov.admin.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
+
+    public function store(Request $request) {
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
+
+    public function show($id) {
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
+
+    public function edit($id) {
+        $datas = PreispitRuk::findOrFail($id);
+        $datas[''] = $datas['']=='' ? '' : date('d.m.Y', strtotime($datas['']));
+
+        return view('zapisi.preispit_rukov.admin.edit', compact('datas'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
+
+    public function update(Request $request, $id) {
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
+
+    public function destroy($id) {
+        $input = PreispitRuk::findOrFail($id);
+        $input->delete();
+
+        Session::flash('message','Zapis je obrisan');
+        return redirect('/preispit_rukov');
     }
 }

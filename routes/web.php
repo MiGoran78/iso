@@ -69,3 +69,10 @@ Route::resource('ostecenje_imovine', 'OstecenjeImovineController',['names'=>[
     'create'        => 'zapisi.ostec_imovine.admin.create',
     'edit'          => 'zapisi.ostec_imovine.admin.edit',
 ]]);
+
+
+Route::resource('preispit_rukov', 'PreispitRukController',['names'=>[
+    'index'         => 'zapisi.preispit_rukov.admin.index',
+    'create'        => 'zapisi.preispit_rukov.admin.create',
+    'edit'          => 'zapisi.preispit_rukov.admin.edit',
+]]);
