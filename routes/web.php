@@ -43,7 +43,7 @@ Route::resource('dobavljaci', 'DobavljacController',['names'=>[
     'lista'         => 'zapisi.dobavljaci.lista',
     'index'         => 'zapisi.dobavljaci.id_list.index',
     'create'        => 'zapisi.dobavljaci.id_list.create',
-    'store'          => 'zapisi.dobavljaci.id_list.store',
+    'store'         => 'zapisi.dobavljaci.id_list.store',
     'edit'          => 'zapisi.dobavljaci.id_list.edit',
 ]]);
 
@@ -68,4 +68,11 @@ Route::resource('ostecenje_imovine', 'OstecenjeImovineController',['names'=>[
     'index'         => 'zapisi.ostec_imovine.admin.index',
     'create'        => 'zapisi.ostec_imovine.admin.create',
     'edit'          => 'zapisi.ostec_imovine.admin.edit',
+]]);
+
+
+Route::resource('preispit_rukov', 'PreispitRukController',['names'=>[
+    'index'         => 'zapisi.preispit_rukov.admin.index',
+    'create'        => 'zapisi.preispit_rukov.admin.create',
+    'edit'          => 'zapisi.preispit_rukov.admin.edit',
 ]]);

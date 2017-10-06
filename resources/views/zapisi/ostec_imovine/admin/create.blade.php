@@ -6,7 +6,7 @@
         <div class="col-md-9" style="margin: 0px; padding: 0px; padding-top: 15px">
             <div class="panel panel-primary" style="margin-bottom: 0px">
                 <div class="panel-heading" style="padding-bottom: 4px; padding-top: 4px">
-                    <b>Oštećenje i gubutak imovine narućioca</b>
+                    <b>Oštećenje i gubutak imovine narućioca</b>&nbsp;&nbsp;[Nov zapis]
                 </div>
 
                 <div class="panel-body">
@@ -19,7 +19,7 @@
                             </div>
                         @endif
 
-                        {!! Form::open(['method'=>'POST', 'action'=> ['DobavljacController@ocena_upd']]) !!}
+                        {!! Form::open(['method'=>'POST', 'action'=> ['OstecenjeImovineController@store']]) !!}
                             {{--{!! Form::hidden('id', $datas->id) !!}--}}
                             {!! Form::hidden('idRef', date("ymdhms")) !!}
 
@@ -97,19 +97,19 @@
                                         Stanje imovine
                                     </div>
                                     <div class="col-md-2" align="center">
-                                        {!! Form::radio('stanje', 'otvorena', '' , ['style'=>'width: 20px']) !!}
+                                        {!! Form::radio('stanje', '1', '' , ['style'=>'width: 20px']) !!}
                                         oštećenje
                                     </div>
                                     <div class="col-md-2">
-                                        {!! Form::radio('stanje', 'zatvorena', '', ['style'=>'width: 20px']) !!}
+                                        {!! Form::radio('stanje', '2', '', ['style'=>'width: 20px']) !!}
                                         gubitak
                                     </div>
                                     <div class="col-md-2">
-                                        {!! Form::radio('stanje', 'otvorena', '' , ['style'=>'width: 20px']) !!}
+                                        {!! Form::radio('stanje', '3', '' , ['style'=>'width: 20px']) !!}
                                         neupotrebljivo
                                     </div>
                                     <div class="col-md-4">
-                                        {!! Form::radio('stanje', 'zatvorena', '', ['style'=>'width: 20px']) !!}
+                                        {!! Form::radio('stanje', '4', '', ['style'=>'width: 20px']) !!}
                                         mora se dorađiati
                                     </div>
                                 </div>
