@@ -39,7 +39,10 @@
                 @foreach($datas as $key=>$data)
                     <tr>
                         <td style="padding: 4px; text-align: center; padding-left: 10px"> {{$key+1}}</td>
-                        <td style="padding: 4px; text-align: center"> <a href="{{route('zapisi.ostec_imovine.admin.edit', $data->id)}}">{{$data->idRef}}</a></td>
+                        <td style="padding: 4px; text-align: center">
+                            <a class="btn btn-default" style="width: 150px; height:22px; padding-top: 0px; padding-bottom: 0px; padding-left: 5px; padding-right: 6px"
+                               href="{{route('zapisi.ostec_imovine.admin.edit', $data->id)}}">{{$data->idRef}}</a>
+                        </td>
                         <td style="padding: 4px; text-align: center"> {{ $data->narucilac }}</td>
                         <td style="padding: 4px; text-align: center"> {{ $data->primalac }}</td>
                         <td style="padding: 4px; text-align: center"> {{ $data['datum_prijema']=='' ? '' : date('d.m.Y', strtotime($data->datum_prijema)) }}</td>

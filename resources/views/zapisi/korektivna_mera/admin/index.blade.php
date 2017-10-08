@@ -48,7 +48,10 @@
                 @foreach($datas as $key=>$data)
                     <tr>
                         <td style="padding: 4px; text-align: center; padding-left: 10px"> {{$key+1}}</td>
-                        <td style="padding: 4px; text-align: center"> <a href="{{route('zapisi.korektivna_mera.admin.edit', $data->id)}}">{{$data->idRef}}</a></td>
+                        <td style="padding: 4px; text-align: center">
+                            <a class="btn btn-default" style="width: 150px; height:22px; padding-top: 0px; padding-bottom: 0px; padding-left: 5px; padding-right: 6px"
+                               href="{{route('zapisi.korektivna_mera.admin.edit', $data->id)}}">{{$data->idRef}}</a>
+                        </td>
                         <td style="padding: 4px; text-align: center; padding-left: 10px"> {{ date('d.m.Y', strtotime($data->date_open)) }}</td>
                         <td style="padding: 4px; text-align: center"> {{ $data['date_deadline']=='' ? '' : date('d.m.Y', strtotime($data->date_deadline)) }}</td>
                         <td style="padding: 4px; text-align: center"> {{ $data['date_close']=='' ? '' : date('d.m.Y', strtotime($data->date_close)) }}</td>

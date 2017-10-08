@@ -39,7 +39,10 @@
                     @foreach($datas as $key=>$data)
                         <tr>
                             <td style="padding: 4px; text-align: center; padding-left: 10px"> {{$key+1}}</td>
-                            <td style="padding: 4px; text-align: center"> <a href="{{route('zapisi.dobavljaci.id_list.edit', $data->id)}}">{{$data->dobavljac}}</a></td>
+                            <td style="padding: 4px; text-align: center">
+                                <a class="btn btn-default" style="width: 150px; height:22px; padding-top: 0px; padding-bottom: 0px; padding-left: 5px; padding-right: 6px"
+                                   href="{{route('zapisi.dobavljaci.id_list.edit', $data->id)}}">{{$data->dobavljac}}</a>
+                            </td>
                             <td style="padding: 4px; text-align: center"> {{$data->dobavljac_tip }}</td>
                             <td style="padding: 4px; text-align: center">
                                 {!! Form::open(['method'=>'POST', 'action'=> ['DobavljacController@ocena']]) !!}

@@ -38,7 +38,10 @@
                         @foreach($datas as $key=>$data)
                             <tr>
                                 <td style="padding: 4px; text-align: center; padding-left: 10px"> {{$key+1}}</td>
-                                <td style="padding: 4px; text-align: center"> <a href="{{route('zapisi.neusag_proizod.admin.edit', $data->id)}}">{{$data->idRef}}</a></td>
+                                <td style="padding: 4px; text-align: center">
+                                    <a class="btn btn-default" style="width: 150px; height:22px; padding-top: 0px; padding-bottom: 0px; padding-left: 5px; padding-right: 6px"
+                                       href="{{route('zapisi.neusag_proizod.admin.edit', $data->id)}}">{{$data->idRef}}</a>
+                                </td>
                                 <td style="padding: 4px; text-align: center; padding-left: 10px"> {{ date('d.m.Y', strtotime($data->datum)) }}</td>
                                 <td style="padding: 4px; text-align: center"> {{($data->kupac_poreklo ? 'Kupac':'')   .   ($data->provera_poreklo ? 'Provera':'')   .   ($data->proces_poreklo ? 'Proces':'') }}</td>
                                 <td style="padding: 4px; text-align: center"> {{$data->neusag_std1 . $data->neusag_std2 . $data->neusag_std3 . $data->neusag_std4 }}</td>
