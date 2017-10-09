@@ -1,17 +1,28 @@
 @extends('zapisi.ostec_imovine.main')
 @section('content')
 
-    <div class="container" style="font-family: 'Verdana'; margin: 0px; margin-right: 20px; padding: 5px; width: auto; height:100%" >
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    {{--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>--}}
+    {{--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>--}}
+    {{--<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo">0</button>--}}
+    {{--<div id="demo" class="collapse">--}}
+    {{--</div>--}}
 
+
+    <div class="container" style="font-family: 'Verdana'; margin: 0px; margin-right: 20px; padding: 5px; width: auto; height:100%" >
         <div class="col-md-9" style="margin: 0px; padding: 0px; padding-top: 15px">
             <div class="panel panel-primary" style="margin-bottom: 0px">
+
                 <div class="panel-heading" style="padding-bottom: 4px; padding-top: 4px">
-                    <b>Oštećenje i gubutak imovine narućioca</b>&nbsp;&nbsp;[Nov zapis]
+                    <div class="row">
+                        <div class="col-md-11" style="margin-top: 3px">
+                            <b>Oštećenje i gubutak imovine naručioca</b>&nbsp;&nbsp;[Nov zapis]
+                        </div>
+                    </div>
                 </div>
 
                 <div class="panel-body">
-                    <div id="tree1" style="padding: 20px; padding-top: 0px; padding-bottom: 0px">
-
+                    <div style="padding: 20px; padding-top: 0px; padding-bottom: 0px">
                         @if ($message = Session::get('success'))
                             <div class="alert alert-success alert-block">
                                 <button type="button" class="close" data-dismiss="alert">×</button>
@@ -173,8 +184,39 @@
                             </div>
 
 
+                            {{--POCETAK SEKCIJE - CILJEVI KVALITETA--}}
+                            <div class="container" style="margin: 0px; padding: 0px; padding-top: 20px; width: auto; height:100%" >
+                                <div class="col-md-12" style="margin: 0px; padding: 0px; padding-top: 15px">
+                                    <div class="panel panel-primary" style="margin-bottom: 0px">
+
+                                        <div class="panel-heading" style="cursor: pointer; padding-bottom: 4px; padding-top: 4px" data-toggle="collapse" data-target="#body2" aria-expanded="true">
+                                            <div class="row">
+                                                <div class="col-md-11" style="margin-top: 3px">
+                                                    <b> Ciljevi kvaliteta </b>
+                                                </div>
+                                                <div class="col-md-1" align="right" style="margin-top: 3px">
+                                                    <div class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div id="body2" class="collapse" style="padding: 20px; padding-top: 0px; padding-bottom: 0px">
+                                            <div class="panel-body">
+                                                <div style="padding-bottom: 5px">
+                                                    TEST
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            {{--KRAJ SEKCIJE - CILJEVI KVALITETA--}}
+
+
+
                             <div class="form-group" align="center">
-                                <br>
+                                <br><br>
                                 <button id="btnDodaj" class="btn btn-success">Dodaj</button>
                             </div>
                         {!! Form::close() !!}
@@ -183,8 +225,10 @@
             </div>
         </div>
         {{-- Kraj sekcije--}}
-
     </div>
+
+
+
 
 
     {{-- DATE PICKER --}}
