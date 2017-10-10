@@ -28,7 +28,7 @@ class CategoryAdminController extends Controller
         $newFile = 'qms_podaci/'.$folderName.'/'.$input['path'];
 
         if ($input['path']) {
-            File::move(public_path($oldFile), $newFile);
+            File::move($oldFile, $newFile);
         }
 
 //        return back()->with('success', 'Uspešno dodat zapis');
@@ -65,17 +65,17 @@ class CategoryAdminController extends Controller
 
         //promena dokumenta (rename + move)
         if ($oldFN != $input['path'])  {
-            File::move(public_path($oldFile), $newFile);                  //upload new file
+            File::move($oldFile, $newFile);                  //upload new file
 //            echo dd(empty($oldFN));
             if (! empty($oldFN)) {
-                File::move(public_path($oldBackupFile), $newBackupFile);      //rename old file
+                File::move($oldBackupFile, $newBackupFile);      //rename old file
             }
         }
 
         //promena kategorije (move)
 //        echo dd($oldLevel.'-'.$folderName.'-'.$input['path']);
         if (($oldLevel != $folderName) and ($oldFN == $input['path'])) {
-            File::move(public_path($oldCateg), $newCateg);      //move file
+            File::move($oldCateg, $newCateg);      //move file
         }
 
         //update record
