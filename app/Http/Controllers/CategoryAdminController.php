@@ -67,7 +67,7 @@ class CategoryAdminController extends Controller
         //promena dokumenta (rename + move)
         if ($oldFN != $input['path'])  {
             File::move($oldFile, $newFile);                  //upload new file
-            if (! empty($oldFN)) {
+              if (! empty($oldFN)) {
                 File::move($oldBackupFile, $newBackupFile);      //rename old file
             }
         }
