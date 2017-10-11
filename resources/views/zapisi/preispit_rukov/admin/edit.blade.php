@@ -31,7 +31,41 @@
                                 <div class="col-md-4" style="padding-left: 0px">
                                     {!! Form::text('datum', $datas->datum, ['style'=>'width:100px; text-align: center', 'placeholder'=>'']) !!}
                                 </div>
-                                <div class="col-md-6">
+
+                                <div class="col-md-6" align="right">
+                                    <button type="button" data-toggle="modal" data-target="#ciljevi_kv" class="btn btn-warning">Ciljevi kvaliteta</button>
+
+                                    <!-- Modal -->
+                                    <div class="modal fade" role="dialog" id="ciljevi_kv">
+                                        <div class="modal-dialog">
+                                            <!-- Modal content-->
+                                            <div class="modal-content" align="center">
+                                                <div class="modal-header">  <h4 style="font-family: 'Lato'" class="modal-title">Ciljevi kvaliteta</h4>  </div>
+
+                                                <div class="modal-body">
+                                                    <div class="row" style="padding-bottom: 2px">
+                                                        <div class="col-md-12" style="margin-top: 3px">
+                                                            {!! Form::textarea('ciljevi_izvestaj', $datas->ciljevi_izvestaj, ['style'=>'resize: vertical; width:100%', 'rows'=>'15', 'placeholder'=>'...']) !!}
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="row" style="padding-bottom: 2px">
+                                                        <div class="col-md-4" style="padding-top: 10px">
+                                                            {!! Form::text('odobrio_datum', $datas->odobrio_datum, ['style'=>'width:100%; text-align:center', 'placeholder'=>'datum odobrenja']) !!}
+                                                        </div>
+                                                        <div class="col-md-1" style="padding-top: 10px"></div>
+                                                        <div class="col-md-7" style="padding-top: 10px">
+                                                            {!! Form::text('odobrio_ime', $datas->odobrio_ime, ['style'=>'width:100%; text-align:center', 'placeholder'=>'odobrio']) !!}
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                                {{--<div class="modal-footer"> </div>--}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    {{--=============--}}
+
                                 </div>
                             </div>
                         </div>
@@ -107,7 +141,7 @@
                         </div>
 
 
-                        <div style="padding-bottom: 5px; padding-top: 15px">
+                        <div style="padding-top:15px; padding-bottom: 12px; border-bottom: solid 1px #9d9d9d">
                             <div class="row" style="padding-bottom: 2px">
                                 <div class="col-md-3" style="padding-top: 2px"> Politika upravljanja </div>
                                 <div class="col-md-9" style="margin-top: 3px; padding-left: 30px">
@@ -200,9 +234,38 @@
                                     {!! Form::textarea('ostalo', $datas->ostalo, ['style'=>'resize: vertical; width:100%', 'rows'=>'2', 'placeholder'=>'...']) !!}
                                 </div>
                             </div>
-
                         </div>
 
+
+                        <div style="padding-top:15px; padding-bottom: 12px; border-bottom: solid 1px #9d9d9d">
+                            <div class="row" style="padding-bottom: 2px">
+                                <div class="col-md-3" style="padding-top: 2px"> Unapređenje efikasnosti sistema upravljanja </div>
+                                <div class="col-md-9" style="margin-top: 3px; padding-left: 30px">
+                                    {!! Form::textarea('rez_efikas', $datas->rez_efikas, ['style'=>'resize: vertical; width:100%', 'rows'=>'2', 'placeholder'=>'...']) !!}
+                                </div>
+                            </div>
+
+                            <div class="row" style="padding-bottom: 2px">
+                                <div class="col-md-3" style="padding-top: 2px"> Unapređenje zahteva kupaca koje se odnose na proizvod, EMS i OHSAS </div>
+                                <div class="col-md-9" style="margin-top: 3px; padding-left: 30px">
+                                    {!! Form::textarea('rez_zahte', $datas->rez_zahte, ['style'=>'resize: vertical; width:100%', 'rows'=>'2', 'placeholder'=>'...']) !!}
+                                </div>
+                            </div>
+
+                            <div class="row" style="padding-bottom: 2px">
+                                <div class="col-md-3" style="padding-top: 2px"> Potreba za resursima </div>
+                                <div class="col-md-9" style="margin-top: 3px; padding-left: 30px">
+                                    {!! Form::textarea('rez_potreba', $datas->rez_potreba, ['style'=>'resize: vertical; width:100%', 'rows'=>'2', 'placeholder'=>'...']) !!}
+                                </div>
+                            </div>
+
+                            <div class="row" style="padding-bottom: 2px">
+                                <div class="col-md-3" style="padding-top: 2px"> Ciljevi i planovi kvaliteta za naredni period </div>
+                                <div class="col-md-9" style="margin-top: 3px; padding-left: 30px">
+                                    {!! Form::textarea('rez_ciljevi', $datas->rez_ciljevi, ['style'=>'resize: vertical; width:100%', 'rows'=>'2', 'placeholder'=>'...']) !!}
+                                </div>
+                            </div>
+                        </div>
 
 
 
@@ -224,6 +287,7 @@
     {{-- DATE PICKER --}}
     <script>
         objDatePicker("datum");
+        objDatePicker("odobrio_datum");
     </script>
     {{-- END DATE PICKER --}}
 

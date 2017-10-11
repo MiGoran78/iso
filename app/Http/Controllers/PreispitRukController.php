@@ -24,7 +24,7 @@ class PreispitRukController extends Controller {
         $datas = new PreispitRuk();
         $datas = $input;
         $datas['datum'] = $input['datum']=='' ? '' : date('Y-m-d', strtotime($input['datum']));
-//        $datas['odobrio_datum'] = $input['odobrio_datum']=='' ? '' : date('Y-m-d', strtotime($input['odobrio_datum']));
+        $datas['odobrio_datum'] = $input['odobrio_datum']=='' ? '' : date('Y-m-d', strtotime($input['odobrio_datum']));
         PreispitRuk::create($datas);
         Session::flash('message','Zapis je kreiran');
         return redirect('/preispit_rukov');
@@ -38,8 +38,7 @@ class PreispitRukController extends Controller {
     public function edit($id) {
         $datas = PreispitRuk::findOrFail($id);
         $datas['datum'] = $datas['datum']=='' ? '' : date('d.m.Y', strtotime($datas['datum']));
-//        $datas['odobrio_datum'] = $datas['odobrio_datum']=='' ? '' : date('d.m.Y', strtotime($datas['odobrio_datum']));
-//echo dd($datas);
+        $datas['odobrio_datum'] = $datas['odobrio_datum']=='' ? '' : date('d.m.Y', strtotime($datas['odobrio_datum']));
         return view('zapisi.preispit_rukov.admin.edit', compact('datas'));
     }
 
@@ -74,13 +73,13 @@ class PreispitRukController extends Controller {
         $datas['preporuke'] = $input['preporuke'];
         $datas['ostalo'] = $input['ostalo'];
 
-//        $datas['rez_efikas'] = $input['rez_efikas'];
-//        $datas['rez_zahte'] = $input['rez_zahte'];
-//        $datas['rez_potreba'] = $input['rez_potreba'];
-//        $datas['rez_ciljevi'] = $input['rez_ciljevi'];
-//        $datas['ciljevi_izvestaj'] = $input['ciljevi_izvestaj'];
-//        $datas['odobrio_ime'] = $input['odobrio_ime'];
-//        $datas['odobrio_datum'] = $input['odobrio_datum']=='' ? '' : date('Y-m-d', strtotime($input['odobrio_datum']));
+        $datas['rez_efikas'] = $input['rez_efikas'];
+        $datas['rez_zahte'] = $input['rez_zahte'];
+        $datas['rez_potreba'] = $input['rez_potreba'];
+        $datas['rez_ciljevi'] = $input['rez_ciljevi'];
+        $datas['ciljevi_izvestaj'] = $input['ciljevi_izvestaj'];
+        $datas['odobrio_ime'] = $input['odobrio_ime'];
+        $datas['odobrio_datum'] = $input['odobrio_datum']=='' ? '' : date('Y-m-d', strtotime($input['odobrio_datum']));
 
 //echo dd($datas);
         $datas->save();
