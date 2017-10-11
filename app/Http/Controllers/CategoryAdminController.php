@@ -62,12 +62,12 @@ class CategoryAdminController extends Controller
         //move file
         $oldCateg = 'qms_podaci/'.$oldLevel.'/'.$input['path'];
         $newCateg = 'qms_podaci/'.$folderName.'/'.$input['path'];
+//echo dd(empty(public_path($oldFile)));
 
         //promena dokumenta (rename + move)
         if ($oldFN != $input['path'])  {
             File::move($oldFile, $newFile);                  //upload new file
-//            echo dd(empty($oldFN));
-            if (! empty($oldFN)) {
+              if (! empty($oldFN)) {
                 File::move($oldBackupFile, $newBackupFile);      //rename old file
             }
         }

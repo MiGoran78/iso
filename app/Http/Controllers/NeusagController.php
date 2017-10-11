@@ -27,6 +27,7 @@ class NeusagController extends Controller {
 
     public function store(Request $request) {
         $input = $request->all();
+        $input['datum'] = date('Y-m-d', strtotime($input['datum']));
         Neusag::create($input);
         Session::flash('message','Zapis je kreiran');
         return redirect('/neusaglasenost');
@@ -48,7 +49,7 @@ class NeusagController extends Controller {
         $datas = Neusag::findOrFail($id);
 
         $datas['id'] = $id;
-        $datas['datum'] = $input['datum'];
+        $datas['datum'] = date('Y-m-d', strtotime($input['datum']));
         $datas['idRef'] = $input['idRef'];
         $datas['kupac_poreklo'] = empty($input['kupac_poreklo']) ? '' : $input['kupac_poreklo'];
         $datas['provera_poreklo'] = empty($input['provera_poreklo']) ? '' : $input['provera_poreklo'];
