@@ -76,3 +76,15 @@ Route::resource('preispit_rukov', 'PreispitRukController',['names'=>[
     'create'        => 'zapisi.preispit_rukov.admin.create',
     'edit'          => 'zapisi.preispit_rukov.admin.edit',
 ]]);
+
+
+//Route::resource('uskl_sa_zakonima', 'UsklSaZakonimaController',['names'=>[
+//    'index'         => 'zapisi.uskl_sa_zakonima.admin.index',
+//    'lista'         => 'zapisi.uskl_sa_zakonima.admin.lista',
+////    'create'        => 'zapisi.preispit_rukov.admin.create',
+////    'edit'          => 'zapisi.preispit_rukov.admin.edit',
+//]]);
+Route::get('uskl_sa_zakonima_lista',['uses'=>'UsklSaZakonimaController@uskl_sa_zakonima_lista']);
+Route::post('uskl_sa_zakonima_lista',['uses'=>'UsklSaZakonimaController@uskl_sa_zakonima_lista_upd']);
+Route::get('uskl_sa_zakonima_vrednovanje',['uses'=>'UsklSaZakonimaController@uskl_sa_zakonima_vrednovanje']);
+Route::post('uskl_sa_zakonima_vrednovanje',['uses'=>'UsklSaZakonimaController@uskl_sa_zakonima_vrednovanje_upd']);
