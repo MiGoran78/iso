@@ -22,7 +22,14 @@ class UsklSaZakonimaController extends Controller {
 
     public function uskl_sa_zakonima_lista_upd(Request $request) {
         $datas = $request->all();
-        return back();
+
+        $input['standard'] =  empty($datas['standard']) ? '' : $datas['standard'];
+        $input['naziv'] = empty($datas['naziv']) ? '' : $datas['naziv'];
+        $input['preispitivano'] = empty($datas['preispitivano']) ? '' : $datas['preispitivano'];
+        $input['popunio'] = empty($datas['popunio']) ? '' : $datas['popunio'];
+        $input['datum'] = empty($datas['datum']) ? '' : date('Y-m-d', strtotime($datas['datum']));
+
+        return view('zapisi.uskl_sa_zakonima.admin.lista');
     }
 
 
@@ -30,7 +37,10 @@ class UsklSaZakonimaController extends Controller {
         return view('zapisi.uskl_sa_zakonima.admin.vrednovanje');
     }
 
-    public function uskl_sa_zakonima_vrednovanje_upd() {
+    public function uskl_sa_zakonima_vrednovanje_upd(Request $request) {
+        $datas = $request->all;
+        $input[''] = empty($datas['']) ? '' : $datas[''];
+
         return view('zapisi.uskl_sa_zakonima.admin.vrednovanje');
     }
 
