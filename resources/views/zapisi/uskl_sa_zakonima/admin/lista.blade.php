@@ -35,13 +35,13 @@
 
                                             <div class="row" style="padding-bottom: 20px">
                                                 <div class="col-md-12" style="margin-top: 3px">
-                                                    {!! Form::text('naziv', '', ['style'=>'resize: vertical; width:100%', 'placeholder'=>'Naziv zapisa']) !!}
+                                                    {!! Form::text('naziv', '', ['style'=>'resize: vertical; width:100%; padding-left: 5px', 'placeholder'=>'Naziv zapisa']) !!}
                                                 </div>
                                             </div>
 
                                             <div class="row" style="padding-bottom: 20px">
                                                 <div class="col-md-1" style="margin-top: 5px">
-                                                    {!! Form::checkbox('preispitivano', '', '', ['style'=>'width: 15px; height: 15px']) !!}
+                                                    {!! Form::checkbox('preispitivano', '1', '', ['style'=>'width: 15px; height: 15px']) !!}
                                                 </div>
                                                 <div class="col-md-11" style="padding-top: 6px" align="left"> preispitivano </div>
                                             </div>
