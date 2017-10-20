@@ -45,7 +45,7 @@
                                     <td style="padding-bottom: 1px">{!! Form::text('Supplier', $datas->Supplier, ['style'=>'width:100%; border:none;; border-bottom: solid gray 1px']) !!}</td>
                                     <td style="padding-bottom: 1px">&nbsp;</td>
                                     <td style="padding-bottom: 1px">Nonconformity:</td>
-                                    <td style="padding-bottom: 1px">{!! Form::label('Nonconformity', $datas->Nonconformity, ['style'=>'width:100%; border:none; border-bottom: solid gray 1px; font-style: normal']) !!}</td>
+                                    <td style="padding-bottom: 1px">{!! Form::text('Nonconformity', $datas->Nonconformity, ['style'=>'width:100%; border:none; border-bottom: solid gray 1px; font-style: normal']) !!}</td>
                                 </tr>
                             </table>
                         </div>
