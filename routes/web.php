@@ -88,3 +88,10 @@ Route::get('uskl_sa_zakonima_lista',['uses'=>'UsklSaZakonimaController@uskl_sa_z
 Route::post('uskl_sa_zakonima_lista',['uses'=>'UsklSaZakonimaController@uskl_sa_zakonima_lista_upd']);
 Route::get('uskl_sa_zakonima_vrednovanje',['uses'=>'UsklSaZakonimaController@uskl_sa_zakonima_vrednovanje']);
 Route::post('uskl_sa_zakonima_vrednovanje',['uses'=>'UsklSaZakonimaController@uskl_sa_zakonima_vrednovanje_upd']);
+
+
+Route::resource('upravljanje_dok', 'UpraljanjeDok',['names'=>[
+    'index'         => 'zapisi.upraljanje_dok.admin.index',
+    'create'        => 'zapisi.upraljanje_dok.admin.create',
+    'edit'          => 'zapisi.upraljanje_dok.admin.edit',
+]]);
