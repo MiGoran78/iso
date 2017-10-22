@@ -1,7 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\UsklSaZakonima;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 
 class UsklSaZakonimaController extends Controller {
@@ -28,6 +30,9 @@ class UsklSaZakonimaController extends Controller {
         $input['preispitivano'] = empty($datas['preispitivano']) ? '' : $datas['preispitivano'];
         $input['popunio'] = empty($datas['popunio']) ? '' : $datas['popunio'];
         $input['datum'] = empty($datas['datum']) ? '' : date('Y-m-d', strtotime($datas['datum']));
+
+        UsklSaZakonima::create($datas);
+        Session::flash('message','Zapis je kreiran');
 
         return view('zapisi.uskl_sa_zakonima.admin.lista');
     }

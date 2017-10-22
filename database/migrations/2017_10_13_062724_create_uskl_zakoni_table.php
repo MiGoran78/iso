@@ -7,7 +7,7 @@ use Illuminate\Database\Migrations\Migration;
 class CreateUsklZakoniTable extends Migration {
 
     public function up() {
-        Schema::create('uskl_zakoni', function (Blueprint $table) {
+        Schema::create('uskl_sa_zakonimas', function (Blueprint $table) {
             $table->increments('id');
             $table->string('idRef');
 
@@ -19,12 +19,11 @@ class CreateUsklZakoniTable extends Migration {
             $table->string('popunio')->default('');
 
             //
-            $table->string('')->default('');
-            $table->string('')->default('');
-            $table->string('')->default('');
-            $table->string('')->default('');
-            $table->string('')->default('');
-
+//            $table->string('')->default('');
+//            $table->string('')->default('');
+//            $table->string('')->default('');
+//            $table->string('')->default('');
+//            $table->string('')->default('');
 
             $table->timestamps();
         });
@@ -32,7 +31,7 @@ class CreateUsklZakoniTable extends Migration {
 
 
     public function down() {
-        Schema::drop("uskl_zakoni");
+        Schema::drop("uskl_sa_zakonimas");
     }
 }
 

@@ -46,15 +46,15 @@
                             <div style="border-bottom: solid 1px #9d9d9d; padding-bottom:20px">
                                 <h4> Poreklo: <br></h4>
                                 {!! Form::label('Kupac', '', ['style'=>'font-weight: normal']) !!}
-                                {!! Form::text('kupac_poreklo', old('kupac_poreklo'), ['class'=>'form-control', 'id'=>'txtKupac', 'placeholder'=>'...']) !!}
+                                {!! Form::text('kupac_poreklo', $datas->kupac_poreklo, ['class'=>'form-control', 'id'=>'txtKupac', 'placeholder'=>'...']) !!}
                                 <p style="height: 1px"></p>
 
                                 {!! Form::label('Provera', '', ['style'=>'font-weight: normal']) !!}
-                                {!! Form::text('provera_poreklo', old('provera_poreklo'), ['class'=>'form-control', 'id'=>'txtProvera', 'placeholder'=>'...']) !!}
+                                {!! Form::text('provera_poreklo', $datas->provera_poreklo, ['class'=>'form-control', 'id'=>'txtProvera', 'placeholder'=>'...']) !!}
                                 <p style="height: 1px"></p>
 
                                 {!! Form::label('Proces', '', ['style'=>'font-weight: normal']) !!}
-                                {!! Form::text('proces_poreklo', old('proces_poreklo'), ['class'=>'form-control', 'id'=>'txtProces', 'placeholder'=>'...']) !!}
+                                {!! Form::text('proces_poreklo', $datas->proces_poreklo, ['class'=>'form-control', 'id'=>'txtProces', 'placeholder'=>'...']) !!}
                                 {{--<hr style="border: dotted 1px cornflowerblue; margin-bottom: 15px; margin-top: 0px">--}}
                             </div>
 
