@@ -64,6 +64,7 @@
                                         </div>
                                     </div>
                                     {{--=============--}}
+                                </div>
                             </div>
                         </div>
 
@@ -280,7 +281,6 @@
         {{-- Kraj sekcije--}}
 
     </div>
-
 
     {{-- DATE PICKER --}}
     <script>
