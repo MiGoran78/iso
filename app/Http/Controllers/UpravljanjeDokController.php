@@ -4,15 +4,15 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 
-class UpraljanjeDok extends Controller {
+class UpravljanjeDokController extends Controller {
 
     public function index() {
-        return view('zapisi.upraljanje_dok.admin.index');
+        return view('zapisi.upravljanje_dok.admin.index');
     }
 
 
     public function create() {
-        return view('zapisi.upraljanje_dok.admin.create');
+        return view('zapisi.upravljanje_dok.admin.create');
     }
 
 
@@ -25,7 +25,7 @@ class UpraljanjeDok extends Controller {
 
 
     public function edit($id) {
-        return view('zapisi.upraljanje_dok.admin.edit');
+        return view('zapisi.upravljanje_dok.admin.edit');
     }
 
 

@@ -1,4 +1,4 @@
-@extends('zapisi.upraljanje_dok.main')
+@extends('zapisi.upravljanje_dok.main')
 @section('content')
 
     <div class="container" style="font-family: 'Verdana'; margin: 0px; margin-right: 20px; padding: 5px; padding-top: 0px; width: auto; height:100%" >
@@ -9,7 +9,7 @@
                 </td>
 
                 <td  class="col-md-4" align="right">
-                    {!! Form::open(['method'=>'GET', 'action'=> ['UpraljanjeDok@create']]) !!}
+                    {!! Form::open(['method'=>'GET', 'action'=> ['UpravljanjeDokController@create']]) !!}
                     {!! Form::submit('NOVO', ['class'=>'btn btn-default', 'style'=>'background:#eeeeee']) !!}
                     {!! Form::close() !!}
                 </td>
