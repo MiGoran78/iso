@@ -22,10 +22,21 @@
                         {!! Form::open(['method'=>'POST', 'action'=> ['UpravljanjeDokController@store']]) !!}
                             {!! Form::hidden('idRef', date("ymdhms")) !!}
 
-                            <div style="padding-bottom: 5px">
-                                <div class="row" style="">
 
+                            <div class="row">
+                                <div class="col-md-6" align="left">
+                                    Datum: {{ date('d.m.Y') }}
                                 </div>
+                                <div class="col-md-6" align="right">
+                                    Ref: {{ date("ymdhms") }}
+                                </div>
+                                <hr style="border: solid 1px cornflowerblue; margin-bottom: 10px">
+                            </div>
+
+                            <div>
+                                <h5>Korektivna mera:</h5>
+                                {!! Form::textarea('kor_mera', '', ['class'=>'form-control', 'style'=>'resize: vertical', 'rows'=>'3', 'placeholder'=>'...']) !!}
+                                <br>
                             </div>
 
 
