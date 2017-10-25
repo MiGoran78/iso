@@ -11,6 +11,10 @@ class CreateUpravljanjeDoksTable extends Migration {
             $table->increments('id');
             $table->text('idRef');
 
+            $table->text('sifra');
+            $table->text('naziv');
+            $table->text('naslov');
+
             $table->text('sadrzaj');
             $table->text('uvod');
             $table->text('ref_dokumenta');
@@ -32,6 +36,9 @@ class CreateUpravljanjeDoksTable extends Migration {
 
 //id
 //idRef
+//sifra
+//naziv
+//naslov
 //sadrzaj
 //uvod
 //ref_dokumenta

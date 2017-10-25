@@ -36,3 +36,17 @@ class UpravljanjeDokController extends Controller {
     public function destroy($id) {
     }
 }
+
+//id
+//idRef
+//sifra
+//naziv
+//naslov
+//sadrzaj
+//uvod
+//ref_dokumenta
+//definicije
+//opis
+//izmene
+//pracenje
+//prilozi
