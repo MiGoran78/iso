@@ -6,7 +6,7 @@
         <table class="table" style="margin: 0px">
             <tr>
                 <td  class="col-md-12" align="left">
-                    <a href="/zapisi" class="btn btn-default" style="padding: 2px; padding-left: 8px; padding-right: 8px">Lista neusaglašenosti</a>
+                    <a href="/neusaglasenost" class="btn btn-default" style="padding: 2px; padding-left: 8px; padding-right: 8px">Lista neusaglašenosti</a>
                 </td>
             </tr>
         </table>
