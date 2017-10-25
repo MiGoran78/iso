@@ -22,6 +22,7 @@
                         {!! Form::open(['method'=>'POST', 'action'=> ['UpravljanjeDokController@store']]) !!}
                             {!! Form::hidden('logo',  $logopath ) !!}
                             {!! Form::hidden('idRef', date("ymdhms")) !!}
+                            {!! Form::hidden('potpis', '') !!}
 
                             {{--<div class="row">--}}
                                 {{--<div class="col-md-6" align="right">--}}
@@ -47,13 +48,19 @@
                                 </div>
                                 <div class="col-md-9" align="left">
                                     <h5 style="margin-bottom: 4px">  </h5>
-                                    {!! Form::text('naziv', '', ['class'=>'form-control', 'style'=>'resize: vertical', 'placeholder'=>'Naziv dokumenta']) !!}
+                                    {!! Form::text('naziv', '', ['class'=>'form-control', 'id'=>'naziv', 'style'=>'resize: vertical', 'placeholder'=>'Naziv dokumenta']) !!}
                                 </div>
 
                                 <div class="col-md-12" align="left">
                                     <h5 style="margin-bottom: 4px">  </h5>
-                                    {!! Form::text('naslov', '', ['class'=>'form-control', 'style'=>'resize: vertical', 'placeholder'=>'Naslov']) !!}
+                                    <div class="input-group">
+                                        <span class="input-group-addon glyphicon glyphicon-hand-right" id="paste-addon" onclick="pasteText()" style=""></span>
+                                        {!! Form::text('naslov', '', ['aria-describedby'=>'paste-addon2', 'id'=>'naslov', 'class'=>'form-control', 'style'=>'resize: vertical', 'placeholder'=>'Naslov']) !!}
+                                    </div>
                                 </div>
+
+                                    {{--<input type="text" class="form-control" placeholder="Recipient's username" aria-describedby="basic-addon2">--}}
+                                    {{--<span class="input-group-addon" id="basic-addon2">@example.com</span>--}}
                             </div>
 
 
@@ -102,7 +109,7 @@
 
                             <div class="row">
                                 <div class="col-md-12" align="left">
-                                    <h5 style="margin-bottom: 4px;"><strong> PRAĆENJE I MERENJE</h5>
+                                    <h5 style="margin-bottom: 4px;"><strong> PRAĆENJE I MERENJE </strong></h5>
                                     {!! Form::textarea('pracenje', '', ['class'=>'form-control', 'style'=>'resize: vertical', 'rows'=>'3', 'placeholder'=>'...']) !!}
                                 </div>
                             </div>
@@ -127,5 +134,13 @@
         </div>
 
     </div>
+
+
+
+    <script type="text/javascript">
+        function pasteText() {
+            document.getElementById('naslov').value = document.getElementById('naziv').value;
+        }
+    </script>
 
 @stop

@@ -10,7 +10,7 @@
 
                 <td  class="col-md-4" align="right">
                     {!! Form::open(['method'=>'GET', 'action'=> ['PreispitRukController@create']]) !!}
-                    {!! Form::submit('NOVO', ['class'=>'btn btn-default', 'style'=>'background:#eeeeee']) !!}
+                        {!! Form::submit('NOVO', ['class'=>'btn btn-default', 'style'=>'background:#eeeeee']) !!}
                     {!! Form::close() !!}
                 </td>
             </tr>

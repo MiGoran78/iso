@@ -10,7 +10,7 @@ class UpravljanjeDokController extends Controller {
 
     public function index() {
         $datas = UpravljanjeDok::all();
-        return view('zapisi.upravljanje_dok.admin.index');
+        return view('zapisi.upravljanje_dok.admin.index', compact('datas'));
     }
 
 
@@ -24,7 +24,6 @@ class UpravljanjeDokController extends Controller {
         $input = $request->all();
         $datas = new UpravljanjeDok();
         $datas = $input;
-        $datas['potpis'] = '';
 
         UpravljanjeDok::create($datas);
         Session::flash('message','Zapis je kreiran');
@@ -44,35 +43,40 @@ class UpravljanjeDokController extends Controller {
 
     public function update(Request $request, $id) {
         $input = $request->all();
-        $datas = PreispitRuk::findOrFail($id);
+        $datas = UpravljanjeDok::findOrFail($id);
 
-        $datas[''] = $input[''];
-        $datas[''] = $input[''];
-        $datas[''] = $input[''];
-        $datas[''] = $input[''];
-        $datas[''] = $input[''];
-        $datas[''] = $input[''];
-        $datas[''] = $input[''];
-        $datas[''] = $input[''];
-        $datas[''] = $input[''];
-        $datas[''] = $input[''];
-        $datas[''] = $input[''];
-        $datas[''] = $input[''];
-        $datas[''] = $input[''];
-        $datas[''] = $input[''];
-        $datas[''] = $input[''];
-        $datas[''] = $input[''];
+        $datas['idRef'] = $input['idRef'];
+        $datas['logo'] = $input['logo'];
+        $datas['sifra'] = $input['sifra'];
+        $datas['verzija'] = $input['verzija'];
+        $datas['naziv'] = $input['naziv'];
+        $datas['naslov'] = $input['naslov'];
+        $datas['potpis'] = $input['potpis'];
+        $datas['sadrzaj'] = $input['sadrzaj'];
+        $datas['uvod'] = $input['uvod'];
+        $datas['ref_dokumenta'] = $input['ref_dokumenta'];
+        $datas['definicije'] = $input['definicije'];
+        $datas['opis'] = $input['opis'];
+        $datas['izmene'] = $input['izmene'];
+        $datas['pracenje'] = $input['pracenje'];
+        $datas['prilozi'] = $input['prilozi'];
+        $datas['potpis'] = $input['potpis'];
 
-echo dd($datas);
         $datas->save();
         Session::flash('message','Zapis je snimljen');
-        return redirect('/preispit_rukov');
+        return redirect('/upravljanje_dok');
     }
 
 
     public function destroy($id) {
+        $input = UpravljanjeDok::findOrFail($id);
+        $input->delete();
+
+        Session::flash('message','Zapis je obrisan');
+        return redirect('/upravljanje_dok');
     }
 }
+
 
 //id
 //idRef
@@ -90,3 +94,4 @@ echo dd($datas);
 //izmene
 //pracenje
 //prilozi
+
