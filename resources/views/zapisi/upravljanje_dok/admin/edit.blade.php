@@ -19,107 +19,111 @@
                             </div>
                         @endif
 
-                        {!! Form::open(['method'=>'POST', 'action'=> ['UpravljanjeDokController@store']]) !!}
-                        {!! Form::hidden('logo', $datas->logo) !!}
-                        {!! Form::hidden('idRef', date("ymdhms")) !!}
+                        {!! Form::open(['method'=>'PUT', 'action'=> ['UpravljanjeDokController@update', $datas->id]]) !!}
+                            {!! Form::hidden('logo', $datas->logo) !!}
+                            {!! Form::hidden('idRef', $datas->idRef) !!}
+                            {!! Form::hidden('potpis', '') !!}
 
-                        {{--<div class="row">--}}
-                        {{--<div class="col-md-6" align="right">--}}
-                        {{--Ref: {{ date("ymdhms") }}--}}
-                        {{--</div>--}}
-                        {{--<hr style="border: solid 1px cornflowerblue; margin-bottom: 10px">--}}
-                        {{--</div>--}}
+                            {{--<div class="row">--}}
+                            {{--<div class="col-md-6" align="right">--}}
+                            {{--Ref: {{ date("ymdhms") }}--}}
+                            {{--</div>--}}
+                            {{--<hr style="border: solid 1px cornflowerblue; margin-bottom: 10px">--}}
+                            {{--</div>--}}
 
-                        <div class="row" style="border-bottom: solid 1px #9d9d9d; padding-bottom:10px">
-                            <div class="col-md-12" align="left">
-                                <img src="{{ $datas->logo }}" width="300px">
-                            </div>
-                        </div>
-
-                        <div class="row" style="border-bottom: solid 1px #9d9d9d; padding-bottom:20px">
-                            <div class="col-md-2" align="left">
-                                <h5 style="margin-bottom: 4px">  </h5>
-                                {!! Form::text('sifra', $datas->sifra, ['class'=>'form-control', 'style'=>'resize: vertical', 'placeholder'=>'šifra dokumenta']) !!}
-                            </div>
-                            <div class="col-md-1" align="left">
-                                <h5 style="margin-bottom: 4px">  </h5>
-                                {!! Form::text('verzija', $datas->verzija, ['class'=>'form-control', 'style'=>'resize: vertical', 'placeholder'=>'verzija']) !!}
-                            </div>
-                            <div class="col-md-9" align="left">
-                                <h5 style="margin-bottom: 4px">  </h5>
-                                {!! Form::text('naziv', $datas->naziv, ['class'=>'form-control', 'style'=>'resize: vertical', 'placeholder'=>'Naziv dokumenta']) !!}
+                            <div class="row" style="border-bottom: solid 1px #9d9d9d; padding-bottom:10px">
+                                <div class="col-md-12" align="left">
+                                    <img src="{{ $datas->logo }}" width="300px">
+                                </div>
                             </div>
 
-                            <div class="col-md-12" align="left">
-                                <h5 style="margin-bottom: 4px">  </h5>
-                                {!! Form::text('naslov', $datas->naslov, ['class'=>'form-control', 'style'=>'resize: vertical', 'placeholder'=>'Naslov']) !!}
+                            <div class="row" style="border-bottom: solid 1px #9d9d9d; padding-bottom:20px">
+                                <div class="col-md-2" align="left">
+                                    <h5 style="margin-bottom: 4px">  </h5>
+                                    {!! Form::text('sifra', $datas->sifra, ['class'=>'form-control', 'style'=>'resize: vertical', 'placeholder'=>'šifra dokumenta']) !!}
+                                </div>
+                                <div class="col-md-1" align="left">
+                                    <h5 style="margin-bottom: 4px">  </h5>
+                                    {!! Form::text('verzija', $datas->verzija, ['class'=>'form-control', 'style'=>'resize: vertical', 'placeholder'=>'verzija']) !!}
+                                </div>
+                                <div class="col-md-9" align="left">
+                                    <h5 style="margin-bottom: 4px">  </h5>
+                                    {!! Form::text('naziv', $datas->naziv, ['class'=>'form-control', 'id'=>'naziv', 'style'=>'resize: vertical', 'placeholder'=>'Naziv dokumenta']) !!}
+                                </div>
+
+                                <div class="col-md-12" align="left">
+                                    <h5 style="margin-bottom: 4px">  </h5>
+                                    <div class="input-group">
+                                        <span class="input-group-addon glyphicon glyphicon-hand-right" id="paste-addon" onclick="pasteText()" style=""></span>
+                                        {!! Form::text('naslov', $datas->naslov, ['aria-describedby'=>'paste-addon2', 'id'=>'naslov', 'class'=>'form-control', 'style'=>'resize: vertical', 'placeholder'=>'Naslov']) !!}
+                                    </div>
+                                </div>
                             </div>
-                        </div>
 
 
 
-                        <div class="row">
-                            <div class="col-md-12" align="left" style="padding-top: 10px">
-                                <h5 style="margin-bottom: 4px;"><strong> SADRŽAJ </strong></h5>
-                                {!! Form::textarea('sadrzaj', $datas->sadrzaj, ['class'=>'form-control', 'style'=>'resize: vertical', 'rows'=>'3', 'placeholder'=>'...']) !!}
+                            <div class="row">
+                                <div class="col-md-12" align="left" style="padding-top: 10px">
+                                    <h5 style="margin-bottom: 4px;"><strong> SADRŽAJ </strong></h5>
+                                    {!! Form::textarea('sadrzaj', $datas->sadrzaj, ['class'=>'form-control', 'style'=>'resize: vertical', 'rows'=>'3', 'placeholder'=>'...']) !!}
+                                </div>
                             </div>
-                        </div>
 
-                        <div class="row">
-                            <div class="col-md-12" align="left" style="padding-top: 10px">
-                                <h5 style="margin-bottom: 4px;"><strong> UVOD </strong></h5>
-                                {!! Form::textarea('uvod', $datas->uvod, ['class'=>'form-control', 'style'=>'resize: vertical', 'rows'=>'3', 'placeholder'=>'...']) !!}
+                            <div class="row">
+                                <div class="col-md-12" align="left" style="padding-top: 10px">
+                                    <h5 style="margin-bottom: 4px;"><strong> UVOD </strong></h5>
+                                    {!! Form::textarea('uvod', $datas->uvod, ['class'=>'form-control', 'style'=>'resize: vertical', 'rows'=>'3', 'placeholder'=>'...']) !!}
+                                </div>
                             </div>
-                        </div>
 
-                        <div class="row">
-                            <div class="col-md-12" align="left">
-                                <h5 style="margin-bottom: 4px;"><strong> REFERENTNA DOKUMENTA </strong></h5>
-                                {!! Form::textarea('ref_dokumenta', $datas->ref_dokumenta, ['class'=>'form-control', 'style'=>'resize: vertical', 'rows'=>'3', 'placeholder'=>'...']) !!}
+                            <div class="row">
+                                <div class="col-md-12" align="left">
+                                    <h5 style="margin-bottom: 4px;"><strong> REFERENTNA DOKUMENTA </strong></h5>
+                                    {!! Form::textarea('ref_dokumenta', $datas->ref_dokumenta, ['class'=>'form-control', 'style'=>'resize: vertical', 'rows'=>'3', 'placeholder'=>'...']) !!}
+                                </div>
                             </div>
-                        </div>
 
-                        <div class="row">
-                            <div class="col-md-12" align="left">
-                                <h5 style="margin-bottom: 4px;"><strong> DEFINICIJE I POJMOVI </strong></h5>
-                                {!! Form::textarea('definicije', $datas->definicije, ['class'=>'form-control', 'style'=>'resize: vertical', 'rows'=>'3', 'placeholder'=>'...']) !!}
+                            <div class="row">
+                                <div class="col-md-12" align="left">
+                                    <h5 style="margin-bottom: 4px;"><strong> DEFINICIJE I POJMOVI </strong></h5>
+                                    {!! Form::textarea('definicije', $datas->definicije, ['class'=>'form-control', 'style'=>'resize: vertical', 'rows'=>'3', 'placeholder'=>'...']) !!}
+                                </div>
                             </div>
-                        </div>
 
-                        <div class="row">
-                            <div class="col-md-12" align="left">
-                                <h5 style="margin-bottom: 4px;"><strong> OPIS PROCEDURE </strong></h5>
-                                {!! Form::textarea('opis', $datas->opis, ['class'=>'form-control', 'style'=>'resize: vertical', 'rows'=>'3', 'placeholder'=>'...']) !!}
+                            <div class="row">
+                                <div class="col-md-12" align="left">
+                                    <h5 style="margin-bottom: 4px;"><strong> OPIS PROCEDURE </strong></h5>
+                                    {!! Form::textarea('opis', $datas->opis, ['class'=>'form-control', 'style'=>'resize: vertical', 'rows'=>'3', 'placeholder'=>'...']) !!}
+                                </div>
                             </div>
-                        </div>
 
-                        <div class="row">
-                            <div class="col-md-12" align="left">
-                                <h5 style="margin-bottom: 4px;"><strong> IZMENE </strong></h5>
-                                {!! Form::textarea('izmene', $datas->izmene, ['class'=>'form-control', 'style'=>'resize: vertical', 'rows'=>'3', 'placeholder'=>'...']) !!}
+                            <div class="row">
+                                <div class="col-md-12" align="left">
+                                    <h5 style="margin-bottom: 4px;"><strong> IZMENE </strong></h5>
+                                    {!! Form::textarea('izmene', $datas->izmene, ['class'=>'form-control', 'style'=>'resize: vertical', 'rows'=>'3', 'placeholder'=>'...']) !!}
+                                </div>
                             </div>
-                        </div>
 
-                        <div class="row">
-                            <div class="col-md-12" align="left">
-                                <h5 style="margin-bottom: 4px;"><strong> PRAĆENJE I MERENJE </strong></h5>
-                                {!! Form::textarea('pracenje', $datas->pracenje, ['class'=>'form-control', 'style'=>'resize: vertical', 'rows'=>'3', 'placeholder'=>'...']) !!}
+                            <div class="row">
+                                <div class="col-md-12" align="left">
+                                    <h5 style="margin-bottom: 4px;"><strong> PRAĆENJE I MERENJE </strong></h5>
+                                    {!! Form::textarea('pracenje', $datas->pracenje, ['class'=>'form-control', 'style'=>'resize: vertical', 'rows'=>'3', 'placeholder'=>'...']) !!}
+                                </div>
                             </div>
-                        </div>
 
-                        <div class="row">
-                            <div class="col-md-12" align="left">
-                                <h5 style="margin-bottom: 4px;"><strong> PRILOZI </strong></h5>
-                                {!! Form::textarea('prilozi', $datas->prilozi, ['class'=>'form-control', 'style'=>'resize: vertical', 'rows'=>'3', 'placeholder'=>'...']) !!}
+                            <div class="row">
+                                <div class="col-md-12" align="left">
+                                    <h5 style="margin-bottom: 4px;"><strong> PRILOZI </strong></h5>
+                                    {!! Form::textarea('prilozi', $datas->prilozi, ['class'=>'form-control', 'style'=>'resize: vertical', 'rows'=>'3', 'placeholder'=>'...']) !!}
+                                </div>
                             </div>
-                        </div>
 
 
 
-                        <div class="form-group" align="center">
-                            <br>
-                            <button id="btnDodaj" class="btn btn-success">Dodaj</button>
-                        </div>
+                            <div class="form-group" align="center">
+                                <br>
+                                <button id="btnDodaj" class="btn btn-success">Dodaj</button>
+                            </div>
                         {!! Form::close() !!}
                     </div>
                 </div>
@@ -127,5 +131,13 @@
         </div>
 
     </div>
+
+
+
+    <script type="text/javascript">
+        function pasteText() {
+            document.getElementById('naslov').value = document.getElementById('naziv').value;
+        }
+    </script>
 
 @stop
