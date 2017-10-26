@@ -32,6 +32,13 @@ class UpravljanjeDokController extends Controller {
 
 
     public function show($id) {
+        $datas = UpravljanjeDok::findOrFail($id);
+
+//        $datas['ref_dokumenta'] = nl2br($datas['ref_dokumenta']);
+//        $datas['ref_dokumenta'] = preg_replace("/\r\n|\r|\n/",'<br>', $datas['ref_dokumenta']);
+//   echo($datas['ref_dokumenta']);
+
+        return view('zapisi.upravljanje_dok.admin.print', compact('datas'));
     }
 
 

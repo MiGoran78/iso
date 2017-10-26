@@ -25,7 +25,8 @@
                 <th width="5%" style="text-align: center">No</th>
                 {{--<th width="10%" style="text-align: center">Ref broj</th>--}}
                 <th width="20%" style="text-align: center">Šifra dokumenta</th>
-                <th width="70%" style="text-align: left">Naziv</th>
+                <th width="65%" style="text-align: left">Naziv</th>
+                <th width="5%" style="text-align: center">Štampanje</th>
                 <th width="5%" style="text-align: center">Brisanje</th>
             </tr>
             </thead>
@@ -48,7 +49,15 @@
                                 {{ $data->sifra }} ({{$data->verzija}})
                             </a>
                         </td>
+
                         <td style="padding: 4px; text-align: left; padding-left: 10px"> {{$data->naziv}}</td>
+
+                        <td style="padding: 4px; text-align: center">
+                            <a class="btn btn-warning" style="width: 150px; height:22px; padding-top: 0px; padding-bottom: 0px; padding-left: 5px; padding-right: 6px"
+                                href="{{route('upravljanje_dok.show', $data->id)}}">
+                                Print &nbsp;&nbsp; {{ $data->sifra }} ({{$data->verzija}})
+                            </a>
+                        </td>
 
                         <td style="padding: 4px; text-align: center">
                             <button type="button" data-toggle="modal" data-target="#delete{{$data->id}}" class="btn btn-danger" style="height:22px; padding-top: 0px; padding-bottom: 0px; padding-left: 5px; padding-right: 6px">X</button>
