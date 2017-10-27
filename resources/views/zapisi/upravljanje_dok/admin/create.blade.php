@@ -9,7 +9,7 @@
                     <b>Upravljanje dokumentima</b>&nbsp;&nbsp;[Nov zapis]
                 </div>
 
-                <div class="panel-body">
+                <div class="panel-body" style="padding-top: 5px">
                     <div id="tree1" style="padding: 20px; padding-top: 0px; padding-bottom: 0px">
 
                         @if ($message = Session::get('success'))
@@ -39,15 +39,15 @@
 
                             <div class="row" style="border-bottom: solid 1px #9d9d9d; padding-bottom:20px">
                                 <div class="col-md-2" align="left">
-                                    <h5 style="margin-bottom: 4px">  </h5>
+                                    <h5 style="margin-bottom: 4px"><strong> ŠIFRA </strong></h5>
                                     {!! Form::text('sifra', '', ['class'=>'form-control', 'style'=>'resize: vertical', 'placeholder'=>'šifra dokumenta']) !!}
                                 </div>
                                 <div class="col-md-1" align="left">
-                                    <h5 style="margin-bottom: 4px">  </h5>
+                                    <h5 style="margin-bottom: 4px"><strong> VERZIJA </strong></h5>
                                     {!! Form::text('verzija', '', ['class'=>'form-control', 'style'=>'resize: vertical', 'placeholder'=>'verzija']) !!}
                                 </div>
                                 <div class="col-md-9" align="left">
-                                    <h5 style="margin-bottom: 4px">  </h5>
+                                    <h5 style="margin-bottom: 4px"><strong> NAZIV DOKUMENTA </strong></h5>
                                     {!! Form::text('naziv', '', ['class'=>'form-control', 'id'=>'naziv', 'style'=>'resize: vertical', 'placeholder'=>'Naziv dokumenta']) !!}
                                 </div>
                             </div>
@@ -55,7 +55,7 @@
 
 
                             <div class="row">
-                                <div class="col-md-12" align="left" style="padding-top: 10px">
+                                <div class="col-md-12" align="left" style="border-bottom: solid 1px #9d9d9d; padding-bottom:20px; padding-top: 10px">
                                     <h5 style="margin-bottom: 4px"><strong>  NASLOV DOKUMENTA </strong></h5>
                                     <div class="input-group">
                                         <span class="input-group-addon glyphicon glyphicon-hand-right" id="paste-addon" onclick="pasteText()"
@@ -68,56 +68,64 @@
 
                             <div class="row">
                                 <div class="col-md-12" align="left" style="padding-top: 10px">
-                                    <h5 style="margin-bottom: 4px;"><strong> SADRŽAJ </strong></h5>
+                                    <h5 style="margin-bottom: 4px;"><strong>
+                                            SADRŽAJ </strong></h5>
                                     {!! Form::textarea('sadrzaj', '', ['class'=>'form-control', 'style'=>'resize: vertical', 'rows'=>'3', 'placeholder'=>'...']) !!}
                                 </div>
                             </div>
 
                             <div class="row">
                                 <div class="col-md-12" align="left" style="padding-top: 10px">
-                                    <h5 style="margin-bottom: 4px;"><strong> UVOD / SVRHA </strong></h5>
+                                    <h5 style="margin-bottom: 4px;"><strong>
+                                            1. UVOD / SVRHA </strong></h5>
                                     {!! Form::textarea('uvod', '', ['class'=>'form-control', 'style'=>'resize: vertical', 'rows'=>'3', 'placeholder'=>'...']) !!}
                                 </div>
                             </div>
 
                             <div class="row">
                                 <div class="col-md-12" align="left">
-                                    <h5 style="margin-bottom: 4px;"><strong> REFERENTNA DOKUMENTA </strong></h5>
+                                    <h5 style="margin-bottom: 4px;"><strong>
+                                            2. REFERENTNA DOKUMENTA </strong></h5>
                                     {!! Form::textarea('ref_dokumenta', '', ['class'=>'form-control', 'style'=>'resize: vertical', 'rows'=>'3', 'placeholder'=>'...']) !!}
                                 </div>
                             </div>
 
                             <div class="row">
                                 <div class="col-md-12" align="left">
-                                    <h5 style="margin-bottom: 4px;"><strong> DEFINICIJE I POJMOVI </strong></h5>
+                                    <h5 style="margin-bottom: 4px;"><strong>
+                                            3. DEFINICIJE I POJMOVI </strong></h5>
                                     {!! Form::textarea('definicije', '', ['class'=>'form-control', 'style'=>'resize: vertical', 'rows'=>'3', 'placeholder'=>'...']) !!}
                                 </div>
                             </div>
 
                             <div class="row">
                                 <div class="col-md-12" align="left">
-                                    <h5 style="margin-bottom: 4px;"><strong> OPIS PROCEDURE </strong></h5>
+                                    <h5 style="margin-bottom: 4px;"><strong>
+                                            4. OPIS PROCEDURE </strong></h5>
                                     {!! Form::textarea('opis', '', ['class'=>'form-control', 'style'=>'resize: vertical', 'rows'=>'3', 'placeholder'=>'...']) !!}
                                 </div>
                             </div>
 
                             <div class="row">
                                 <div class="col-md-12" align="left">
-                                    <h5 style="margin-bottom: 4px;"><strong> IZMENE </strong></h5>
+                                    <h5 style="margin-bottom: 4px;"><strong>
+                                            5. IZMENE </strong></h5>
                                     {!! Form::textarea('izmene', '', ['class'=>'form-control', 'style'=>'resize: vertical', 'rows'=>'3', 'placeholder'=>'...']) !!}
                                 </div>
                             </div>
 
                             <div class="row">
                                 <div class="col-md-12" align="left">
-                                    <h5 style="margin-bottom: 4px;"><strong> PRAĆENJE I MERENJE </strong></h5>
+                                    <h5 style="margin-bottom: 4px;"><strong>
+                                            6. PRAĆENJE I MERENJE </strong></h5>
                                     {!! Form::textarea('pracenje', '', ['class'=>'form-control', 'style'=>'resize: vertical', 'rows'=>'3', 'placeholder'=>'...']) !!}
                                 </div>
                             </div>
 
                             <div class="row">
                                 <div class="col-md-12" align="left">
-                                    <h5 style="margin-bottom: 4px;"><strong> PRILOZI </strong></h5>
+                                    <h5 style="margin-bottom: 4px;"><strong>
+                                            7. PRILOZI </strong></h5>
                                     {!! Form::textarea('prilozi', '', ['class'=>'form-control', 'style'=>'resize: vertical', 'rows'=>'3', 'placeholder'=>'...']) !!}
                                 </div>
                             </div>
