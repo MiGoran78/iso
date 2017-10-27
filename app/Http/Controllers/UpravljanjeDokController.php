@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Session;
 class UpravljanjeDokController extends Controller {
 
     public function index() {
-        $datas = UpravljanjeDok::all();
+        $datas = UpravljanjeDok::all()->sortByDesc('verzija')->sortBy('sifra');
         return view('zapisi.upravljanje_dok.admin.index', compact('datas'));
     }
 
@@ -25,6 +25,9 @@ class UpravljanjeDokController extends Controller {
         $datas = new UpravljanjeDok();
         $datas = $input;
 
+        $datas['verzija'] = '1';
+        $datas['naziv'] = '';
+
         UpravljanjeDok::create($datas);
         Session::flash('message','Zapis je kreiran');
         return redirect('/upravljanje_dok');
@@ -33,11 +36,6 @@ class UpravljanjeDokController extends Controller {
 
     public function show($id) {
         $datas = UpravljanjeDok::findOrFail($id);
-
-//        $datas['ref_dokumenta'] = nl2br($datas['ref_dokumenta']);
-//        $datas['ref_dokumenta'] = preg_replace("/\r\n|\r|\n/",'<br>', $datas['ref_dokumenta']);
-//   echo($datas['ref_dokumenta']);
-
         return view('zapisi.upravljanje_dok.admin.print', compact('datas'));
     }
 
@@ -50,13 +48,16 @@ class UpravljanjeDokController extends Controller {
 
     public function update(Request $request, $id) {
         $input = $request->all();
-        $datas = UpravljanjeDok::findOrFail($id);
+//        $datas = UpravljanjeDok::findOrFail($id);
+        $datas = new UpravljanjeDok();
+        $datas = $input;
 
         $datas['idRef'] = $input['idRef'];
         $datas['logo'] = $input['logo'];
         $datas['sifra'] = $input['sifra'];
-        $datas['verzija'] = $input['verzija'];
-        $datas['naziv'] = $input['naziv'];
+        $datas['verzija'] = (int)$input['verzija'] + 1;
+        $datas['naziv'] = '';
+//        $datas['naziv'] = $input['naziv'];
         $datas['naslov'] = $input['naslov'];
         $datas['potpis'] = $input['potpis'];
         $datas['sadrzaj'] = $input['sadrzaj'];
@@ -64,12 +65,16 @@ class UpravljanjeDokController extends Controller {
         $datas['ref_dokumenta'] = $input['ref_dokumenta'];
         $datas['definicije'] = $input['definicije'];
         $datas['opis'] = $input['opis'];
-        $datas['izmene'] = $input['izmene'];
+
+        $izmena = $input['izmene'] . PHP_EOL . $input['sifra'] . '(' . $input['verzija'] . ') - ' . date("d.m.Y");
+        $datas['izmene'] = $izmena;
+
         $datas['pracenje'] = $input['pracenje'];
         $datas['prilozi'] = $input['prilozi'];
         $datas['potpis'] = $input['potpis'];
 
-        $datas->save();
+        UpravljanjeDok::create($datas);
+//        $datas->save();
         Session::flash('message','Zapis je snimljen');
         return redirect('/upravljanje_dok');
     }
@@ -83,22 +88,4 @@ class UpravljanjeDokController extends Controller {
         return redirect('/upravljanje_dok');
     }
 }
-
-
-//id
-//idRef
-//logo
-//sifra
-//verzija
-//naziv
-//naslov
-//potpis
-//sadrzaj
-//uvod
-//ref_dokumenta
-//definicije
-//opis
-//izmene
-//pracenje
-//prilozi
 
