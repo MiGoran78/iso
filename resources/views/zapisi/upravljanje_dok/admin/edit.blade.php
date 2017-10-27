@@ -23,13 +23,8 @@
                             {!! Form::hidden('logo', $datas->logo) !!}
                             {!! Form::hidden('idRef', $datas->idRef) !!}
                             {!! Form::hidden('potpis', '') !!}
-
-                            {{--<div class="row">--}}
-                            {{--<div class="col-md-6" align="right">--}}
-                            {{--Ref: {{ date("ymdhms") }}--}}
-                            {{--</div>--}}
-                            {{--<hr style="border: solid 1px cornflowerblue; margin-bottom: 10px">--}}
-                            {{--</div>--}}
+                            {!! Form::hidden('sifra', $datas->sifra) !!}
+                            {!! Form::hidden('verzija', $datas->verzija) !!}
 
                             <div class="row" style="border-bottom: solid 1px #9d9d9d; padding-bottom:10px">
                                 <div class="col-md-12" align="left">
@@ -41,33 +36,37 @@
                             <div class="row" style="border-bottom: solid 1px #9d9d9d; padding-bottom:20px">
                                 <div class="col-md-2" align="left">
                                     <h5 style="margin-bottom: 4px"><strong> ŠIFRA </strong></h5>
-                                    {!! Form::text('sifra', $datas->sifra, ['class'=>'form-control', 'style'=>'resize: vertical', 'placeholder'=>'šifra dokumenta']) !!}
+                                    {!! Form::label('', $datas->sifra, ['id'=>'sifra', 'class'=>'form-control', 'style'=>'background:#eeeeee', 'placeholder'=>'...']) !!}
                                 </div>
                                 <div class="col-md-1" align="left">
                                     <h5 style="margin-bottom: 4px"><strong> VERZIJA </strong></h5>
-                                    {!! Form::text('verzija', $datas->verzija, ['class'=>'form-control', 'style'=>'resize: vertical', 'placeholder'=>'verzija']) !!}
+                                    {!! Form::label('', $datas->verzija, ['id'=>'verzija', 'class'=>'form-control', 'style'=>'background:#eeeeee; text-align:center', 'placeholder'=>'...']) !!}
                                 </div>
                                 <div class="col-md-9" align="left">
-                                    <h5 style="margin-bottom: 4px"><strong> NAZIV DOKUMENTA </strong></h5>
-                                    {!! Form::text('naziv', $datas->naziv, ['class'=>'form-control', 'id'=>'naziv', 'style'=>'resize: vertical', 'placeholder'=>'Naziv dokumenta']) !!}
+                                    <h5 style="margin-bottom: 4px"><strong> NASLOV DOKUMENTA </strong></h5>
+                                    {!! Form::text('naslov', $datas->naslov, ['id'=>'naslov', 'class'=>'form-control', 'style'=>'resize: vertical', 'placeholder'=>'...']) !!}
                                 </div>
+                                {{--<div class="col-md-9" align="left">--}}
+                                    {{--<h5 style="margin-bottom: 4px"><strong> NAZIV DOKUMENTA </strong></h5>--}}
+                                    {{--{!! Form::text('naziv', $datas->naziv, ['id'=>'naziv', 'class'=>'form-control', 'id'=>'naziv', 'style'=>'resize: vertical', 'placeholder'=>'Naziv dokumenta']) !!}--}}
+                                {{--</div>--}}
                             </div>
 
 
 
-                            <div class="row" style="border-bottom: solid 1px #9d9d9d; padding-bottom:20px; padding-top:10px">
-                                <div class="col-md-12" align="left">
-                                    <h5 style="margin-bottom: 4px"><strong>  NASLOV DOKUMENTA </strong></h5>
-                                    <div class="input-group">
-                                        <span class="input-group-addon glyphicon glyphicon-hand-right" id="paste-addon" onclick="pasteText()"
-                                              data-toggle="popover" data-trigger="hover" data-content="Popuni polje nazivom dokumenta">
-                                        </span>
-                                        {!! Form::text('naslov', $datas->naslov, ['aria-describedby'=>'paste-addon2', 'id'=>'naslov', 'class'=>'form-control', 'style'=>'resize: vertical', 'placeholder'=>'Naslov']) !!}
-                                    </div>
-                                </div>
-                            </div>
+                            {{--<div class="row" style="border-bottom: solid 1px #9d9d9d; padding-bottom:20px; padding-top:10px">--}}
+                                {{--<div class="col-md-12" align="left">--}}
+                                    {{--<h5 style="margin-bottom: 4px"><strong>  NASLOV DOKUMENTA </strong></h5>--}}
+                                    {{--<div class="input-group">--}}
+                                        {{--<span class="input-group-addon glyphicon glyphicon-hand-right" id="paste-addon" onclick="pasteText()"--}}
+                                              {{--data-toggle="popover" data-trigger="hover" data-content="Popuni polje nazivom dokumenta">--}}
+                                        {{--</span>--}}
+                                        {{--{!! Form::text('naslov', $datas->naslov, ['aria-describedby'=>'paste-addon2', 'id'=>'naslov', 'class'=>'form-control', 'style'=>'resize: vertical', 'placeholder'=>'Naslov']) !!}--}}
+                                    {{--</div>--}}
+                                {{--</div>--}}
+                            {{--</div>--}}
 
-                            <div class="row" style="padding-top:15px">
+                            <div class="row" style="padding-top:0px">
                                 <div class="col-md-12" align="left" style="padding-top: 10px">
                                     <h5 style="margin-bottom: 4px;"><strong> SADRŽAJ </strong></h5>
                                     {!! Form::textarea('sadrzaj', $datas->sadrzaj, ['id'=>'sadrzaj', 'class'=>'form-control', 'style'=>'resize: vertical', 'rows'=>'2', 'placeholder'=>'...']) !!}
@@ -146,19 +145,6 @@
 
 
 
-    <script type="text/javascript">
-        function pasteText() {
-            document.getElementById('naslov').value = document.getElementById('naziv').value;
-        }
-    </script>
-
-    <script>
-        $(document).ready(function() {
-            $('[data-toggle="popover"]').popover({
-                placement: 'auto top'
-            });
-        });
-    </script>
 
     <script>
         if ($('#sadrzaj').length > 0)       auto_grow(sadrzaj);
@@ -174,6 +160,25 @@
             element.style.height = (parseInt(element.scrollHeight) + 5) + "px";
         }
     </script>
+
+
+    {{--<script type="text/javascript">--}}
+    {{--document.getElementById('sifra').disabled = true;--}}
+    {{--document.getElementById('verzija').disabled = true;--}}
+
+    {{--function pasteText() {--}}
+    {{--document.getElementById('naslov').value = document.getElementById('naziv').value;--}}
+    {{--}--}}
+    {{--</script>--}}
+
+
+    {{--<script>--}}
+        {{--$(document).ready(function() {--}}
+            {{--$('[data-toggle="popover"]').popover({--}}
+                {{--placement: 'auto top'--}}
+            {{--});--}}
+        {{--});--}}
+    {{--</script>--}}
 
 
 @stop

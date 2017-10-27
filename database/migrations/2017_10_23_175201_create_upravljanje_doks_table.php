@@ -12,20 +12,21 @@ class CreateUpravljanjeDoksTable extends Migration {
             $table->text('idRef');
 
             $table->text('logo');
-            $table->text('sifra');
-            $table->text('verzija');
-            $table->text('naziv');
-            $table->text('naslov');
-            $table->text('potpis');
+            $table->text('sifra')->default('');
+            $table->text('verzija')->default('');
+            $table->text('naziv')->default('');
+            $table->text('naslov')->default('');
+            $table->text('potpis')->default('');
 
-            $table->text('sadrzaj');
-            $table->text('uvod');
-            $table->text('ref_dokumenta');
-            $table->text('definicije');
-            $table->text('opis');
-            $table->text('izmene');
-            $table->text('pracenje');
-            $table->text('prilozi');
+            $table->text('sadrzaj')->default('');
+            $table->text('uvod')->default('');
+            $table->text('ref_dokumenta')->default('');
+            $table->text('definicije')->default('');
+            $table->text('opis')->default('');
+            $table->text('izmene')->default('');
+            $table->text('pracenje')->default('');
+            $table->text('prilozi')->default('');
+            $table->text('hide')->default('');
 
             $table->timestamps();
         });
@@ -37,22 +38,3 @@ class CreateUpravljanjeDoksTable extends Migration {
     }
 }
 
-//id
-//idRef
-
-//logo
-//sifra
-//verzija
-//naziv
-//naslov
-//potpis
-
-//sadrzaj
-//uvod
-//ref_dokumenta
-//definicije
-//opis
-//izmene
-//pracenje
-//prilozi
-//verzija
