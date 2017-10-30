@@ -31,7 +31,7 @@
                                         Naziv obuke
                                     </div>
                                     <div class="col-md-4" align="left">
-                                        {!! Form::text('naslov', '', ['class'=>'form-control', 'placeholder'=>'...']) !!}
+                                        {!! Form::text('naziv', '', ['class'=>'form-control', 'placeholder'=>'...']) !!}
                                     </div>
                                 </div>
                             </div>
@@ -42,25 +42,19 @@
                                         Izdao nalog za obuku
                                     </div>
                                     <div class="col-md-4" align="left">
-                                        {!! Form::text('verzija', '', ['class'=>'form-control', 'placeholder'=>'...']) !!}
+                                        {!! Form::text('izdao', '', ['class'=>'form-control', 'placeholder'=>'...']) !!}
                                     </div>
                                 </div>
                             </div>
 
 
-                            <div style="padding-top:5px; padding-bottom: 10px; border-bottom: solid 0px #9d9d9d">
-                                <div class="row" style="padding-bottom: 2px">
-                                </div>
-                            </div>
-
-
-                            <div style="padding-top:10px; padding-bottom: 10px; border-bottom: solid 0px #9d9d9d">
+                            <div style="padding-top:20px; padding-bottom: 10px; border-bottom: solid 0px #9d9d9d">
                                 <div class="row" style="padding-bottom: 2px">
                                     <div class="col-md-2" style="margin-top: 5px">
                                         Datum početka obuke
                                     </div>
                                     <div class="col-md-10" align="left">
-                                        {!! Form::text('datum', '', ['class'=>'form-control', 'style'=>'width:130px; text-align: center', 'placeholder'=>'']) !!}
+                                        {!! Form::text('dat_pocetka', '', ['class'=>'form-control', 'style'=>'width:130px; text-align: center', 'placeholder'=>'']) !!}
                                     </div>
                                 </div>
 
@@ -69,7 +63,7 @@
                                         Datum završetka obuke
                                     </div>
                                     <div class="col-md-10" align="left">
-                                        {!! Form::text('datum', '', ['class'=>'form-control', 'style'=>'width:130px; text-align: center', 'placeholder'=>'']) !!}
+                                        {!! Form::text('dat_zavrsetka', '', ['class'=>'form-control', 'style'=>'width:130px; text-align: center', 'placeholder'=>'']) !!}
                                     </div>
                                 </div>
                             </div>
@@ -81,9 +75,9 @@
                                         Vrsta obuke
                                     </div>
                                     <div class="col-md-10" align="left">
-                                        {!! Form::radio('karakter', '1', '') !!}
+                                        {!! Form::radio('vrsta', '1', '') !!}
                                             redovno &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                        {!! Form::radio('karakter', '2', '') !!}
+                                        {!! Form::radio('vrsta', '2', '') !!}
                                             vanredno
                                     </div>
                                 </div>
@@ -141,7 +135,7 @@
                                             &nbsp;3. nije zadovoljio <br>
                                     </div>
                                     <div class="col-md-8" align="left">
-                                        {!! Form::textarea('napomena', '', ['class'=>'form-control', 'style'=>'resize: vertical', 'rows'=>'3', 'placeholder'=>'Napomena']) !!}
+                                        {!! Form::textarea('ocena_napomena', '', ['class'=>'form-control', 'style'=>'resize: vertical', 'rows'=>'3', 'placeholder'=>'Napomena']) !!}
                                     </div>
                                 </div>
                             </div>
@@ -153,13 +147,13 @@
                                         Status obuke
                                     </div>
                                     <div class="col-md-2" style="margin-top: 5px">
-                                        {!! Form::radio('ocena', '1', '') !!}
+                                        {!! Form::radio('status', '1', '') !!}
                                         &nbsp; nije započeto<br>
-                                        {!! Form::radio('ocena', '2', '') !!}
+                                        {!! Form::radio('status', '2', '') !!}
                                         &nbsp; u toku<br>
-                                        {!! Form::radio('ocena', '3', '') !!}
+                                        {!! Form::radio('status', '3', '') !!}
                                         &nbsp; završeno<br>
-                                        {!! Form::radio('ocena', '4', '') !!}
+                                        {!! Form::radio('status', '4', '') !!}
                                         &nbsp; otkazana<br>
                                     </div>
                                 </div>
@@ -193,7 +187,7 @@
             Dropzone.options.dZUpload = {
                 maxFiles:        1,
 //                addRemoveLinks: true,
-                url: "/upload.php?idRef=" + $prfx_plan,
+                url: "/upload.php?file=" + $prfx_plan + "&path={{$dir_obuke}}",
                 init: function() {
                     this.on("maxfilesexceeded", function(file){
                         this.removeFile(file);
@@ -203,7 +197,7 @@
                         imeFajla = file.name;
                         if(imeFajla) {
 //                            file.previewElement.classList.add("dz-success");
-                            document.getElementById('plan_path').value = $prfx_plan + "_" + file.name;
+                            document.getElementById('plan_path').value = $prfx_plan + file.name;
                         }
                     });
                 }
@@ -221,7 +215,7 @@
             Dropzone.options.dZUploadIzv = {
                 maxFiles:        1,
     //                addRemoveLinks: true,
-                url: "/upload.php?idRef=" + $prfx_izvestaj,
+                url: "/upload.php?file=" + $prfx_izvestaj + "&path={{$dir_obuke}}",
                 init: function() {
                     this.on("maxfilesexceeded", function(file){
                         this.removeFile(file);
@@ -231,7 +225,7 @@
                         imeFajla = file.name;
                         if(imeFajla) {
     //                            file.previewElement.classList.add("dz-success");
-                            document.getElementById('plan_path').value = $prfx_izvestaj + "_" + file.name;
+                            document.getElementById('izvestaj_path').value = $prfx_izvestaj + file.name;
                         }
                     });
                 }
@@ -252,8 +246,8 @@
 
     {{-- DATE PICKER --}}
     <script>
-        objDatePicker("datum");
-        objDatePicker("odobrio_datum");
+        objDatePicker("dat_pocetka");
+        objDatePicker("dat_zavrsetka");
     </script>
     {{-- END DATE PICKER --}}
 
