@@ -25,7 +25,7 @@ class UpravljanjeDokController extends Controller {
         $datas = new UpravljanjeDok();
         $datas = $input;
 
-        $datas['verzija'] = '1';
+//        $datas['verzija'] = '1';
         $datas['naziv'] = '';
 
         UpravljanjeDok::create($datas);

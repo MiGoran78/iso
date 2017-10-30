@@ -29,7 +29,7 @@
                                     Datum
                                 </div>
                                 <div class="col-md-4" style="padding-left: 0px">
-                                    {!! Form::text('datum', '', ['style'=>'width:100px; text-align: center', 'placeholder'=>'']) !!}
+                                    {!! Form::text('datum', '', ['class'=>'form-control', 'style'=>'width:130px; height: 28px; text-align: center', 'placeholder'=>'']) !!}
                                 </div>
                                 <div class="col-md-6" align="right">
                                     <button type="button" data-toggle="modal" data-target="#ciljevi_kv" class="btn btn-warning">Ciljevi kvaliteta</button>
