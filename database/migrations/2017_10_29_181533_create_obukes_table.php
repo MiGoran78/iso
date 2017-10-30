@@ -12,19 +12,19 @@ class CreateObukesTable extends Migration {
             $table->increments('id');
             $table->text('idRef');
 
-            $table->text('naziv')->default('');
-            $table->text('vrsta')->default('');
-            $table->text('izdao')->default('');
-            $table->text('dat_pocetka')->default('');
-            $table->text('dat_zavrsetka')->default('');
-            $table->text('polaznik')->default('');
-            $table->text('plan')->default('');
-            $table->text('plan_path')->default('');
-            $table->text('izvestaj')->default('');
-            $table->text('izvestaj_path')->default('');
-            $table->text('ocena')->default('');
-            $table->text('ocena_napomena')->default('');
-            $table->text('status')->default('');
+            $table->text('naziv');
+            $table->text('vrsta');
+            $table->text('izdao');
+            $table->text('dat_pocetka');
+            $table->text('dat_zavrsetka');
+            $table->text('polaznik');
+            $table->text('plan');
+            $table->text('plan_path');
+            $table->text('izvestaj');
+            $table->text('izvestaj_path');
+            $table->text('ocena');
+            $table->text('ocena_napomena');
+            $table->text('status');
 
             $table->timestamps();
         });

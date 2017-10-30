@@ -44,7 +44,7 @@
                                 </div>
                                 <div class="col-md-1" align="left">
                                     <h5 style="margin-bottom: 4px"><strong> VERZIJA </strong></h5>
-                                    {!! Form::label('verzija', '1', ['class'=>'form-control', 'style'=>'background:#eeeeee; text-align:center']) !!}
+                                    {!! Form::text('verzija', '1', ['class'=>'form-control', 'style'=>'text-align:center']) !!}
                                 </div>
                                 <div class="col-md-9" align="left">
                                     <h5 style="margin-bottom: 4px"><strong> NASLOV DOKUMENTA </strong></h5>
