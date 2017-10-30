@@ -21,43 +21,151 @@
 
                         {!! Form::open(['method'=>'POST', 'action'=> ['ObukeController@store']]) !!}
                             {!! Form::hidden('idRef', date("ymdhms")) !!}
+                            {!! Form::hidden('plan_path', '', ['id'=>'plan_path']) !!}
+                            {!! Form::hidden('izvestaj_path', '', ['id'=>'izvestaj_path']) !!}
 
 
-                            <div class="row" style="border-bottom: solid 1px #9d9d9d; padding-bottom:20px">
-                                <div class="col-md-2" align="left">
-                                    <h5 style="margin-bottom: 4px"><strong> ŠIFRA </strong></h5>
-                                    {!! Form::text('sifra', '', ['id'=>'sifra', 'class'=>'form-control', 'style'=>'resize: vertical', 'placeholder'=>'...']) !!}
+                            <div style="padding-top:10px; border-bottom: solid 0px #9d9d9d">
+                                <div class="row" style="padding-bottom: 2px">
+                                    <div class="col-md-2" style="margin-top: 3px">
+                                        Naziv obuke
+                                    </div>
+                                    <div class="col-md-4" align="left">
+                                        {!! Form::text('naslov', '', ['class'=>'form-control', 'placeholder'=>'...']) !!}
+                                    </div>
                                 </div>
-                                <div class="col-md-1" align="left">
-                                    <h5 style="margin-bottom: 4px"><strong> VERZIJA </strong></h5>
-                                    {!! Form::text('verzija', '', ['class'=>'form-control', 'style'=>'background:#eeeeee; text-align:center']) !!}
-                                </div>
-                                <div class="col-md-9" align="left">
-                                    <h5 style="margin-bottom: 4px"><strong> NASLOV DOKUMENTA </strong></h5>
-                                    {!! Form::text('naslov', '', ['id'=>'naslov', 'class'=>'form-control', 'style'=>'resize: vertical', 'placeholder'=>'...']) !!}
+                            </div>
+
+                            <div style="padding-top:10px; border-bottom: solid 0px #9d9d9d">
+                                <div class="row" style="padding-bottom: 2px">
+                                    <div class="col-md-2" style="margin-top: 3px">
+                                        Izdao nalog za obuku
+                                    </div>
+                                    <div class="col-md-4" align="left">
+                                        {!! Form::text('verzija', '', ['class'=>'form-control', 'placeholder'=>'...']) !!}
+                                    </div>
                                 </div>
                             </div>
 
 
-                            {{--<div class="row">--}}
-                            {{--<div class="col-md-12" align="left" style="border-bottom: solid 1px #9d9d9d; padding-bottom:20px; padding-top: 10px">--}}
-                            {{--<h5 style="margin-bottom: 4px"><strong>  NASLOV DOKUMENTA </strong></h5>--}}
-                            {{--<div class="input-group">--}}
-                            {{--<span class="input-group-addon glyphicon glyphicon-hand-right" id="paste-addon" onclick="pasteText()"--}}
-                            {{--data-toggle="popover" data-trigger="hover" data-content="Popuni polje nazivom dokumenta">--}}
-                            {{--</span>--}}
-                            {{--{!! Form::text('naslov', '', ['aria-describedby'=>'paste-addon2', 'id'=>'naslov', 'class'=>'form-control', 'style'=>'resize: vertical', 'placeholder'=>'Naslov']) !!}--}}
-                            {{--</div>--}}
-                            {{--</div>--}}
-                            {{--</div>--}}
-
-                            <div class="row">
-                                <div class="col-md-12" align="left" style="padding-top: 10px">
-                                    <h5 style="margin-bottom: 4px;"><strong>
-                                            ------ </strong></h5>
-                                    {!! Form::textarea('-----', '', ['class'=>'form-control', 'style'=>'resize: vertical', 'rows'=>'3', 'placeholder'=>'...']) !!}
+                            <div style="padding-top:5px; padding-bottom: 10px; border-bottom: solid 0px #9d9d9d">
+                                <div class="row" style="padding-bottom: 2px">
                                 </div>
                             </div>
+
+
+                            <div style="padding-top:10px; padding-bottom: 10px; border-bottom: solid 0px #9d9d9d">
+                                <div class="row" style="padding-bottom: 2px">
+                                    <div class="col-md-2" style="margin-top: 5px">
+                                        Datum početka obuke
+                                    </div>
+                                    <div class="col-md-10" align="left">
+                                        {!! Form::text('datum', '', ['class'=>'form-control', 'style'=>'width:130px; text-align: center', 'placeholder'=>'']) !!}
+                                    </div>
+                                </div>
+
+                                <div class="row" style="padding-bottom: 2px; padding-top: 10px">
+                                    <div class="col-md-2" style="margin-top: 5px">
+                                        Datum završetka obuke
+                                    </div>
+                                    <div class="col-md-10" align="left">
+                                        {!! Form::text('datum', '', ['class'=>'form-control', 'style'=>'width:130px; text-align: center', 'placeholder'=>'']) !!}
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div style="padding-top:10px; padding-bottom: 10px; border-bottom: solid 0px #9d9d9d">
+                                <div class="row" style="padding-bottom: 2px">
+                                    <div class="col-md-2" style="margin-top: 3px">
+                                        Vrsta obuke
+                                    </div>
+                                    <div class="col-md-10" align="left">
+                                        {!! Form::radio('karakter', '1', '') !!}
+                                            redovno &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                        {!! Form::radio('karakter', '2', '') !!}
+                                            vanredno
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div style="padding-top:10px; padding-bottom: 10px; border-bottom: solid 0px #9d9d9d">
+                                <div class="row" style="padding-bottom: 2px">
+                                    <div class="col-md-2" style="margin-top: 6px">
+                                        Polaznik obuke
+                                    </div>
+                                    <div class="col-md-10" align="left">
+                                        {!! Form::text('polaznik', '', ['class'=>'form-control', 'placeholder'=>'...']) !!}
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div hidden class="dropzone" id="dzObj"></div>
+
+                            <div style="padding-top:10px; padding-bottom: 20px; border-bottom: solid 1px #9d9d9d">
+                                <div class="row" style="padding-bottom: 2px">
+                                    <div class="col-md-6">
+                                        PLAN/OPIS OBUKE
+                                    </div>
+                                    <div class="col-md-6">
+                                        TEST OBUKE, SERTIFIKAT ILI IZVEŠTAJ OBUČENOSTI
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <div class="form-control dropzone" id="dZUpload" style="padding-top: 0px; background: #d3e0e9; margin-top:5px; width:70%; height:170px">
+                                            <div class="dz-default dz-message"><br><br> Prevuci dokument</div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-control dropzone" id="dZUploadIzv" style="padding-top: 0px; background: #d3e0e9; margin-top:5px; width:70%; height:170px">
+                                            <div class="dz-default dz-message"><br><br> Prevuci dokument</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div style="padding-top:10px; padding-bottom: 10px; border-bottom: solid 1px #9d9d9d">
+                                <div class="row" style="padding-bottom: 2px">
+                                    <div class="col-md-2" style="margin-top: 0px">
+                                        Ocena obučenosti
+                                    </div>
+                                    <div class="col-md-2" style="margin-top: 5px">
+                                        {!! Form::radio('ocena', '1', '') !!}
+                                            &nbsp;1. odlično <br>
+                                        {!! Form::radio('ocena', '2', '') !!}
+                                            &nbsp;2. zadovoljio <br>
+                                        {!! Form::radio('ocena', '3', '') !!}
+                                            &nbsp;3. nije zadovoljio <br>
+                                    </div>
+                                    <div class="col-md-8" align="left">
+                                        {!! Form::textarea('napomena', '', ['class'=>'form-control', 'style'=>'resize: vertical', 'rows'=>'3', 'placeholder'=>'Napomena']) !!}
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div style="padding-top:10px; padding-bottom: 10px; border-bottom: solid 1px #9d9d9d">
+                                <div class="row" style="padding-bottom: 2px">
+                                    <div class="col-md-2" style="margin-top: 0px">
+                                        Status obuke
+                                    </div>
+                                    <div class="col-md-2" style="margin-top: 5px">
+                                        {!! Form::radio('ocena', '1', '') !!}
+                                        &nbsp; nije započeto<br>
+                                        {!! Form::radio('ocena', '2', '') !!}
+                                        &nbsp; u toku<br>
+                                        {!! Form::radio('ocena', '3', '') !!}
+                                        &nbsp; završeno<br>
+                                        {!! Form::radio('ocena', '4', '') !!}
+                                        &nbsp; otkazana<br>
+                                    </div>
+                                </div>
+                            </div>
+
+
 
 
 
@@ -75,6 +183,64 @@
 
 
 
+
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+            Dropzone.autoDiscover = false;
+            var $prfx_plan = "{{date('ymdhms')}}_Plan_obuke_";
+
+            Dropzone.options.dZUpload = {
+                maxFiles:        1,
+//                addRemoveLinks: true,
+                url: "/upload.php?idRef=" + $prfx_plan,
+                init: function() {
+                    this.on("maxfilesexceeded", function(file){
+                        this.removeFile(file);
+                        alert("Može se dodati samo jedan dokument!");
+                    });
+                    this.on("addedfile", function(file) {
+                        imeFajla = file.name;
+                        if(imeFajla) {
+//                            file.previewElement.classList.add("dz-success");
+                            document.getElementById('plan_path').value = $prfx_plan + "_" + file.name;
+                        }
+                    });
+                }
+            };
+            $("#dZUpload").dropzone({ });
+        });
+
+
+
+
+        $(document).ready(function () {
+            Dropzone.autoDiscover = false;
+            var $prfx_izvestaj = "{{date('ymdhms')}}_Izvestaj_obuke_";
+
+            Dropzone.options.dZUploadIzv = {
+                maxFiles:        1,
+    //                addRemoveLinks: true,
+                url: "/upload.php?idRef=" + $prfx_izvestaj,
+                init: function() {
+                    this.on("maxfilesexceeded", function(file){
+                        this.removeFile(file);
+                        alert("Može se dodati samo jedan dokument!");
+                    });
+                    this.on("addedfile", function(file) {
+                        imeFajla = file.name;
+                        if(imeFajla) {
+    //                            file.previewElement.classList.add("dz-success");
+                            document.getElementById('plan_path').value = $prfx_izvestaj + "_" + file.name;
+                        }
+                    });
+                }
+            };
+            $("#dZUploadIzv").dropzone({ });
+        });
+    </script>
+
+
     <script>
         $(document).ready(function() {
             $('[data-toggle="popover"]').popover({
@@ -82,5 +248,13 @@
             });
         });
     </script>
+
+
+    {{-- DATE PICKER --}}
+    <script>
+        objDatePicker("datum");
+        objDatePicker("odobrio_datum");
+    </script>
+    {{-- END DATE PICKER --}}
 
 @stop

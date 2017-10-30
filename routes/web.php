@@ -100,5 +100,6 @@ Route::resource('upravljanje_dok', 'UpravljanjeDokController',['names'=>[
 Route::resource('obuke', 'ObukeController',['names'=>[
     'index'         => 'zapisi.obuke.admin.index',
     'create'        => 'zapisi.obuke.admin.create',
+    'store'         => 'zapisi.obuke.admin.store',
     'edit'          => 'zapisi.obuke.admin.edit',
 ]]);
