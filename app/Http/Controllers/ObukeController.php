@@ -8,40 +8,43 @@ use Illuminate\Support\Facades\Session;
 
 class ObukeController extends Controller
 {
+    private $dir_obuke = 'qms_podaci/uputstva/obuke';
+
 
     public function index() {
-//        $datas = Obuke::all()->sortByDesc('verzija')->sortBy('id');
+//        $datas = Obuke::all()->sortByDesc('dat_pocetka');
         $datas = Obuke::all();
+//echo dd($datas);
         return view('zapisi.obuke.admin.index', compact('datas'));
     }
 
 
     public function create() {
-        return view('zapisi.obuke.admin.create');
+        $dir_obuke = $this->dir_obuke;
+        if (!is_dir($dir_obuke)) {
+            mkdir($dir_obuke);
+        }
+
+        return view('zapisi.obuke.admin.create', compact('dir_obuke'));
     }
 
 
     public function store(Request $request) {
         $input = $request->all();
-        echo dd($input);
 
-        //        DND
-//        $file = $request->file('file');
-//        $fileName = $file->getClientOriginalName();
+        // Drag & Drop
 //        $file->move(public_path('qms_podaci'), $fileName);
-        return back();
 
+        $input = $request->all();
+        $datas = new Obuke();
+        $datas = $input;
 
+        $datas['dat_pocetka'] = $input['dat_pocetka']=='' ? '' : date('Y-m-d', strtotime($input['dat_pocetka']));
+        $datas['dat_zavrsetka'] = $input['dat_zavrsetka']=='' ? '' : date('Y-m-d', strtotime($input['dat_zavrsetka']));
 
-//        $input = $request->all();
-//        $datas = new Obuke();
-//        $datas = $input;
-//
-//        $datas['datum'] = $input['datum']=='' ? '' : date('Y-m-d', strtotime($input['datum']));
-//
-//        Obuke::create($datas);
-//        Session::flash('message','Zapis je kreiran');
-//        return redirect('/obuke');
+        Obuke::create($datas);
+        Session::flash('message','Zapis je kreiran');
+        return redirect('/obuke');
     }
 
 

@@ -12,19 +12,19 @@ class CreateObukesTable extends Migration {
             $table->increments('id');
             $table->text('idRef');
 
-            $table->text('naziv');
-            $table->text('vrsta');
-            $table->text('izdao');
-            $table->text('dat_pocetka');
-            $table->text('dat_zavrsetka');
-            $table->text('polaznik');
-            $table->text('plan');
-            $table->text('plan_path');
-            $table->text('izvestaj');
-            $table->text('izvestaj_path');
-            $table->text('ocena');
-            $table->text('ocena_napomena');
-            $table->text('status');
+            $table->longtext('naziv')->nullable();
+            $table->longtext('vrsta')->nullable();
+            $table->longtext('izdao')->nullable();
+            $table->longtext('dat_pocetka')->nullable();
+            $table->longtext('dat_zavrsetka')->nullable();
+            $table->longtext('polaznik')->nullable();
+            $table->longtext('plan')->nullable();
+            $table->longtext('plan_path')->nullable();
+            $table->longtext('izvestaj')->nullable();
+            $table->longtext('izvestaj_path')->nullable();
+            $table->longtext('ocena')->nullable();
+            $table->longtext('ocena_napomena')->nullable();
+            $table->longtext('status')->nullable();
 
             $table->timestamps();
         });
