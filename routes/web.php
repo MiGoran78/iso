@@ -95,3 +95,10 @@ Route::resource('upravljanje_dok', 'UpravljanjeDokController',['names'=>[
     'create'        => 'zapisi.upravljanje_dok.admin.create',
     'edit'          => 'zapisi.upravljanje_dok.admin.edit',
 ]]);
+
+
+Route::resource('obuke', 'ObukeController',['names'=>[
+    'index'         => 'zapisi.obuke.admin.index',
+    'create'        => 'zapisi.obuke.admin.create',
+    'edit'          => 'zapisi.obuke.admin.edit',
+]]);
