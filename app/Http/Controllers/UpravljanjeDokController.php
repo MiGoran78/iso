@@ -9,6 +9,9 @@ use Illuminate\Support\Facades\Session;
 class UpravljanjeDokController extends Controller {
 
     public function index() {
+//        $datas = UpravljanjeDok::all()->GroupBy('sifra');
+//        echo dd($datas);
+
         $datas = UpravljanjeDok::all()->sortByDesc('verzija')->sortBy('sifra');
         return view('zapisi.upravljanje_dok.admin.index', compact('datas'));
     }
@@ -47,8 +50,16 @@ class UpravljanjeDokController extends Controller {
 
 
     public function update(Request $request, $id) {
+        //hide last document ver.
+        //==============================
+        $oldDoc = UpravljanjeDok::findOrFail($id);
+        $oldDoc['hide'] = '1';
+        $oldDoc->save();
+        //==============================
+
+        //save new document ver.
+        //==============================
         $input = $request->all();
-//        $datas = UpravljanjeDok::findOrFail($id);
         $datas = new UpravljanjeDok();
         $datas = $input;
 
@@ -57,7 +68,6 @@ class UpravljanjeDokController extends Controller {
         $datas['sifra'] = $input['sifra'];
         $datas['verzija'] = (int)$input['verzija'] + 1;
         $datas['naziv'] = '';
-//        $datas['naziv'] = $input['naziv'];
         $datas['naslov'] = $input['naslov'];
         $datas['potpis'] = $input['potpis'];
         $datas['sadrzaj'] = $input['sadrzaj'];
@@ -65,16 +75,15 @@ class UpravljanjeDokController extends Controller {
         $datas['ref_dokumenta'] = $input['ref_dokumenta'];
         $datas['definicije'] = $input['definicije'];
         $datas['opis'] = $input['opis'];
-
         $izmena = $input['izmene'] . PHP_EOL . $input['sifra'] . '(' . $input['verzija'] . ') - ' . date("d.m.Y");
         $datas['izmene'] = $izmena;
-
         $datas['pracenje'] = $input['pracenje'];
         $datas['prilozi'] = $input['prilozi'];
         $datas['potpis'] = $input['potpis'];
 
         UpravljanjeDok::create($datas);
-//        $datas->save();
+        //==============================
+
         Session::flash('message','Zapis je snimljen');
         return redirect('/upravljanje_dok');
     }
