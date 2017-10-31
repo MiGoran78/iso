@@ -1,7 +1,6 @@
 @extends('zapisi.obuke.main')
 @section('content')
 
-
     <div class="container" style="font-family: 'Verdana'; margin: 0px; margin-right: 20px; padding: 5px; padding-top: 0px; width: auto; height:100%" >
         <table class="table" style="margin: 0px">
             <tr>
@@ -47,8 +46,8 @@
                             </a>
                         </td>
 
-                        @if($data->vrsta == '1')     @php($vrsta = '11')     @endif
-                        @if($data->vrsta == '2')     @php($vrsta = '22')     @endif
+                        @if($data->vrsta == '1')     @php($vrsta = 'redovno')     @endif
+                        @if($data->vrsta == '2')     @php($vrsta = 'vanredno')     @endif
 
                         @if($data->status == '1')     @php($status = 'nije započeto')   @endif
                         @if($data->status == '2')     @php($status = 'u toku')          @endif
