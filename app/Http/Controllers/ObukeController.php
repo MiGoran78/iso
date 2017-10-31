@@ -31,11 +31,22 @@ class ObukeController extends Controller
     public function store(Request $request) {
 //        $file->move(public_path('qms_podaci'), $fileName);
         $input = $request->all();
-        $datas = new Obuke();
-        $datas = $input;
+//        $datas = new Obuke() ;
 
-        $datas['dat_pocetka'] = $input['dat_pocetka']=='' ? '' : date('Y-m-d', strtotime($input['dat_pocetka']));
-        $datas['dat_zavrsetka'] = $input['dat_zavrsetka']=='' ? '' : date('Y-m-d', strtotime($input['dat_zavrsetka']));
+        $datas['idRef'] = empty($input['idRef'])                    ? '' : $input['idRef'];
+        $datas['naziv'] = empty($input['naziv'])                    ? '' : $input['naziv'];
+        $datas['vrsta'] = empty($input['vrsta'])                    ? '0' : $input['vrsta'];
+        $datas['izdao'] = empty($input['izdao'])                    ? '' : $input['izdao'];
+        $datas['dat_pocetka'] = $input['dat_pocetka']==''           ? '' : date('Y-m-d', strtotime($input['dat_pocetka']));
+        $datas['dat_zavrsetka'] = $input['dat_zavrsetka']==''       ? '' : date('Y-m-d', strtotime($input['dat_zavrsetka']));
+        $datas['polaznik'] = empty($input['polaznik'])              ? '' : $input['polaznik'];
+        $datas['plan'] = empty($input['plan_path'])                 ? '' : $input['plan_path'];
+        $datas['plan_path'] = empty($input['plan_path'])            ? '' : $input['plan_path'];
+        $datas['izvestaj'] = empty($input['izvestaj_path'])         ? '' : $input['izvestaj_path'];
+        $datas['izvestaj_path'] = empty($input['izvestaj_path'])    ? '' : $input['izvestaj_path'];
+        $datas['ocena'] = empty($input['ocena'])                    ? '0' : $input['ocena'];
+        $datas['ocena_napomena'] = empty($input['ocena_napomena'])  ? '' : $input['ocena_napomena'];
+        $datas['status'] = empty($input['status'])                  ? '0' : $input['status'];
 
         Obuke::create($datas);
         Session::flash('message','Zapis je kreiran');
@@ -61,18 +72,21 @@ class ObukeController extends Controller
     public function update(Request $request, $id) {
         $input = $request->all();
         $datas = Obuke::findOrFail($id);
+
+        $datas['naziv'] = empty($input['naziv'])                    ? '' : $input['naziv'];
+        $datas['vrsta'] = empty($input['vrsta'])                    ? '0' : $input['vrsta'];
+        $datas['izdao'] = empty($input['izdao'])                    ? '' : $input['izdao'];
+        $datas['dat_pocetka'] = $input['dat_pocetka']==''           ? '' : date('Y-m-d', strtotime($input['dat_pocetka']));
+        $datas['dat_zavrsetka'] = $input['dat_zavrsetka']==''       ? '' : date('Y-m-d', strtotime($input['dat_zavrsetka']));
+        $datas['polaznik'] = empty($input['polaznik'])              ? '' : $input['polaznik'];
+        $datas['plan'] = empty($input['plan_path'])                 ? '' : $input['plan_path'];
+        $datas['plan_path'] = empty($input['plan_path'])            ? '' : $input['plan_path'];
+        $datas['izvestaj'] = empty($input['izvestaj_path'])         ? '' : $input['izvestaj_path'];
+        $datas['izvestaj_path'] = empty($input['izvestaj_path'])    ? '' : $input['izvestaj_path'];
+        $datas['ocena'] = empty($input['ocena'])                    ? '0' : $input['ocena'];
+        $datas['ocena_napomena'] = empty($input['ocena_napomena'])  ? '' : $input['ocena_napomena'];
+        $datas['status'] = empty($input['status'])                  ? '0' : $input['status'];
 //echo dd($input);
-        $datas['naziv'] = $input['naziv'];
-        $datas['vrsta'] = $input['vrsta'];
-        $datas['izdao'] = $input['izdao'];
-        $datas['dat_pocetka'] = $input['dat_pocetka']=='' ? '' : date('Y-m-d', strtotime($input['dat_pocetka']));
-        $datas['dat_zavrsetka'] = $input['dat_zavrsetka']=='' ? '' : date('Y-m-d', strtotime($input['dat_zavrsetka']));
-        $datas['polaznik'] = $input['polaznik'];
-        $datas['plan_path'] = $input['plan_path'];
-        $datas['izvestaj_path'] = $input['izvestaj_path'];
-        $datas['ocena'] = $input['ocena'];
-        $datas['ocena_napomena'] = $input['ocena_napomena'];
-        $datas['status'] = $input['status'];
 
         $datas->save();
         Session::flash('message','Zapis je snimljen');
