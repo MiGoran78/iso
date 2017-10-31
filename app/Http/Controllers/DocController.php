@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Category;
+use App\UpravljanjeDok;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\File;
@@ -46,7 +47,14 @@ class DocController extends Controller
     public function edit($id) {
         $selected = Category::findOrFail($id);
         $allCategories = Category::where('parent_id', '<', 4)->pluck('title','id','parent_id')->all();
-        return view('admin.docs.edit', compact( 'allCategories','selected'));
+        $doc_sifre = UpravljanjeDok::where('hide',0)->pluck('sifra')->all();
+
+        $test = UpravljanjeDok::where('hide',0)->where('sifra',$selected->sifra)->pluck('verzija')->all();
+//        $test = UpravljanjeDok::where('hide',0)->where('sifra',$selected->sifra)->pluck('verzija')->all();
+//echo dd($test);
+
+//echo dd($selected->sifra);
+        return view('admin.docs.edit', compact( 'allCategories','selected', 'doc_sifre'));
     }
 
 
