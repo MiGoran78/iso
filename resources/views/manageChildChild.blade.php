@@ -19,20 +19,41 @@
                     <?php
                     if(substr_count($child->title, '.', 1, 10) == 1) {
                         echo '<img src="/pic/fldr-doc.png">&nbsp;&nbsp;';
+
+                        $sifraOznaka = \App\Category::findOrFail($child->parent_id)->sifra;
+                        $sifraId = App\UpravljanjeDok::where('sifra',$sifraOznaka)->pluck('id');
+                        $sifraId = str_replace('[','',$sifraId);
+                        $sifraId = str_replace(']','',$sifraId);
+                    if ($sifraId) {
+                        $link = '/upravljanje_dok/'. $sifraId .'/edit';
+                        ?>
+                        <a href='{{ $link }}'>
+                            {{ $child->title }}
+                        </a>
+                        <?php
                     } else {
+                        $link='';
+                        ?>
+                        <a href='{{ $link }}'>
+                            {{ $child->title }}
+                        </a>
+                        <?php
+                    }
+                } else {
                         echo '<img src="/pic/document.png">&nbsp;';
+                        ?>
+                        <a href='{{ 'qms_podaci' .'/'. \App\Category::findOrFail($child->level)->title .'/'. $child->path }}'>
+                            {{ $child->title }}
+                        </a>
+                        <?php
                     }
                     ?>
                 </a>
             @endif
 
-            {{--@php ($test = App\UpravljanjeDok::where('hide',0)->where('sifra',$selected->sifra)->pluck('verzija')->all())--}}
-
-            {{--<a href='{{ '/upravljanje_dok/'. $child->path .'/edit' }}'>--}}
-
-            <a href='{{ 'qms_podaci' .'/'. \App\Category::findOrFail($child->level)->title .'/'. $child->path }}'>
-                {{ $child->title }} - {{ $child }}
-            </a>
+            {{--<a href='{{ 'qms_podaci' .'/'. \App\Category::findOrFail($child->level)->title .'/'. $child->path }}'>--}}
+                {{--{{ $child->title }} - {{ \App\Category::findOrFail($child->parent_id)->sifra }}--}}
+            {{--</a>--}}
 
         </li>
     @endforeach
