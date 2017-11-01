@@ -27,8 +27,9 @@ class DocController extends Controller
 
     public function create() {
         $allCategories = Category::where('parent_id', '<', 4)->pluck('title','id','level','parent_id')->all();
+        $doc_sifre = UpravljanjeDok::where('hide',0)->pluck('sifra')->all();
         $selected = '';
-        return view('admin.docs.create', compact( 'allCategories','selected'));
+        return view('admin.docs.create', compact( 'allCategories','selected', 'doc_sifre'));
     }
 
 
@@ -49,11 +50,8 @@ class DocController extends Controller
         $allCategories = Category::where('parent_id', '<', 4)->pluck('title','id','parent_id')->all();
         $doc_sifre = UpravljanjeDok::where('hide',0)->pluck('sifra')->all();
 
-        $test = UpravljanjeDok::where('hide',0)->where('sifra',$selected->sifra)->pluck('verzija')->all();
 //        $test = UpravljanjeDok::where('hide',0)->where('sifra',$selected->sifra)->pluck('verzija')->all();
-//echo dd($test);
-
-//echo dd($selected->sifra);
+//        $test = UpravljanjeDok::where('hide',0)->where('sifra',$selected->sifra)->pluck('verzija')->all();
         return view('admin.docs.edit', compact( 'allCategories','selected', 'doc_sifre'));
     }
 

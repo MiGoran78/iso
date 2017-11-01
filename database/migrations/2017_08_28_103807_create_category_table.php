@@ -5,13 +5,8 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
 
-class CreateCategoryTable extends Migration
-{
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
+class CreateCategoryTable extends Migration {
+
     public function up()
     {
         Schema::create('categories', function (Blueprint $table) {
@@ -20,17 +15,13 @@ class CreateCategoryTable extends Migration
             $table->string('title');
             $table->integer('parent_id');
             $table->string('path');
+            $table->string('sifra');
             $table->timestamps();
         });
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
-    public function down()
-    {
+
+    public function down() {
         Schema::drop("categories");
     }
 }

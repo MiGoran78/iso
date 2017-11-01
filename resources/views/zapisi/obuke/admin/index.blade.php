@@ -46,13 +46,17 @@
                             </a>
                         </td>
 
-                        @if($data->vrsta == 1)     @php($vrsta = 'interna')       @else($vrsta = '')     @endif
-                        @if($data->vrsta == 2)     @php($vrsta = 'eksterna')      @else($vrsta = '')     @endif
+                        @if($data->vrsta == '')       @php($vrsta = '-')                @endif
+                        @if($data->vrsta == 0)        @php($vrsta = '-')                @endif
+                        @if($data->vrsta == 1)        @php($vrsta = 'interna')          @endif
+                        @if($data->vrsta == 2)        @php($vrsta = 'eksterna')         @endif
 
-                        @if($data->status == '1')     @php($status = 'nije započeto')   @else($status = '')    @endif
-                        @if($data->status == '2')     @php($status = 'u toku')          @else($status = '')    @endif
-                        @if($data->status == '3')     @php($status = 'završeno')        @else($status = '')    @endif
-                        @if($data->status == '4')     @php($status = 'otkazano')        @else($status = '')    @endif
+                        @if($data->status == '')      @php($status = '-')               @endif
+                        @if($data->status == 0)       @php($status = '-')               @endif
+                        @if($data->status == 1)       @php($status = 'nije započeto')   @endif
+                        @if($data->status == 2)       @php($status = 'u toku')          @endif
+                        @if($data->status == 3)       @php($status = 'završeno')        @endif
+                        @if($data->status == 4)       @php($status = 'otkazano')        @endif
 
                         <td style="padding: 4px; text-align: left; padding-left: 10px"> {{$data->naziv}}</td>
                         <td style="padding: 4px; text-align: center; padding-left: 10px"> {{$vrsta}}</td>
