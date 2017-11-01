@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\UpravljanjeDok;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Category;
@@ -62,7 +63,6 @@ class CategoryAdminController extends Controller
         //move file
         $oldCateg = 'qms_podaci/'.$oldLevel.'/'.$input['path'];
         $newCateg = 'qms_podaci/'.$folderName.'/'.$input['path'];
-//echo dd(empty(public_path($oldFile)));
 
         //promena dokumenta (rename + move)
         if ($oldFN != $input['path'])  {
@@ -73,7 +73,6 @@ class CategoryAdminController extends Controller
         }
 
         //promena kategorije (move)
-//        echo dd($oldLevel.'-'.$folderName.'-'.$input['path']);
         if (($oldLevel != $folderName) and ($oldFN == $input['path'])) {
             File::move($oldCateg, $newCateg);      //move file
         }
@@ -84,6 +83,11 @@ class CategoryAdminController extends Controller
         $tmp['title'] = $input['title'];
         $tmp['parent_id'] = $input['parent_id'];
         $tmp['path'] = $input['path'];
+
+        //
+        $doc_sifre = UpravljanjeDok::where('hide',0)->pluck('sifra');
+        $tmp['sifra'] = $doc_sifre[$input['path2']];
+
         $tmp->save();
 
 //        return back()->with('success', 'Uspešno dodat zapis');

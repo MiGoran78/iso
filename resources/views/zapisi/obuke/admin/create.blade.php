@@ -76,9 +76,9 @@
                                     </div>
                                     <div class="col-md-10" align="left">
                                         {!! Form::radio('vrsta', '1', '') !!}
-                                            redovno &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                            interna &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                         {!! Form::radio('vrsta', '2', '') !!}
-                                            vanredno
+                                            eksterna
                                     </div>
                                 </div>
                             </div>

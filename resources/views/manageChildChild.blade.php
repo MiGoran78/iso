@@ -26,8 +26,12 @@
                 </a>
             @endif
 
+            {{--@php ($test = App\UpravljanjeDok::where('hide',0)->where('sifra',$selected->sifra)->pluck('verzija')->all())--}}
+
+            {{--<a href='{{ '/upravljanje_dok/'. $child->path .'/edit' }}'>--}}
+
             <a href='{{ 'qms_podaci' .'/'. \App\Category::findOrFail($child->level)->title .'/'. $child->path }}'>
-                {{ $child->title }}
+                {{ $child->title }} - {{ $child }}
             </a>
 
         </li>

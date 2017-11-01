@@ -37,6 +37,7 @@
 
                 @foreach($datas as $key=>$data)
                     {{--@if($data->sifra != $prev)--}}
+                    @if(!$data->hide)
                         <tr>
                             <td style="padding: 4px; text-align: center; padding-left: 10px"> {{$no++}}</td>
 
@@ -80,6 +81,7 @@
                                 {{--=============--}}
                             </td>
                         </tr>
+                    @endif
                     {{--@endif--}}
                     {{--@php($prev = $data->sifra)--}}
                 @endforeach
