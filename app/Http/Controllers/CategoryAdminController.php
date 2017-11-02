@@ -15,10 +15,16 @@ class CategoryAdminController extends Controller
             'title' => 'required',
             'parent_id' => 'required',
         ]);
-
         $input = $request->all();
+
         $input['parent_id'] = empty($input['parent_id']) ? 0 : $input['parent_id'];
         $input['level'] = Category::findOrFail($input['parent_id'])->level;
+
+        // dodaje sifru dokumenta ako se radi o uputstvu (kako bi linkovalo sa P.UPD dokumentom)
+        if (array_key_exists('path2',$input)) {
+            $doc_sifre = UpravljanjeDok::where('hide',0)->pluck('sifra');
+            $input['sifra'] = empty($doc_sifre[$input['path2']]) ? '' : $doc_sifre[$input['path2']];
+        }
 
         //add new record
         Category::create($input);
@@ -84,9 +90,11 @@ class CategoryAdminController extends Controller
         $tmp['parent_id'] = $input['parent_id'];
         $tmp['path'] = $input['path'];
 
-        //
-        $doc_sifre = UpravljanjeDok::where('hide',0)->pluck('sifra');
-        $tmp['sifra'] = $doc_sifre[$input['path2']];
+        // dodaje sifru dokumenta ako se radi o uputstvu (kako bi linkovalo sa P.UPD dokumentom)
+        if (array_key_exists('path2',$input)) {
+            $doc_sifre = UpravljanjeDok::where('hide', 0)->pluck('sifra');
+            $tmp['sifra'] = $doc_sifre[$input['path2']];
+        }
 
         $tmp->save();
 

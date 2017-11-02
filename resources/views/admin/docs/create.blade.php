@@ -25,6 +25,14 @@
                         <br>
 
                         {!! Form::open(['route'=>'add.category']) !!}
+
+                                <div class="form-group {{ $errors->has('title') ? 'has-error' : '' }}">
+                                    {!! Form::label('Uputstvo / procedura:') !!}
+                                    {!! Form::select('path2', $doc_sifre, old('path2'), ['class'=>'form-control', 'id'=>'path2', 'placeholder'=>'Izaberi']) !!}
+                                    <span class="text-danger">{{ $errors->first('title') }}</span>
+                                </div>
+
+
                                 <div class="form-group {{ $errors->has('title') ? 'has-error' : '' }}">
                                     {!! Form::label('Naziv:') !!}
                                     {!! Form::text('title', old('title'), ['class'=>'form-control', 'id'=>'objTitle', 'placeholder'=>'Unesi naziv']) !!}

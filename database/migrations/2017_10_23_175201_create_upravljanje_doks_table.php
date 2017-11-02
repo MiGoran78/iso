@@ -26,7 +26,7 @@ class CreateUpravljanjeDoksTable extends Migration {
             $table->text('izmene')->default('');
             $table->text('pracenje')->default('');
             $table->text('prilozi')->default('');
-            $table->text('hide')->default('');
+            $table->integer('hide')->default('0');
 
             $table->timestamps();
         });
