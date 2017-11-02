@@ -13,12 +13,9 @@
 
             @if(count($child->childs))
                 {{--<a href='{{ 'qms_podaci' .'/'. \App\Category::findOrFail($child->level)->title .'/'. $child->path }}'>--}}
-                {{--</a>--}}
                 <img src="/pic/fldr.png">&nbsp;
+                {{--</a>--}}
 
-                <a href='{{ 'qms_podaci' .'/'. \App\Category::findOrFail($child->level)->title .'/'. $child->path }}'>
-                    +
-                </a>
 
                 <?php
                 $sifraOznaka = \App\Category::findOrFail($child->id)->sifra;
@@ -28,16 +25,28 @@
                 $sifraId = str_replace(']','',$sifraId);
                 $link = '/upravljanje_dok/'. $sifraId .'/edit';
                 ?>
-                <a onclick="window.open('{{ $link }}', '_blank')"> {{$child->title}} </a>
+
+                {{--<a onclick="window.open('{{ $link }}', '_blank')">> --}}
+                    {{$child->title}}
+                {{--</a>--}}
 
             @else
-                <a href='{{ 'qms_podaci' .'/'. \App\Category::findOrFail($child->level)->title .'/'. $child->path }}'>
-                    <img src="/pic/document.png">&nbsp;
-                </a>
 
-                <a href='{{ 'qms_podaci' .'/'. \App\Category::findOrFail($child->level)->title .'/'. $child->path }}'>
-                    {{ $child->title }}
-                </a>
+                <img src="/pic/document.png">&nbsp;
+
+                <?php
+                $sifraOznaka = \App\Category::findOrFail($child->id)->sifra;
+                ?>
+                @if ($sifraOznaka=='')
+                    <a target="_blank" href='{{ 'qms_podaci' .'/'. \App\Category::findOrFail($child->level)->title .'/'. $child->path }}'> {{ $child->title }} </a>
+                @else
+                    <a target="_blank" href='{{ $link }}'> {{ $child->title }} </a>
+                @endif
+
+
+                {{--<a href='{{ 'qms_podaci' .'/'. \App\Category::findOrFail($child->level)->title .'/'. $child->path }}'>--}}
+                    {{--{{ $child->title }}--}}
+                {{--</a>--}}
             @endif
 
 

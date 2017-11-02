@@ -69,7 +69,7 @@
                             </div>
 
 
-                            <div style="padding-top:10px; padding-bottom: 10px; border-bottom: solid 0px #9d9d9d">
+                            <div style="padding-top:5px; padding-bottom: 10px; border-bottom: solid 0px #9d9d9d">
                                 <div class="row" style="padding-bottom: 2px">
                                     <div class="col-md-2" style="margin-top: 3px">
                                         Vrsta obuke
@@ -94,6 +94,53 @@
                                     </div>
                                 </div>
                             </div>
+
+
+
+                            <div style="padding-top:0px; padding-bottom: 10px; border-bottom: solid 0px #9d9d9d">
+                                <div class="row" style="padding-bottom: 0px">
+                                    <div class="col-md-2" style="margin-top: 6px">
+                                        Sektor
+                                    </div>
+                                    <div class="col-md-4" align="left">
+                                        {!! Form::text('sektor', '', ['class'=>'form-control', 'placeholder'=>'...']) !!}
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div style="padding-top:0px; padding-bottom: 10px; border-bottom: solid 0px #9d9d9d">
+                                <div class="row" style="padding-bottom: 0px">
+                                    <div class="col-md-2" style="margin-top: 6px">
+                                        Mentor
+                                    </div>
+                                    <div class="col-md-4" align="left">
+                                        {!! Form::text('mentor', '', ['class'=>'form-control', 'placeholder'=>'...']) !!}
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div style="padding-top:0px; padding-bottom: 10px; border-bottom: solid 0px #9d9d9d">
+                                <div class="row" style="padding-bottom: 0px">
+                                    <div class="col-md-2" style="margin-top: 6px">
+                                        Instruktor
+                                    </div>
+                                    <div class="col-md-4" align="left">
+                                        {!! Form::text('instruktor', '', ['class'=>'form-control', 'placeholder'=>'...']) !!}
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div style="padding-top:10px; padding-bottom: 10px; border-bottom: solid 1px #9d9d9d">
+                                <div class="row" style="padding-bottom: 0px">
+                                    <div class="col-md-2" style="margin-top: 6px">
+                                        Komisija
+                                    </div>
+                                    <div class="col-md-10" align="left">
+                                        {!! Form::text('komisija', '', ['class'=>'form-control', 'placeholder'=>'...']) !!}
+                                    </div>
+                                </div>
+                            </div>
+
 
 
                             <div hidden class="dropzone" id="dzObj"></div>
@@ -127,12 +174,12 @@
                                         Ocena obučenosti
                                     </div>
                                     <div class="col-md-2" style="margin-top: 5px">
-                                        {!! Form::radio('ocena', '1', '') !!}
-                                            &nbsp;1. odlično <br>
+                                        {{--{!! Form::radio('ocena', '1', '') !!}--}}
+                                            {{--&nbsp;1. odlično <br>--}}
                                         {!! Form::radio('ocena', '2', '') !!}
-                                            &nbsp;2. zadovoljio <br>
+                                            &nbsp;1. zadovoljio <br>
                                         {!! Form::radio('ocena', '3', '') !!}
-                                            &nbsp;3. nije zadovoljio <br>
+                                            &nbsp;2. nije zadovoljio <br>
                                     </div>
                                     <div class="col-md-8" align="left">
                                         {!! Form::textarea('ocena_napomena', '', ['class'=>'form-control', 'style'=>'resize: vertical', 'rows'=>'3', 'placeholder'=>'Napomena']) !!}
@@ -148,7 +195,7 @@
                                     </div>
                                     <div class="col-md-2" style="margin-top: 5px">
                                         {!! Form::radio('status', '1', '') !!}
-                                        &nbsp; nije započeto<br>
+                                        &nbsp; u planu<br>
                                         {!! Form::radio('status', '2', '') !!}
                                         &nbsp; u toku<br>
                                         {!! Form::radio('status', '3', '') !!}

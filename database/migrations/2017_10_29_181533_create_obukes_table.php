@@ -26,6 +26,11 @@ class CreateObukesTable extends Migration {
             $table->longtext('ocena_napomena')->nullable();
             $table->longtext('status')->nullable();
 
+            $table->longtext('sektor')->nullable();
+            $table->longtext('mentor')->nullable();
+            $table->longtext('instruktor')->nullable();
+            $table->longtext('komisija')->nullable();
+
             $table->timestamps();
         });
     }
