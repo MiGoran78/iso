@@ -9,9 +9,3 @@ class Obuke extends Model {
         'izvestaj_path','ocena','ocena_napomena','status','sektor','mentor','instruktor','komisija'];
 }
 
-//sektor
-//mentor
-//instruktor
-//komisija
-
-
