@@ -6,7 +6,7 @@
         <div class="col-md-12" style="margin: 0px; padding: 0px; padding-top: 15px">
             <div class="panel panel-primary" style="margin-bottom: 0px">
                 <div class="panel-heading" style="padding-bottom: 4px; padding-top: 4px">
-                    <b>Obuka</b>&nbsp;&nbsp;[Nov zapis]
+                    <b>Obuka</b>&nbsp;&nbsp;[Izmena zapisa]
                 </div>
 
                 <div class="panel-body" style="padding-top: 5px">
@@ -66,7 +66,7 @@
                         </div>
 
 
-                        <div style="padding-top:10px; padding-bottom: 10px; border-bottom: solid 0px #9d9d9d">
+                        <div style="padding-top:5px; padding-bottom: 10px">
                             <div class="row" style="padding-bottom: 2px">
                                 <div class="col-md-2" style="margin-top: 3px">
                                     Vrsta obuke
@@ -82,7 +82,7 @@
 
 
                         <div style="padding-top:10px; padding-bottom: 10px; border-bottom: solid 0px #9d9d9d">
-                            <div class="row" style="padding-bottom: 15px; border-bottom: solid 1px #9d9d9d">
+                            <div class="row" style="padding-bottom: 0px">
                                 <div class="col-md-2" style="margin-top: 6px">
                                     Polaznik obuke
                                 </div>
@@ -93,9 +93,57 @@
                         </div>
 
 
+                        <div style="padding-top:0px; padding-bottom: 10px; border-bottom: solid 0px #9d9d9d">
+                            <div class="row" style="padding-bottom: 0px">
+                                <div class="col-md-2" style="margin-top: 6px">
+                                    Sektor
+                                </div>
+                                <div class="col-md-4" align="left">
+                                    {!! Form::text('sektor', $datas->sektor, ['class'=>'form-control', 'placeholder'=>'...']) !!}
+                                </div>
+                            </div>
+                        </div>
+
+                        <div style="padding-top:0px; padding-bottom: 10px; border-bottom: solid 0px #9d9d9d">
+                            <div class="row" style="padding-bottom: 0px">
+                                <div class="col-md-2" style="margin-top: 6px">
+                                    Mentor
+                                </div>
+                                <div class="col-md-4" align="left">
+                                    {!! Form::text('mentor', $datas->mentor, ['class'=>'form-control', 'placeholder'=>'...']) !!}
+                                </div>
+                            </div>
+                        </div>
+
+                        <div style="padding-top:0px; padding-bottom: 10px; border-bottom: solid 0px #9d9d9d">
+                            <div class="row" style="padding-bottom: 0px">
+                                <div class="col-md-2" style="margin-top: 6px">
+                                    Instruktor
+                                </div>
+                                <div class="col-md-4" align="left">
+                                    {!! Form::text('instruktor', $datas->instruktor, ['class'=>'form-control', 'placeholder'=>'...']) !!}
+                                </div>
+                            </div>
+                        </div>
+
+                        <div style="padding-top:10px; padding-bottom: 10px; border-bottom: solid 1px #9d9d9d">
+                            <div class="row" style="padding-bottom: 0px">
+                                <div class="col-md-2" style="margin-top: 6px">
+                                    Komisija
+                                </div>
+                                <div class="col-md-10" align="left">
+                                    {!! Form::text('komisija', $datas->komisija, ['class'=>'form-control', 'placeholder'=>'...']) !!}
+                                </div>
+                            </div>
+                        </div>
+
+
+
+
+
                         <div hidden class="dropzone" id="dzObj"></div>
 
-                        <div style="padding-top:5px; padding-bottom: 15px; border-bottom: solid 1px #9d9d9d">
+                        <div style="padding-top:10px; padding-bottom: 20px; border-bottom: solid 1px #9d9d9d">
                             <div class="row" style="padding-bottom: 2px">
                                 <div class="col-md-6">
                                     PLAN/OPIS OBUKE
@@ -104,7 +152,7 @@
                                     TEST OBUKE, SERTIFIKAT ILI IZVEŠTAJ OBUČENOSTI
                                 </div>
 
-                                <div class="col-md-6" style="margin-top: 10px">
+                                <div class="col-md-6" style="margin-top: 0px">
                                     @if($datas->plan_path)
                                         <a target="_blank" href="../../{{$dir_obuke}}/{{$datas->plan_path}}"><img src="/pic/doc.png"></a>
                                         <span style="font-size: 8pt">&nbsp;&nbsp; {{$datas->plan_path}}</span>
@@ -116,7 +164,7 @@
                                     {!! Form::hidden('plan_path', $datas->plan_path, ['id'=>'plan_path']) !!}
                                 </div>
 
-                                <div class="col-md-6" style="margin-top: 10px">
+                                <div class="col-md-6" style="margin-top: 0px">
                                     @if($datas->izvestaj_path)
                                         <a target="_blank" href="../../{{$dir_obuke}}/{{$datas->izvestaj_path}}"><img src="/pic/doc.png"></a>
                                         <span style="font-size: 8pt">&nbsp;&nbsp; {{$datas->izvestaj_path}}</span>
@@ -137,12 +185,12 @@
                                     Ocena obučenosti
                                 </div>
                                 <div class="col-md-2" style="margin-top: 5px">
-                                    {!! Form::radio('ocena', '1', $datas->ocena==1 ? true:false) !!}
-                                    &nbsp;1. odlično <br>
+                                    {{--{!! Form::radio('ocena', '1', $datas->ocena==1 ? true:false) !!}--}}
+                                    {{--&nbsp;1. odlično <br>--}}
                                     {!! Form::radio('ocena', '2', $datas->ocena==2 ? true:false) !!}
-                                    &nbsp;2. zadovoljio <br>
+                                    &nbsp;1. zadovoljio <br>
                                     {!! Form::radio('ocena', '3', $datas->ocena==3 ? true:false) !!}
-                                    &nbsp;3. nije zadovoljio <br>
+                                    &nbsp;2. nije zadovoljio <br>
                                 </div>
                                 <div class="col-md-8" align="left">
                                     {!! Form::textarea('ocena_napomena', $datas->ocena_napomena, ['class'=>'form-control', 'style'=>'resize: vertical', 'rows'=>'3', 'placeholder'=>'Napomena']) !!}
@@ -158,7 +206,7 @@
                                 </div>
                                 <div class="col-md-2" style="margin-top: 5px">
                                     {!! Form::radio('status', '1', $datas->status==1 ? true:false) !!}
-                                    &nbsp; nije započeto<br>
+                                    &nbsp; u planu<br>
                                     {!! Form::radio('status', '2', $datas->status==2 ? true:false) !!}
                                     &nbsp; u toku<br>
                                     {!! Form::radio('status', '3', $datas->status==3 ? true:false) !!}

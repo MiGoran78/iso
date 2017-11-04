@@ -38,7 +38,7 @@
             <div class="col-md-7" style="padding: 5px">
                 <object align="left">
                     <embed style="margin-left: 5px; padding: 10px; border: solid 1px #cccccc" width=750px height=670px
-                           src="qms_podaci/i nivo/Izjava o politici upravljanja.htm" type="text/html">
+                           src="qms_podaci/i nivo/Izjava o politici upravljanja1.htm" type="text/html">
                 </object>
             </div>
 

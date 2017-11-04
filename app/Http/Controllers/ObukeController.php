@@ -48,6 +48,11 @@ class ObukeController extends Controller
         $datas['ocena_napomena'] = empty($input['ocena_napomena'])  ? '' : $input['ocena_napomena'];
         $datas['status'] = empty($input['status'])                  ? '0' : $input['status'];
 
+        $datas['sektor'] = empty($input['sektor'])                  ? '' : $input['sektor'];
+        $datas['mentor'] = empty($input['mentor'])                  ? '' : $input['mentor'];
+        $datas['instruktor'] = empty($input['instruktor'])          ? '' : $input['instruktor'];
+        $datas['komisija'] = empty($input['komisija'])              ? '' : $input['komisija'];
+//echo dd($datas);
         Obuke::create($datas);
         Session::flash('message','Zapis je kreiran');
         return redirect('/obuke');
@@ -86,7 +91,11 @@ class ObukeController extends Controller
         $datas['ocena'] = empty($input['ocena'])                    ? '0' : $input['ocena'];
         $datas['ocena_napomena'] = empty($input['ocena_napomena'])  ? '' : $input['ocena_napomena'];
         $datas['status'] = empty($input['status'])                  ? '0' : $input['status'];
-//echo dd($input);
+
+        $datas['sektor'] = empty($input['sektor'])                  ? '' : $input['sektor'];
+        $datas['mentor'] = empty($input['mentor'])                  ? '' : $input['mentor'];
+        $datas['instruktor'] = empty($input['instruktor'])          ? '' : $input['instruktor'];
+        $datas['komisija'] = empty($input['komisija'])              ? '' : $input['komisija'];
 
         $datas->save();
         Session::flash('message','Zapis je snimljen');

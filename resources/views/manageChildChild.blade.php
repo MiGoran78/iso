@@ -30,7 +30,6 @@
                             ?>
                             <a target="_blank" href='{{ $link }}'> {{ $child->title }} </a>
                             <?php
-
                         } else {
 
 //                        $sifraId = App\UpravljanjeDok::where('sifra',$child->sifra)->where('hide','0')->pluck('id');
@@ -42,16 +41,20 @@
 
                             $link = '/upravljanje_dok/'. $sifraId .'/edit';
                             ?>
-                            <a target="_blank" href='{{ $link }}'> {{ $child->title }} - {{$link}}</a>
+                            @if ($sifraOznaka=='')
+                                <a target="_blank" href='{{ 'qms_podaci' .'/'. \App\Category::findOrFail($child->level)->title .'/'. $child->path }}'> {{ $child->title }} </a>
+                            @else
+                                <a target="_blank" href='{{ $link }}'> {{ $child->title }} </a>
+                            @endif
+
                             {{--<a href='{{ $link }}'> {{ $child->title }} - </a>--}}
                         <?php
                         }
                     } else {
                         echo '<img src="/pic/document.png">&nbsp;';
                         ?>
-                        <a href='{{ 'qms_podaci' .'/'. \App\Category::findOrFail($child->level)->title .'/'. $child->path }}'>
-                                {{ $child->title }}
-                        </a>
+                        <a target="_blank" href='{{ 'qms_podaci' .'/'. \App\Category::findOrFail($child->level)->title .'/'. $child->path }}'> {{ $child->title }} </a>
+
                     <?php
                     }
                     ?>
