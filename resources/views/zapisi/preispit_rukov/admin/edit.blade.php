@@ -1,6 +1,37 @@
 @extends('zapisi.preispit_rukov.main')
 @section('content')
 
+    <?php
+    $str_ul_1   = '1.&nbsp;&nbsp;&nbsp; Status mera iz prethodnih preispitivanja';
+    $str_ul_2   = '2.&nbsp;&nbsp;&nbsp; Izmene u eksternim i internim pitanjima koje su relevantne za integrisani sistem menadžmenta';
+    $str_ul_2_1 = '2.1&nbsp; Potrebe i očekivanja zainteresovanih strana, uključujući potrebe za usklađenost';
+    $str_ul_2_2 = '2.2&nbsp; Značajni aspekti životne sredine i hazardi bezbednosti i zdravlja na radu';
+    $str_ul_3   = '3.&nbsp;&nbsp; Informacije o performansama i efektinosti integrisanog sistema, uključujući politiku i trendove:';
+    $str_ul_3_1 = '3.1&nbsp; Zadovoljstvom korisnika i povratnim informacijama od relevantnih zainteresovanih strana';
+    $str_ul_3_2 = '3.2&nbsp; Obim ispunjenja ciljeva kvaliteta proizvoda, životne sredine i zaštite zdravlja, bezbednosti na radu';
+    $str_ul_3_3 = '3.3&nbsp; Performanse procesa i usaglašenost proizvoda';
+    $str_ul_3_4 = '3.4&nbsp; Neusaglašenost i korektivne mere';
+    $str_ul_3_5 = '3.5&nbsp; Rezultati praćenja i merenja';
+    $str_ul_3_6 = '3.6&nbsp; Ispunjenost obaveza za usklađenost';
+    $str_ul_3_7 = '3.7&nbsp; Rezultati provera';
+    $str_ul_3_8 = '3.8&nbsp; Performanse eksternih isporučilaca';
+    $str_ul_3_9 = '3.9&nbsp; Politika IMS';
+    $str_ul_4   = '4.&nbsp;&nbsp;&nbsp; Adekvatnost resursa';
+    $str_ul_5   = '5.&nbsp;&nbsp;&nbsp; Efektivnost preduzetih mera';
+    $str_ul_6   = '6.&nbsp;&nbsp;&nbsp; Reagovanje zainteresovanih strana';
+    $str_ul_7   = '7.&nbsp;&nbsp;&nbsp; Prilike za stalna poboljšanja';
+    $str_ul_8   = '8.&nbsp;&nbsp;&nbsp; EMS i OHSAS učinak organizacije';
+    $str_ul_9   = '9.&nbsp;&nbsp;&nbsp; Status istraživanja incidenata i preventivnih mera OHSAS';
+    $str_ul_10  = '10.&nbsp;&nbsp; Rezultati učešća i konsultacija OHSAS';
+
+    $str_iz_1   = '1.&nbsp;&nbsp;&nbsp; Prilike za poboljšanje i potreba za izmenama u integrisanom sistemu upravljanja';
+    $str_iz_2   = '2.&nbsp;&nbsp;&nbsp; Potreba za resursima';
+    $str_iz_3   = '3.&nbsp;&nbsp;&nbsp; Pogodnost, adekvatnost i efektinost integrisanog sistema menadžmenta';
+    $str_iz_4   = '4.&nbsp;&nbsp;&nbsp; Mere ukoliko ciljevi integrisanog sistema nisu ispunjeni';
+    $str_iz_5   = '5.&nbsp;&nbsp;&nbsp; Učinak, politika i ciljevi';
+    ?>
+
+
     <div class="container" style="font-family: 'Verdana'; margin: 0px; margin-right: 20px; padding: 5px; width: auto; height:100%" >
 
         <div class="col-md-9" style="margin: 0px; padding: 0px; padding-top: 15px">
@@ -141,132 +172,206 @@
                         </div>
 
 
+
+                        <div style="padding-top:10px; padding-bottom: 0px; border-top: solid 0px #9d9d9d">
+                            <div class="row">
+                                <div class="col-md-12"><h4> ULAZNI PODACI </h4></div>
+                            </div>
+                        </div>
+
                         <div style="padding-top:15px; padding-bottom: 12px; border-bottom: solid 1px #9d9d9d">
-                            <div class="row" style="padding-bottom: 2px">
-                                <div class="col-md-3" style="padding-top: 2px"> Politika upravljanja </div>
-                                <div class="col-md-9" style="margin-top: 3px; padding-left: 30px">
-                                    {!! Form::textarea('politika', $datas->politika, ['style'=>'resize: vertical; width:100%', 'rows'=>'2', 'placeholder'=>'...']) !!}
+                            <div class="row" style="padding-bottom: 20px">
+                                <div class="col-md-12"> {{ $str_ul_1 }} </div>
+                                <div class="col-md-12" style="padding-left: 50px">
+                                    {!! Form::textarea('ul_1', $datas->ul_1, ['style'=>'resize: vertical; width:100%', 'rows'=>'2', 'placeholder'=>'...']) !!}
                                 </div>
                             </div>
 
                             <div class="row" style="padding-bottom: 2px">
-                                <div class="col-md-3" style="padding-top: 2px"> Ciljevi upravljanja </div>
-                                <div class="col-md-9" style="margin-top: 3px; padding-left: 30px">
-                                    {!! Form::textarea('ciljevi', $datas->ciljevi, ['style'=>'resize: vertical; width:100%', 'rows'=>'2', 'placeholder'=>'...']) !!}
+                                <div class="col-md-12"> {{ $str_ul_2 }} </div>
+                                <div class="col-md-12" style="padding-left: 50px">
+                                    {!! Form::textarea('ul_2', $datas->ul_2, ['style'=>'resize: vertical; width:100%', 'rows'=>'2', 'placeholder'=>'...']) !!}
                                 </div>
                             </div>
 
                             <div class="row" style="padding-bottom: 2px">
-                                <div class="col-md-3" style="padding-top: 2px"> Rezultat provera </div>
-                                <div class="col-md-9" style="margin-top: 3px; padding-left: 30px">
-                                    {!! Form::textarea('rezultat', $datas->rezultat, ['style'=>'resize: vertical; width:100%', 'rows'=>'2', 'placeholder'=>'...']) !!}
+                                <div class="col-md-12"> {{ $str_ul_2_1 }} </div>
+                                <div class="col-md-12" style="padding-left: 50px">
+                                    {!! Form::textarea('ul_2_1', $datas->ul_2_1, ['style'=>'resize: vertical; width:100%', 'rows'=>'2', 'placeholder'=>'...']) !!}
                                 </div>
                             </div>
 
                             <div class="row" style="padding-bottom: 2px">
-                                <div class="col-md-3" style="padding-top: 2px"> Prikupljanje informacija od naručioca posla </div>
-                                <div class="col-md-9" style="margin-top: 3px; padding-left: 30px">
-                                    {!! Form::textarea('informacije', $datas->informacije, ['style'=>'resize: vertical; width:100%', 'rows'=>'2', 'placeholder'=>'...']) !!}
+                                <div class="col-md-12"> {{ $str_ul_2_2 }} </div>
+                                <div class="col-md-12" style="padding-left: 50px">
+                                    {!! Form::textarea('ul_2_2', $datas->ul_2_2, ['style'=>'resize: vertical; width:100%', 'rows'=>'2', 'placeholder'=>'...']) !!}
+                                </div>
+                            </div>
+
+                            <div class="row" style="padding-top: 30px; padding-bottom: 15px">
+                                <div class="col-md-12"><strong> {{ $str_ul_3 }} </strong></div>
+                            </div>
+
+                            <div class="row" style="padding-bottom: 2px">
+                                <div class="col-md-12"> {{ $str_ul_3_1 }} </div>
+                                <div class="col-md-12" style="padding-left: 50px">
+                                    {!! Form::textarea('ul_3_1', $datas->ul_3_1, ['style'=>'resize: vertical; width:100%', 'rows'=>'2', 'placeholder'=>'...']) !!}
                                 </div>
                             </div>
 
                             <div class="row" style="padding-bottom: 2px">
-                                <div class="col-md-3" style="padding-top: 2px"> Efektivnost procesa i usaglašenost proizvoda </div>
-                                <div class="col-md-9" style="margin-top: 3px; padding-left: 30px">
-                                    {!! Form::textarea('efektivnost', $datas->efektivnost, ['style'=>'resize: vertical; width:100%', 'rows'=>'2', 'placeholder'=>'...']) !!}
+                                <div class="col-md-12"> {{ $str_ul_3_2 }} </div>
+                                <div class="col-md-12" style="padding-left: 50px">
+                                    {!! Form::textarea('ul_3_2', $datas->ul_3_2, ['style'=>'resize: vertical; width:100%', 'rows'=>'2', 'placeholder'=>'...']) !!}
                                 </div>
                             </div>
 
                             <div class="row" style="padding-bottom: 2px">
-                                <div class="col-md-3" style="padding-top: 2px"> Status preventivnih i korektivnih mera </div>
-                                <div class="col-md-9" style="margin-top: 3px; padding-left: 30px">
-                                    {!! Form::textarea('status', $datas->status, ['style'=>'resize: vertical; width:100%', 'rows'=>'2', 'placeholder'=>'...']) !!}
+                                <div class="col-md-12"> {{ $str_ul_3_3 }} </div>
+                                <div class="col-md-12" style="padding-left: 50px">
+                                    {!! Form::textarea('ul_3_3', $datas->ul_3_3, ['style'=>'resize: vertical; width:100%', 'rows'=>'2', 'placeholder'=>'...']) !!}
                                 </div>
                             </div>
 
                             <div class="row" style="padding-bottom: 2px">
-                                <div class="col-md-3" style="padding-top: 2px"> Vrednovanje usaglašenosti sa zakonskim i dr. zahtevima </div>
-                                <div class="col-md-9" style="margin-top: 3px; padding-left: 30px">
-                                    {!! Form::textarea('vrednovanje', $datas->vrednovanje, ['style'=>'resize: vertical; width:100%', 'rows'=>'2', 'placeholder'=>'...']) !!}
-                                </div>
-                            </div>
-
-
-
-                            <div class="row" style="padding-bottom: 2px">
-                                <div class="col-md-3" style="padding-top: 2px"> Reagovanje zainteresovanih strana </div>
-                                <div class="col-md-9" style="margin-top: 3px; padding-left: 30px">
-                                    {!! Form::textarea('reakcija', $datas->reakcija, ['style'=>'resize: vertical; width:100%', 'rows'=>'2', 'placeholder'=>'...']) !!}
+                                <div class="col-md-12"> {{ $str_ul_3_4 }} </div>
+                                <div class="col-md-12" style="padding-left: 50px">
+                                    {!! Form::textarea('ul_3_4', $datas->ul_3_4, ['style'=>'resize: vertical; width:100%', 'rows'=>'2', 'placeholder'=>'...']) !!}
                                 </div>
                             </div>
 
                             <div class="row" style="padding-bottom: 2px">
-                                <div class="col-md-3" style="padding-top: 2px"> Učinak EMS i OHSAS </div>
-                                <div class="col-md-9" style="margin-top: 3px; padding-left: 30px">
-                                    {!! Form::textarea('ucinak', $datas->ucinak, ['style'=>'resize: vertical; width:100%', 'rows'=>'2', 'placeholder'=>'...']) !!}
+                                <div class="col-md-12"> {{ $str_ul_3_5 }} </div>
+                                <div class="col-md-12" style="padding-left: 50px">
+                                    {!! Form::textarea('ul_3_5', $datas->ul_3_5, ['style'=>'resize: vertical; width:100%', 'rows'=>'2', 'placeholder'=>'...']) !!}
                                 </div>
                             </div>
 
                             <div class="row" style="padding-bottom: 2px">
-                                <div class="col-md-3" style="padding-top: 2px"> Mere sa prethodnih ispitivanja </div>
-                                <div class="col-md-9" style="margin-top: 3px; padding-left: 30px">
-                                    {!! Form::textarea('mere', $datas->mere, ['style'=>'resize: vertical; width:100%', 'rows'=>'2', 'placeholder'=>'...']) !!}
+                                <div class="col-md-12"> {{ $str_ul_3_6 }} </div>
+                                <div class="col-md-12" style="padding-left: 50px">
+                                    {!! Form::textarea('ul_3_6', $datas->ul_3_6, ['style'=>'resize: vertical; width:100%', 'rows'=>'2', 'placeholder'=>'...']) !!}
                                 </div>
                             </div>
 
                             <div class="row" style="padding-bottom: 2px">
-                                <div class="col-md-3" style="padding-top: 2px"> Izmene koje mogu uticati na sistem upravljanja </div>
-                                <div class="col-md-9" style="margin-top: 3px; padding-left: 30px">
-                                    {!! Form::textarea('izmene', $datas->izmene, ['style'=>'resize: vertical; width:100%', 'rows'=>'2', 'placeholder'=>'...']) !!}
+                                <div class="col-md-12"> {{ $str_ul_3_7 }} </div>
+                                <div class="col-md-12" style="padding-left: 50px">
+                                    {!! Form::textarea('ul_3_7', $datas->ul_3_7, ['style'=>'resize: vertical; width:100%', 'rows'=>'2', 'placeholder'=>'...']) !!}
                                 </div>
                             </div>
 
                             <div class="row" style="padding-bottom: 2px">
-                                <div class="col-md-3" style="padding-top: 2px"> Preporuke za unapređenje </div>
-                                <div class="col-md-9" style="margin-top: 3px; padding-left: 30px">
-                                    {!! Form::textarea('preporuke', $datas->preporuke, ['style'=>'resize: vertical; width:100%', 'rows'=>'2', 'placeholder'=>'...']) !!}
+                                <div class="col-md-12"> {{ $str_ul_3_8 }} </div>
+                                <div class="col-md-12" style="padding-left: 50px">
+                                    {!! Form::textarea('ul_3_8', $datas->ul_3_8, ['style'=>'resize: vertical; width:100%', 'rows'=>'2', 'placeholder'=>'...']) !!}
                                 </div>
                             </div>
 
                             <div class="row" style="padding-bottom: 2px">
-                                <div class="col-md-3" style="padding-top: 2px"> Ostalo od značaja za sistem upravljanja kvalitetom </div>
-                                <div class="col-md-9" style="margin-top: 3px; padding-left: 30px">
-                                    {!! Form::textarea('ostalo', $datas->ostalo, ['style'=>'resize: vertical; width:100%', 'rows'=>'2', 'placeholder'=>'...']) !!}
+                                <div class="col-md-12"> {{ $str_ul_3_9 }} </div>
+                                <div class="col-md-12" style="padding-left: 50px">
+                                    {!! Form::textarea('ul_3_9', $datas->ul_3_9, ['style'=>'resize: vertical; width:100%', 'rows'=>'2', 'placeholder'=>'...']) !!}
+                                </div>
+                            </div>
+
+                            <div class="row" style="padding-top: 20px">
+                            </div>
+
+                            <div class="row" style="padding-bottom: 2px">
+                                <div class="col-md-12"> {{ $str_ul_4 }} </div>
+                                <div class="col-md-12" style="padding-left: 50px">
+                                    {!! Form::textarea('ul_4', $datas->ul_4, ['style'=>'resize: vertical; width:100%', 'rows'=>'2', 'placeholder'=>'...']) !!}
+                                </div>
+                            </div>
+
+                            <div class="row" style="padding-bottom: 2px">
+                                <div class="col-md-12"> {{ $str_ul_5 }} </div>
+                                <div class="col-md-12" style="padding-left: 50px">
+                                    {!! Form::textarea('ul_5', $datas->ul_5, ['style'=>'resize: vertical; width:100%', 'rows'=>'2', 'placeholder'=>'...']) !!}
+                                </div>
+                            </div>
+
+                            <div class="row" style="padding-bottom: 2px">
+                                <div class="col-md-12"> {{ $str_ul_6 }} </div>
+                                <div class="col-md-12" style="padding-left: 50px">
+                                    {!! Form::textarea('ul_6', $datas->ul_6, ['style'=>'resize: vertical; width:100%', 'rows'=>'2', 'placeholder'=>'...']) !!}
+                                </div>
+                            </div>
+
+                            <div class="row" style="padding-bottom: 2px">
+                                <div class="col-md-12"> {{ $str_ul_7 }} </div>
+                                <div class="col-md-12" style="padding-left: 50px">
+                                    {!! Form::textarea('ul_7', $datas->ul_7, ['style'=>'resize: vertical; width:100%', 'rows'=>'2', 'placeholder'=>'...']) !!}
+                                </div>
+                            </div>
+
+                            <div class="row" style="padding-bottom: 2px">
+                                <div class="col-md-12"> {{ $str_ul_8 }} </div>
+                                <div class="col-md-12" style="padding-left: 50px">
+                                    {!! Form::textarea('ul_8', $datas->ul_8, ['style'=>'resize: vertical; width:100%', 'rows'=>'2', 'placeholder'=>'...']) !!}
+                                </div>
+                            </div>
+
+                            <div class="row" style="padding-bottom: 2px">
+                                <div class="col-md-12"> {{ $str_ul_9 }} </div>
+                                <div class="col-md-12" style="padding-left: 50px">
+                                    {!! Form::textarea('ul_9', $datas->ul_9, ['style'=>'resize: vertical; width:100%', 'rows'=>'2', 'placeholder'=>'...']) !!}
+                                </div>
+                            </div>
+
+                            <div class="row" style="padding-bottom: 2px">
+                                <div class="col-md-12"> {{ $str_ul_10 }} </div>
+                                <div class="col-md-12" style="padding-left: 50px">
+                                    {!! Form::textarea('ul_10', $datas->ul_10, ['style'=>'resize: vertical; width:100%', 'rows'=>'2', 'placeholder'=>'...']) !!}
                                 </div>
                             </div>
                         </div>
 
 
-                        <div style="padding-top:15px; padding-bottom: 12px; border-bottom: solid 1px #9d9d9d">
-                            <div class="row" style="padding-bottom: 2px">
-                                <div class="col-md-3" style="padding-top: 2px"> Unapređenje efikasnosti sistema upravljanja </div>
-                                <div class="col-md-9" style="margin-top: 3px; padding-left: 30px">
-                                    {!! Form::textarea('rez_efikas', $datas->rez_efikas, ['style'=>'resize: vertical; width:100%', 'rows'=>'2', 'placeholder'=>'...']) !!}
-                                </div>
-                            </div>
 
-                            <div class="row" style="padding-bottom: 2px">
-                                <div class="col-md-3" style="padding-top: 2px"> Unapređenje zahteva kupaca koje se odnose na proizvod, EMS i OHSAS </div>
-                                <div class="col-md-9" style="margin-top: 3px; padding-left: 30px">
-                                    {!! Form::textarea('rez_zahte', $datas->rez_zahte, ['style'=>'resize: vertical; width:100%', 'rows'=>'2', 'placeholder'=>'...']) !!}
-                                </div>
-                            </div>
-
-                            <div class="row" style="padding-bottom: 2px">
-                                <div class="col-md-3" style="padding-top: 2px"> Potreba za resursima </div>
-                                <div class="col-md-9" style="margin-top: 3px; padding-left: 30px">
-                                    {!! Form::textarea('rez_potreba', $datas->rez_potreba, ['style'=>'resize: vertical; width:100%', 'rows'=>'2', 'placeholder'=>'...']) !!}
-                                </div>
-                            </div>
-
-                            <div class="row" style="padding-bottom: 2px">
-                                <div class="col-md-3" style="padding-top: 2px"> Ciljevi i planovi kvaliteta za naredni period </div>
-                                <div class="col-md-9" style="margin-top: 3px; padding-left: 30px">
-                                    {!! Form::textarea('rez_ciljevi', $datas->rez_ciljevi, ['style'=>'resize: vertical; width:100%', 'rows'=>'2', 'placeholder'=>'...']) !!}
-                                </div>
+                        <div style="padding-top:15px; padding-bottom: 0px; border-top: solid 0px #9d9d9d">
+                            <div class="row">
+                                <div class="col-md-12"><h4> IZLAZNI PODACI </h4></div>
                             </div>
                         </div>
 
+                        <div style="padding-top:15px; padding-bottom: 12px; border-bottom: solid 1px #9d9d9d">
+                            <div class="row" style="padding-bottom: 20px">
+                                <div class="col-md-12"> {{ $str_iz_1 }} </div>
+                                <div class="col-md-12" style="padding-left: 50px">
+                                    {!! Form::textarea('iz_1', $datas->iz_1, ['style'=>'resize: vertical; width:100%', 'rows'=>'2', 'placeholder'=>'...']) !!}
+                                </div>
+                            </div>
+
+                            <div class="row" style="padding-bottom: 2px">
+                                <div class="col-md-12"> {{ $str_iz_2 }} </div>
+                                <div class="col-md-12" style="padding-left: 50px">
+                                    {!! Form::textarea('iz_2', $datas->iz_2, ['style'=>'resize: vertical; width:100%', 'rows'=>'2', 'placeholder'=>'...']) !!}
+                                </div>
+                            </div>
+
+                            <div class="row" style="padding-bottom: 2px">
+                                <div class="col-md-12"> {{ $str_iz_3 }} </div>
+                                <div class="col-md-12" style="padding-left: 50px">
+                                    {!! Form::textarea('iz_3', $datas->iz_3, ['style'=>'resize: vertical; width:100%', 'rows'=>'2', 'placeholder'=>'...']) !!}
+                                </div>
+                            </div>
+
+                            <div class="row" style="padding-bottom: 2px">
+                                <div class="col-md-12"> {{ $str_iz_4 }} </div>
+                                <div class="col-md-12" style="padding-left: 50px">
+                                    {!! Form::textarea('iz_4', $datas->iz_4, ['style'=>'resize: vertical; width:100%', 'rows'=>'2', 'placeholder'=>'...']) !!}
+                                </div>
+                            </div>
+
+                            <div class="row" style="padding-bottom: 2px">
+                                <div class="col-md-12"> {{ $str_iz_5 }} </div>
+                                <div class="col-md-12" style="padding-left: 50px">
+                                    {!! Form::textarea('iz_5', $datas->iz_5, ['style'=>'resize: vertical; width:100%', 'rows'=>'2', 'placeholder'=>'...']) !!}
+                                </div>
+                            </div>
+                        </div>
 
 
 
