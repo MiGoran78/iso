@@ -58,7 +58,7 @@ class PreispitRukController extends Controller {
         $datas['funkcija_3'] = $input['funkcija_3'];
         $datas['funkcija_4'] = $input['funkcija_4'];
         $datas['funkcija_5'] = $input['funkcija_5'];
-        $datas['karakter'] = $input['karakter'];
+        $datas['karakter'] = $datas['karakter']==null ? '0' : $datas['karakter'];
 
         $datas['ul_1'] = $input['ul_1'];
         $datas['ul_2'] = $input['ul_2'];

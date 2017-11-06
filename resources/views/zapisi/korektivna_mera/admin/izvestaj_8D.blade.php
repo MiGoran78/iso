@@ -1,5 +1,4 @@
 @extends('zapisi.neusag_proizod.main')
-
 @section('content')
 
     <div class="container" style="font-family: 'Verdana'; margin: 0px; margin-right: 20px; padding: 5px; padding-top: 0px; width: auto; height:100%" >
