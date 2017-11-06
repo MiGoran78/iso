@@ -196,11 +196,43 @@ class DobavljacController extends Controller
             $datas = new Reklamacija();
             $datas['id'] = $id = $request['id'];
             $datas['idRef'] = $request['idRef'];
+            $datas['reference'] = $request['idRef'];
         }
         return view('zapisi.dobavljaci.reklamacija', compact('datas'));
     }
 
     public function reklamacija_upd(Request $request) {
+        $input = $request->all();
+        $datas = Reklamacija::where('idRef','=', $request['idRef'])->get();
+
+        if (count($datas)) {
+            $datas = $datas[0];
+        } else {
+            $datas = new Reklamacija;
+            $datas['idRef'] = $request['idRef'];
+            $datas['reference'] = $request['reference'];
+        }
+
+        $datas['idRef'] = $input['idRef'];
+        $datas['supplier'] = $input['supplier'];
+        $datas['contact'] = $input['contact'];
+        $datas['email'] = $input['email'];
+        $datas['subject'] = $input['subject'];
+        $datas['description'] = $input['description'];
+        $datas['type'] = $input['type'];
+        $datas['reference'] = $input['reference'];
+        $datas['quantity'] = $input['quantity'];
+        $datas['value'] = $input['value'];
+        $datas['claimed_qty'] = $input['claimed_qty'];
+        $datas['att_1'] = empty($input['att_1']) ? '0' : '1';
+        $datas['att_2'] = empty($input['att_2']) ? '0' : '1';
+        $datas['att_3'] = empty($input['att_3']) ? '0' : '1';
+        $datas['signature'] = $input['signature'];
+        $datas['date'] = empty($input['date']) ? '' : date('Y-m-d', strtotime($input['date']));
+        $datas['date_sign'] = empty($input['date_sign']) ? '' : date('Y-m-d', strtotime($input['date_sign']));
+
+        $datas->save();
+        Session::flash('message','Zapis je snimljen');
         return redirect('/dobavljaci');
     }
 

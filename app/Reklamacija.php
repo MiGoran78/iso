@@ -9,7 +9,29 @@ class Reklamacija extends Model {
 
     public function childs() {
         return $this->hasMany('App\Reklamacija',null,
-            'id','idRef') ;
+            'id','idRef',
+            'supplier','contact','email','subject','description','type','reference','quantity',
+            'value','date','claimed_qty','att_1','att_2','att_3','date_sign','signature'
+            );
     }
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
