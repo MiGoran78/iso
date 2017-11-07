@@ -58,11 +58,6 @@ Route::post('reklamacija_upd',['as'=>'reklamacija_upd','uses'=>'DobavljacControl
 //    return view('menu',['categories'=>$categories]);
 //});
 
-//Route::get('header',function () {
-//    return view('header');
-//});
-
-
 
 Route::resource('ostecenje_imovine', 'OstecenjeImovineController',['names'=>[
     'index'         => 'zapisi.ostec_imovine.admin.index',
@@ -103,3 +98,16 @@ Route::resource('obuke', 'ObukeController',['names'=>[
     'store'         => 'zapisi.obuke.admin.store',
     'edit'          => 'zapisi.obuke.admin.edit',
 ]]);
+
+
+//Route::get('calibration_cert',function () {
+//    return view('kalibracija/calibration_cert');
+//});
+
+
+Route::resource('calibration', 'CalibrationController',['names'=>[
+    'index'         => 'zapisi.kalibracija.index',
+    'create'        => 'zapisi.kalibracija.calibration_cert',
+    'edit'          => 'zapisi.kalibracija.calibration_cert',
+]]);
+
