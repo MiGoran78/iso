@@ -252,7 +252,7 @@
             if ($('#opis').length > 0)       auto_grow(opis);
 
             function auto_grow(element) {
-                element.style.height = (parseInt(element.scrollHeight) + 25) + "px";
+                element.style.height = (parseInt(element.scrollHeight) + 5) + "px";
                 element.style.border = '0';
     //        element.style.outline = '0';
                 element.style.background='white';

@@ -27,8 +27,14 @@
                             {!! Form::hidden('verzija', $datas->verzija) !!}
 
                             <div class="row" style="border-bottom: solid 1px #9d9d9d; padding-bottom:10px">
-                                <div class="col-md-12" align="left">
+                                <div class="col-md-10" align="left">
                                     <img src="{{ $datas->logo }}" width="300px">
+                                </div>
+                                <div class="col-md-2" align="right">
+                                    <a class="btn btn-warning" style="padding: 8px" href="{{route('upravljanje_dok.show', $datas->id)}}">
+                                        <span class="glyphicon glyphicon-print"></span>
+                                        Štampanje
+                                    </a>
                                 </div>
                             </div>
 
