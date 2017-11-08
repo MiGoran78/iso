@@ -7,7 +7,7 @@
             <table class="table" style="font-family: Tahoma; margin: 0px">
                 <tr>
                     <td><h3 style="color:red; padding: 2px; margin: 2px; margin-left: 0px">
-                            Lista neusaglašenosti</h3>
+                            P.UNP.GLN &nbsp;- &nbsp;Lista neusaglašenosti</h3>
                     </td>
                     <td> </td>
                     <td style="text-align: right; vertical-align: middle">

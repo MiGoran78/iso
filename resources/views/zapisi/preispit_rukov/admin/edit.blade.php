@@ -37,7 +37,7 @@
         <div class="col-md-9" style="margin: 0px; padding: 0px; padding-top: 15px">
             <div class="panel panel-primary" style="margin-bottom: 0px">
                 <div class="panel-heading" style="padding-bottom: 4px; padding-top: 4px">
-                    <b>Preispitivanje od strane rukovodsta, ciljevi kvaliteta</b>&nbsp;&nbsp;[Izmena zapisa]
+                    <b>U.POR.ZPR &nbsp;- &nbsp;Preispitivanje od strane rukovodsta, ciljevi kvaliteta</b>&nbsp;&nbsp;[Izmena zapisa]
                 </div>
 
                 <div class="panel-body">

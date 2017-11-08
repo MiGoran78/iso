@@ -6,7 +6,7 @@
         <div class="col-md-12" style="margin: 0px; padding: 0px; padding-top: 15px">
             <div class="panel panel-primary" style="margin-bottom: 0px">
                 <div class="panel-heading" style="padding-bottom: 4px; padding-top: 4px">
-                    <b>Obuka</b>&nbsp;&nbsp;[Izmena zapisa]
+                    <b>U.ULR.ZOE &nbsp;- &nbsp;Obuka</b>&nbsp;&nbsp;[Izmena zapisa]
                 </div>
 
                 <div class="panel-body" style="padding-top: 5px">

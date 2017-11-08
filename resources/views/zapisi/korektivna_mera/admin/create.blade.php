@@ -25,7 +25,7 @@
         {{-- Pocetak sekcije--}}
         <div class="col-md-6" style="margin: 0px; padding: 0px">
             <div class="panel panel-primary" style="margin-bottom: 0px">
-                <div class="panel-heading"><strong>Nova korektivna mera</strong></div>
+                <div class="panel-heading"><strong>P.KOM.ZKM &nbsp;- &nbsp;Korektivna mera</strong>&nbsp;&nbsp;[Nov zapis]</div>
                 <div class="panel-body">
                     <ul id="tree1" style="padding: 20px;padding-top: 0px; padding-bottom: 0px">
 

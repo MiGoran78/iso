@@ -5,21 +5,22 @@
     <div class="container" style="font-family: 'Verdana'; margin: 0px; margin-right: 20px; padding: 5px; padding-top: 0px; width: auto; height:100%" >
         <table class="table" style="margin: 0px">
             <tr>
-                <td  class="col-md-1" align="right">
+                <td  class="col-md-1" align="left">
                     <a href="/neusaglasenost" class="btn btn-default" style="padding: 2px; padding-left: 8px; padding-right: 8px">Lista neusaglašenosti</a>
                 </td>
-
-                <td  class="col-md-3" align="left">
-                    <h4 style="font-family: Tahoma; color:red; padding: 2px; margin: 2px; margin-left: 5px">Lista korektivnih mera</h4>
-                </td>
-
-                <td  class="col-md-8" align="right">
+                <td  class="col-md-11" align="right">
                     {!! Form::open(['method'=>'POST', 'action'=> ['KorMeraController@newKM']]) !!}
                         {!! Form::hidden('id', $id) !!}
                         {!! Form::hidden('idRef', $idRef) !!}
                         {{--{!! Form::hidden('client_id', $id) !!}--}}
                         {!! Form::submit('NOVA KOREKTIVNA MERA', ['class'=>'btn btn-default', 'style'=>'background:#eeeeee']) !!}
                     {!! Form::close() !!}
+                </td>
+            </tr>
+
+            <tr>
+                <td  class="col-md-12" align="left" style="border: 0px; padding-top: 0px">
+                    <h3 style="font-family: Tahoma; color:red; padding: 2px; margin: 2px; margin-left: 5px">P.PKM.LPK &nbsp;- &nbsp;Lista korektivnih mera</h3>
                 </td>
             </tr>
         </table>
