@@ -5,7 +5,7 @@
         <table class="table" style="margin: 0px">
             <tr>
                 <td class="col-md-8" align="left">
-                    <h3 style="font-family: Tahoma; color:red; padding: 2px; margin: 2px; margin-left: 5px">Upravljanje dokumentima</h3>
+                    <h3 style="font-family: Tahoma; color:red; padding: 2px; margin: 2px; margin-left: 5px">P.UDI.GLD &nbsp;- &nbsp;Upravljanje dokumentima</h3>
                 </td>
 
                 <td class="col-md-4" align="right">
@@ -42,7 +42,7 @@
                             <td style="padding: 4px; text-align: center; padding-left: 10px"> {{$no++}}</td>
 
                             <td style="padding: 4px; text-align: center">
-                                <a class="btn btn-default" style="width: 150px; height:22px; padding-top: 0px; padding-bottom: 0px; padding-left: 5px; padding-right: 6px"
+                                <a class="btn btn-default" style="width: 150px; height:22px; padding-top: 0px; padding-bottom: 0px; padding-left: 5px; padding-right: 6px" target="_blank"
                                     href="{{route('zapisi.upravljanje_dok.admin.edit', $data->id)}}">
                                     {{ $data->sifra }} ({{$data->verzija}})
                                 </a>
