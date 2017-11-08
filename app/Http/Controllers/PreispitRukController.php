@@ -58,7 +58,7 @@ class PreispitRukController extends Controller {
         $datas['funkcija_3'] = $input['funkcija_3'];
         $datas['funkcija_4'] = $input['funkcija_4'];
         $datas['funkcija_5'] = $input['funkcija_5'];
-        $datas['karakter'] = $datas['karakter']==null ? '0' : $datas['karakter'];
+        $datas['karakter'] = $input['karakter']==null ? '0' : $input['karakter'];
 
         $datas['ul_1'] = $input['ul_1'];
         $datas['ul_2'] = $input['ul_2'];
@@ -85,24 +85,6 @@ class PreispitRukController extends Controller {
         $datas['iz_3'] = $input['iz_3'];
         $datas['iz_4'] = $input['iz_4'];
         $datas['iz_5'] = $input['iz_5'];
-
-//        $datas['politika'] = $input['politika'];
-//        $datas['ciljevi'] = $input['ciljevi'];
-//        $datas['rezultat'] = $input['rezultat'];
-//        $datas['informacije'] = $input['informacije'];
-//        $datas['efektivnost'] = $input['efektivnost'];
-//        $datas['status'] = $input['status'];
-//        $datas['vrednovanje'] = $input['vrednovanje'];
-//        $datas['reakcija'] = $input['reakcija'];
-//        $datas['ucinak'] = $input['ucinak'];
-//        $datas['mere'] = $input['mere'];
-//        $datas['izmene'] = $input['izmene'];
-//        $datas['preporuke'] = $input['preporuke'];
-//        $datas['ostalo'] = $input['ostalo'];
-//        $datas['rez_efikas'] = $input['rez_efikas'];
-//        $datas['rez_zahte'] = $input['rez_zahte'];
-//        $datas['rez_potreba'] = $input['rez_potreba'];
-//        $datas['rez_ciljevi'] = $input['rez_ciljevi'];
 
         $datas['ciljevi_izvestaj'] = $input['ciljevi_izvestaj'];
         $datas['odobrio_ime'] = $input['odobrio_ime'];

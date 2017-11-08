@@ -47,13 +47,21 @@
                                 <a target="_blank" href='{{ $link }}'> {{ $child->title }} </a>
                             @endif
 
+
                             {{--<a href='{{ $link }}'> {{ $child->title }} - </a>--}}
                         <?php
                         }
+
+
                     } else {
                         echo '<img src="/pic/document.png">&nbsp;';
                         ?>
-                        <a target="_blank" href='{{ 'qms_podaci' .'/'. \App\Category::findOrFail($child->level)->title .'/'. $child->path }}'> {{ $child->title }} </a>
+
+                        @if (substr($child->path,0,1) == '/')
+                            <a target="_blank" href='{{ $child->path }}'> {{ $child->title }} </a>
+                        @else
+                            <a target="_blank" href='{{ 'qms_podaci' .'/'. \App\Category::findOrFail($child->level)->title .'/'. $child->path }}'> {{ $child->title }} </a>
+                        @endif
 
                     <?php
                     }
