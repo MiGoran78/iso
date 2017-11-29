@@ -133,8 +133,8 @@
                                         {!! Form::select('e', ['1'=>'1', '2'=>'2', '3'=>'3', '4'=>'4', '5'=>'5', '6'=>'6'], $datas->e, ['class'=>'form-control', 'id'=>'e', 'placeholder'=>'Izaberi', 'style'=>'height:26px; padding: 0px 6px;']) !!}
                                     </div>
                                     <div class="col-md-6" style="font-size: 9pt">
-                                        6 -najpovoljnije <br>
-                                        Smanjivanje za jednu ocenu za istu uslugu _____________
+                                        6 -najpovoljniji na tržištu <br>
+                                        1 -najskuplji na tržištu
                                     </div>
                                 </div>
                             </div>
@@ -187,7 +187,7 @@
                                         {!! Form::select('d', ['1'=>'1', '2'=>'2', '3'=>'3', '4'=>'4', '5'=>'5'], $datas->d, ['class'=>'form-control', 'id'=>'d', 'placeholder'=>'Izaberi', 'style'=>'height:26px; padding: 0px 6px;']) !!}
                                     </div>
                                     <div class="col-md-6" style="font-size: 9pt">
-                                        5 -dostalja TDS, MSDS, COC <br>
+                                        5 -dostavlja TDS, MSDS, COC <br>
                                         1 -po zakonu
                                     </div>
                                 </div>

@@ -6,17 +6,24 @@
         <div class="row" style="font-family: Lato; margin-left: 5px; margin-right: 5px; padding: 0px;" align="right">
             <table class="table" style="font-family: Tahoma; margin: 0px">
                 <tr>
-                    <td><h3 style="color:red; padding: 2px; margin: 2px; margin-left: 0px">
+                    <td class="col-md-10"><h3 style="color:red; padding: 2px; margin: 2px; margin-left: 0px">
                             U.KMC.LDO &nbsp;- &nbsp;Lista dobavljača</h3>
                     </td>
                     <td> </td>
-                    <td style="text-align: right; vertical-align: middle">
+                    <td class="col-md-1" style="text-align: right; vertical-align: middle">
+                        {!! Form::open(['method'=>'GET', 'action'=> ['DobavljacController@print_lista']]) !!}
+                            {!! Form::submit('PRINT', ['class'=>'btn btn-default', 'style'=>'background:#eeeeee']) !!}
+                        {!! Form::close() !!}
+                    </td>
+
+                    <td class="col-md-1" style="text-align: right; vertical-align: middle">
                         {!! Form::open(['method'=>'GET', 'action'=> ['DobavljacController@create']]) !!}
                             {!! Form::submit('NOVI DOBAVLJAČ', ['class'=>'btn btn-default', 'style'=>'background:#eeeeee']) !!}
                         {!! Form::close() !!}
                     </td>
                 </tr>
             </table>
+
 
             <table class="table">
                 <thead>
@@ -40,7 +47,7 @@
                         <tr>
                             <td style="padding: 4px; text-align: center; padding-left: 10px"> {{$key+1}}</td>
                             <td style="padding: 4px; text-align: center">
-                                <a class="btn btn-default" style="width: 150px; height:22px; padding-top: 0px; padding-bottom: 0px; padding-left: 5px; padding-right: 6px"
+                                <a class="btn btn-default" style="width: 100%; height:22px; padding-top: 0px; padding-bottom: 0px; padding-left: 5px; padding-right: 6px"
                                    href="{{route('zapisi.dobavljaci.id_list.edit', $data->id)}}">{{$data->dobavljac}}</a>
                             </td>
                             <td style="padding: 4px; text-align: center"> {{$data->dobavljac_tip }}</td>
