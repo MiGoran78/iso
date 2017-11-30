@@ -2,6 +2,9 @@
 
 Route::get('/',['uses'=>'CategoryController@manageCategory']);
 
+Route::get('fs',['uses'=>'FileSystemController@index']);
+
+
 //Route::get('category-tree-view',['uses'=>'CategoryController@manageCategory']);
 Route::get('tree-view',['uses'=>'CategoryController@manageCategory']);
 Route::post('add-category',['as'=>'add.category','uses'=>'CategoryAdminController@addCategory']);

@@ -50,7 +50,8 @@ return [
 
         'public' => [
             'driver' => 'local',
-            'root' => storage_path('app/public'),
+            'root' => storage_path('public/qms_podaci'),
+//            'root' => storage_path('app/public'),
             'visibility' => 'public',
         ],
 
@@ -60,6 +61,12 @@ return [
             'secret' => 'your-secret',
             'region' => 'your-region',
             'bucket' => 'your-bucket',
+        ],
+
+        'qms' => [
+            'driver' => 'local',
+            'root' => storage_path('../public/qms_podaci'),
+            'visibility' => 'public',
         ],
 
     ],
