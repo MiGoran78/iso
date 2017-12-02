@@ -5,7 +5,7 @@
         <table class="table" style="margin: 0px">
             <tr>
                 <td  class="col-md-8" align="left">
-                    <h3 style="font-family: Tahoma; color:red; padding: 2px; margin: 2px; margin-left: 5px">U.POR.LPL &nbsp;- &nbsp;Preispitivanje od strane rukovodsta, ciljevi kvaliteta</h3>
+                    <h3 style="font-family: Tahoma; color:red; padding: 2px; margin: 2px; margin-left: 5px">U.POR.LPC &nbsp;- &nbsp;Preispitivanje od strane rukovodsta, ciljevi kvaliteta</h3>
                 </td>
 
                 <td  class="col-md-4" align="right">

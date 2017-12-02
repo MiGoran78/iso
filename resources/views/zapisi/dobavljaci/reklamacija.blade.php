@@ -23,7 +23,7 @@
     }
     page[size="A4"] {
         width: 21cm;
-        height: 29.7cm;
+        height: 59.7cm;
     }
     @media print {
         body, page {

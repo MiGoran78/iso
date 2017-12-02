@@ -2,6 +2,9 @@
 
 Route::get('/',['uses'=>'CategoryController@manageCategory']);
 
+Route::get('fs',['uses'=>'FileSystemController@index']);
+
+
 //Route::get('category-tree-view',['uses'=>'CategoryController@manageCategory']);
 Route::get('tree-view',['uses'=>'CategoryController@manageCategory']);
 Route::post('add-category',['as'=>'add.category','uses'=>'CategoryAdminController@addCategory']);
@@ -51,6 +54,7 @@ Route::post('ocena',['as'=>'ocena','uses'=>'DobavljacController@ocena']);
 Route::post('ocena_upd',['as'=>'ocena_upd','uses'=>'DobavljacController@ocena_upd']);
 Route::post('reklamacija',['as'=>'reklamacija','uses'=>'DobavljacController@reklamacija']);
 Route::post('reklamacija_upd',['as'=>'reklamacija_upd','uses'=>'DobavljacController@reklamacija_upd']);
+Route::get('print_lista',['as'=>'print_lista','uses'=>'DobavljacController@print_lista']);
 
 
 //Route::get('/menu',function(){

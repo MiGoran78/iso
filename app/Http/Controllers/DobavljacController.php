@@ -236,4 +236,18 @@ class DobavljacController extends Controller
         return redirect('/dobavljaci');
     }
 
+
+
+
+    public function print_lista() {
+        // STAMPANJE LISTE
+        $ocena = Ocena::all();
+        $datas = Dobavljac::all();
+        $ocene = Ocena::pluck('ocena')->all();
+        $naziv = Ocena::pluck('naziv')->all();
+        $prihatljiv = Ocena::pluck('prihatljiv')->all();
+        $reklamacija = Reklamacija::get();
+        return view('zapisi.dobavljaci.print_lista', compact('datas', 'naziv', 'ocena', 'ocene', 'prihatljiv', 'reklamacija'));
+    }
+
 }
