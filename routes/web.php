@@ -115,3 +115,7 @@ Route::resource('calibration', 'CalibrationController',['names'=>[
     'edit'          => 'zapisi.kalibracija.calibration_cert',
 ]]);
 
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index');

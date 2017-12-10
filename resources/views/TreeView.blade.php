@@ -8,9 +8,48 @@
     <link rel="stylesheet" href="/css/css.css?family=Lato:100,300,400,700">
     <link rel="stylesheet" href="/css/treeview.css">
     <script src="/js/jquery.min.js"></script>
+    <link href="/css/app.css" rel="stylesheet">
 </head>
 
 <body style="height:100%">
+
+
+<div id="app">
+    <nav class="navbar navbar-default navbar-static-top">
+        <div class="container">
+
+
+            <ul class="nav navbar-nav navbar-right">
+                <!-- Authentication Links -->
+                @if (Auth::guest())
+                    <li><a href="{{ url('/login') }}">Login</a></li>
+                    <li><a href="{{ url('/register') }}">Register</a></li>
+                @else
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                            {{ Auth::user()->name }} <span class="caret"></span>
+                        </a>
+
+                        <ul class="dropdown-menu" role="menu">
+                            <li>
+                                <a href="{{ url('/logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" style="padding: 5px">
+                                    Logout
+                                </a>
+
+                                <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
+                                    {{ csrf_field() }}
+                                </form>
+                            </li>
+                        </ul>
+                    </li>
+                @endif
+            </ul>
+        </div>
+    </nav>
+</div>
+
+
+
 <div class="container" style="font-family: 'Verdana'; margin: 5px; margin-right: 20px; padding: 0px; width: auto; height:100%">
 
     @include('header')
