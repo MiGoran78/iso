@@ -78,7 +78,9 @@
                                 </div>
 
                                 <div class="form-group" align="center">
-                                    <button id="btnDodaj" class="btn btn-success">Izmeni</button>
+                                    @if(\App\Http\Controllers\HomeController::AdminUsr())
+                                        <button id="btnDodaj" class="btn btn-success">Izmeni</button>
+                                    @endif
                                 </div>
                         {!! Form::close() !!}
                     </ul>
@@ -87,7 +89,9 @@
 
             <br>
             <div align="center">
-                <button type="button" data-toggle="modal" data-target="#delete" class="btn btn-danger">Obriši</button>
+                @if(\App\Http\Controllers\HomeController::AdminUsr())
+                    <button type="button" data-toggle="modal" data-target="#delete" class="btn btn-danger">Obriši</button>
+                @endif
             </div>
 
             <!-- Modal -->

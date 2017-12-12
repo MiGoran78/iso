@@ -96,7 +96,9 @@
 
                             <br>
                             <div class="form-group" align="center">
-                                <button id="btnDodaj" class="btn btn-success">Snimi</button>
+                                @if(\App\Http\Controllers\HomeController::AdminUsr())
+                                    <button id="btnDodaj" class="btn btn-success">Snimi</button>
+                                @endif
                             </div>
                         {!! Form::close() !!}
 
@@ -106,7 +108,9 @@
 
             <br>
             <div align="center">
-                <button type="button" data-toggle="modal" data-target="#delete" class="btn btn-danger">Obriši</button>
+                @if(\App\Http\Controllers\HomeController::AdminUsr())
+                    <button type="button" data-toggle="modal" data-target="#delete" class="btn btn-danger">Obriši</button>
+                @endif
             </div>
 
             <!-- Modal -->
@@ -117,7 +121,7 @@
                         <div class="modal-header">  <h4 style="font-family: 'Lato'" class="modal-title">Sigurni ste da želite da obrišete ?</h4>  </div>
                         <div class="modal-body" align="center">
                             {!! Form::open(['method'=>'DELETE', 'action'=> ['NeusagController@destroy', $datas->id]]) !!}
-                                {!! Form::submit('Da', ['class'=>'btn btn-danger']) !!}
+                                    {!! Form::submit('Da', ['class'=>'btn btn-danger']) !!}
                             {!! Form::close() !!}
                         </div>
                         {{--<div class="modal-footer"> </div>--}}

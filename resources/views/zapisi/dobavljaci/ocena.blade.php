@@ -214,7 +214,9 @@
 
                             <div class="form-group" align="center">
                                 <br>
-                                <button id="btnDodaj" class="btn btn-success">Dodaj</button>
+                                @if(\App\Http\Controllers\HomeController::AdminUsr())
+                                    <button id="btnDodaj" class="btn btn-success">Dodaj</button>
+                                @endif
                             </div>
                         {!! Form::close() !!}
 

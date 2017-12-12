@@ -252,7 +252,9 @@
 
 
                     <div class="form-group" align="center">
-                        <button id="btnUpdate" class="btn btn-success">Izmeni</button>
+                        @if(\App\Http\Controllers\HomeController::AdminUsr())
+                            <button id="btnUpdate" class="btn btn-success">Izmeni</button>
+                        @endif
                     </div>
             {!! Form::close() !!}
 
