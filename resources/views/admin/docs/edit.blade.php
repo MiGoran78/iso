@@ -52,7 +52,9 @@
                                 </div>
 
                                 <div class="form-group" align="center">
-                                    <button id="btnDodaj" class="btn btn-success">Dodaj</button>
+                                    @if(\App\Http\Controllers\HomeController::AdminUsr())
+                                        <button id="btnDodaj" class="btn btn-success">Dodaj</button>
+                                    @endif
                                 </div>
                                 {!! Form::text('id', old('id'), ['class'=>'form-control', 'id'=>'objID', 'placeholder'=>'Unesi putanju']) !!}
                         {!! Form::close() !!}

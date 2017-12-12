@@ -119,3 +119,4 @@ Route::resource('calibration', 'CalibrationController',['names'=>[
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');
+

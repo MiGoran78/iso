@@ -228,7 +228,9 @@
 
 
                         <div class="form-group" align="center" style="padding-top: 50px">
-                            <button id="btnUpdate" class="btn btn-success noPrint">Snimi</button>
+                            @if(\App\Http\Controllers\HomeController::AdminUsr())
+                                <button id="btnUpdate" class="btn btn-success noPrint">Snimi</button>
+                            @endif
                         </div>
                     {!! Form::close() !!}
 

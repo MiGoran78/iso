@@ -44,23 +44,25 @@
                                 <td style="padding: 4px; text-align: center"> {{$doc->updated_at->diffForHumans()}}</td>
                                 <td style="padding: 4px; text-align: center">
 
-                                    <button type="button" data-toggle="modal" data-target="#delete{{$doc->id}}" class="btn btn-danger" style="height:22px; padding-top: 0px; padding-bottom: 0px; padding-left: 5px; padding-right: 6px">X</button>
-                                    <!-- Modal -->
-                                    <div class="modal fade" id="delete{{$doc->id}}" role="dialog">
-                                        <div class="modal-dialog">
-                                            <!-- Modal content-->
-                                            <div class="modal-content" align="center">
-                                                <div class="modal-header">  <h4 style="font-family: 'Lato'" class="modal-title">Sigurni ste da želite da obrišete ?</h4>  </div>
-                                                <div class="modal-body">
-                                                    {!! Form::open(['method'=>'DELETE', 'action'=> ['DocController@destroy', $doc->id]]) !!}
-                                                        {!! Form::submit('Da', ['class'=>'btn btn-danger']) !!}
-                                                    {!! Form::close() !!}
+                                    @if(\App\Http\Controllers\HomeController::AdminUsr())
+                                        <button type="button" data-toggle="modal" data-target="#delete{{$doc->id}}" class="btn btn-danger" style="height:22px; padding-top: 0px; padding-bottom: 0px; padding-left: 5px; padding-right: 6px">X</button>
+                                        <!-- Modal -->
+                                        <div class="modal fade" id="delete{{$doc->id}}" role="dialog">
+                                            <div class="modal-dialog">
+                                                <!-- Modal content-->
+                                                <div class="modal-content" align="center">
+                                                    <div class="modal-header">  <h4 style="font-family: 'Lato'" class="modal-title">Sigurni ste da želite da obrišete ?</h4>  </div>
+                                                    <div class="modal-body">
+                                                        {!! Form::open(['method'=>'DELETE', 'action'=> ['DocController@destroy', $doc->id]]) !!}
+                                                            {!! Form::submit('Da', ['class'=>'btn btn-danger']) !!}
+                                                        {!! Form::close() !!}
+                                                    </div>
+                                                    {{--<div class="modal-footer"> </div>--}}
                                                 </div>
-                                                {{--<div class="modal-footer"> </div>--}}
                                             </div>
                                         </div>
-                                    </div>
-                                    {{--=============--}}
+                                        {{--=============--}}
+                                    @endif
 
                                 </td>
 

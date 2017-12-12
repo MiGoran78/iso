@@ -93,7 +93,9 @@
 
 
                             <td style="padding: 4px; text-align: center">
-                                <button type="button" data-toggle="modal" data-target="#delete{{$data->id}}" class="btn btn-danger" style="height:22px; padding-top: 0px; padding-bottom: 0px; padding-left: 5px; padding-right: 6px">X</button>
+                                @if(\App\Http\Controllers\HomeController::AdminUsr())
+                                    <button type="button" data-toggle="modal" data-target="#delete{{$data->id}}" class="btn btn-danger" style="height:22px; padding-top: 0px; padding-bottom: 0px; padding-left: 5px; padding-right: 6px">X</button>
+                                @endif
 
                                 <!-- Modal -->
                                 <div class="modal fade" id="delete{{$data->id}}" role="dialog">
