@@ -2,7 +2,6 @@
 
 <html>
 <head>
-    <title>{{ config('app.name', 'Laravel') }}</title>
     <link rel="stylesheet" href="/css/font-awesome.min.css" />
     <link rel="stylesheet" href="/css/font-raleway.css" />
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -10,8 +9,6 @@
     <link rel="stylesheet" href="/css/treeview.css">
     <script src="/js/jquery.min.js"></script>
     {{--<link href="/css/app.css" rel="stylesheet">--}}
-
-    <apex:page showHeader='true' X-UA-Compatible="chrome-1">
 </head>
 
 <body style="height:100%">
